@@ -1,0 +1,180 @@
+{% extends 'index.html' %}
+
+{% block header %}
+
+    <div id="user_menu">
+        <figure id="user_photo"><img src="{{ STATIC_URL }}img/avatars/small/arghy.jpg" alt="arghy"/></figure>
+        <div id="user_name">Hello,<br/>arghy</div>
+
+
+        <div id="subnav_wrap" class="clearfix">
+
+
+        <ul id="game_settings">
+        <li>Game</li>
+        <li>Messages</li>
+        <li>Friends</li>
+        <li>Battles</li>
+        <li>Ceva</li>
+        </ul>
+
+        <ul id="account_settings">
+            
+            <li>Account</li>
+            <li>Edit Profile</li>
+            <li>Settings</li>
+            <li>Invite</li>
+
+
+            <li><form action="{% url django.contrib.auth.views.logout_then_login %}"><button>Logout</button></form></li>
+        </ul>
+
+        </div>
+    </div>
+
+    <div id="user_notifications_holder"><div id="user_notifications"></div><button id="user_notification">7</button></div>
+
+
+    <nav id="menu">
+        <ul id="menu_list">
+        <li><a href="#" class="tipsy" title="Game Modes"><img src="{{ STATIC_URL }}img/menu/game_modes.png" /></a></li>
+        <li><a href="alliances.html" class="tipsy" title="Alliances"><img src="{{ STATIC_URL }}img/menu/alliances.png" /></a></li>
+        <li><a href="ranks.html" class="tipsy" title="Ranks"><img src="{{ STATIC_URL }}img/menu/ranks.png"/></a></li>
+        <li><a href="profile.html" title="O sa dispar de aici in curand">Profile</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+{% block content %}
+    <div id="map_settings">
+
+
+    <button id="map_settings_button_toggle"><img src="{{ STATIC_URL }}img/map/menu/tools.png" alt="tools"/> &nbsp;Tools<br/></button><button id="map_filters_button_toggle"><img src="{{ STATIC_URL }}img/map/menu/settings.png" alt="settings"/> &nbsp;Settings<br/></button>
+
+     <form id="map_search">
+        <input type="button" id="map_search_button" onclick="codeAddress()" value="Search"></input>
+        <input type="textbox" value="Location" size="45" id="address" />
+     </form>
+
+
+    <div id="map_settings_buttons_wrapper" class="clearfix">
+
+     <ul id="map_settings_buttons">
+        <li><button onclick="makepolygon();">Define Territory</button></li>
+        <li><button onclick="deletePolys();">Delete Territory</button></li>
+        <li><button onclick="clearOverlays();">Hide Markers</button></li>
+        <li><button onclick="showOverlays();">Show Markers</button></li>
+        <li><button onclick="deleteMarkers();">Delete Markers</button></li>
+        <li><button onclick="deleteMarkers(), deletePolys(), deletevenues();">Delete Everything</button></li>
+        <li><button onclick="getvalue();">Show Places</button></li>
+        </ul>
+
+    </div>
+
+     <div id="map_filters_buttons_wrapper" class="clearfix">
+
+     <ul id="map_filters_buttons">
+        <li><button>Animations Off</button></li>
+        <li><button>Show Capitals</button></li>
+     </ul>
+
+    </div>
+
+    </div>
+    <div id="map_canvas" style="width:980px; height:400px;">
+    </div>
+
+    <div id="map_user_info" class="clearfix">
+    <div id="user_cash"><img src="{{ STATIC_URL }}img/money.png" alt="coins" /><h4 id="cash">{{ userprofile.money }}</h4></div>
+    <div id="user_level"><a href="#" title="Level" class="tipsy"><img src="{{ STATIC_URL }}img/level.png" alt="level" /></a><h4 id="level">{{ userprofile.lvl }}</h4></div>
+    <div id="user_time"><h4 id="time">20:41 PM</h4></div>
+    </div>
+
+    <div id="map_log" class="clearfix">
+
+
+    <ul id="map_log_entry_list">
+    <li>
+        <div class="map_log_entry clearfix">
+
+            <div id="map_log_data">
+            <h5>IUN 07, 2011</h5>
+            <h6><span class="small">at</span> 23:07 PM</h6>
+            <div id="map_log_data_avatar"><img src="{{ STATIC_URL }}img/log/log_avatar.png" alt="log_avatar"/></div>
+            </div>
+
+            <div id="map_log_info">
+
+                <div class="map_log_info_header"><div class="map_log_info_header_x"></div>
+                Alliance
+                </div>
+                <div class="map_log_info_content">
+                Vlad Temian puked on his T-shirt.
+                </div>
+
+            </div>
+
+         </div>
+     </li>
+     <li>
+        <div class="map_log_entry clearfix">
+
+            <div id="map_log_data">
+            <h5>IUN 07, 2011</h5>
+            <h6><span class="small">at</span> 23:07 PM</h6>
+            <div id="map_log_data_avatar"><img src="{{ STATIC_URL }}img/log/log_avatar.png" alt="log_avatar"/></div>
+            </div>
+
+            <div id="map_log_info">
+
+                <div class="map_log_info_header"><div class="map_log_info_header_x"></div>
+                Battle
+                </div>
+                <div class="map_log_info_content">
+                You just lost the battle you stupid asshole. You just lost the battle you stupid asshole. You just lost the battle you stupid asshole. You just lost the battle you stupid asshole. You just lost the battle you stupid asshole.
+                </div>
+
+            </div>
+
+         </div>
+     </li>
+     <li>
+        <div class="map_log_entry clearfix">
+
+            <div id="map_log_data">
+            <h5>IUN 07, 2011</h5>
+            <h6><span class="small">at</span> 23:07 PM</h6>
+            <div id="map_log_data_avatar"><img src="{{ STATIC_URL }}img/log/log_avatar.png" alt="log_avatar"/></div>
+            </div>
+
+            <div id="map_log_info">
+
+                <div class="map_log_info_header"><div class="map_log_info_header_x"></div>
+                Alliance
+                </div>
+                <div class="map_log_info_content">
+                Vlad Temian puked on his T-shirt.
+                </div>
+
+            </div>
+
+         </div>
+     </li>
+     </ul>
+
+
+     </div>
+
+
+
+    </div>
+ <script>
+       socket = new io.Socket('localhost',{port:8080});
+       socket.connect();
+       socket.on('connect', function(data){
+            socket.send({'conectat' : '{{ userprofile.user.username }}'})
+       });
+       socket.on('message', function(data){
+            if(data.)
+       });
+  </script>
+{% endblock %}

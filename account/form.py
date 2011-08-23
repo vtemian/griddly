@@ -1,9 +1,13 @@
 from django import forms
 
 
-class UserLogin(forms.Form):
+class UserRegister(forms.Form):
     email = forms.EmailField(max_length=30)
     password = forms.PasswordInput()
+    username = forms.CharField(max_length=30)
 
-    def get_user(self):
-        return authenticate
+class UserLogin(forms.Form):
+    username = forms.CharField(max_length=30)
+    password = forms.CharField(max_length=30)
+
+    

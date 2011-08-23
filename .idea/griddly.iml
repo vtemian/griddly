@@ -7,7 +7,7 @@
         <option name="templatesFolders" value="" />
         <option name="settingsModule" value="settings.py" />
         <option name="manageScript" value="manage.py" />
-        <option name="djangoInJs" value="false" />
+        <option name="djangoInJs" value="true" />
       </configuration>
     </facet>
   </component>

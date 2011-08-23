@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login
 from django.shortcuts import redirect
+from account.form import UserRegister
 
 from account.models import UserProfile
 
@@ -16,3 +17,13 @@ def register(request):
             return redirect('/game/')
         else:
             return HttpResponse('invalid form')
+
+def login(request):
+    user = authenticate(username=, password='secret')
+    if user is not None:
+        if user.is_active:
+            auth_login(request, user)
+        else:
+            print "Your account has been disabled!"
+    else:
+        print "Your username and password were incorrect."

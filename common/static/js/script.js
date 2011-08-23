@@ -14,7 +14,8 @@ setInterval(function(){
 		$('#login_modal')
 		.modal({
 			opacity:80,
-			overlayCss: {backgroundColor:"#5b5b5b"}	
+			overlayCss: {backgroundColor:"#5b5b5b"},
+            
 		});
 	});
 	

@@ -10,3 +10,7 @@ class UserProfile(models.Model):
 
     money_to_all = models.IntegerField(null=True, default=20)
     exp_to_all = models.IntegerField(null=True, default=20)
+
+class Message(models.Model):
+    message = models.TextField()
+    

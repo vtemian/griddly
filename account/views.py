@@ -19,7 +19,7 @@ def register(request):
             return HttpResponse('invalid form')
 
 def login(request):
-    user = authenticate(username=, password='secret')
+    user = authenticate(username='secret', password='secret')
     if user is not None:
         if user.is_active:
             auth_login(request, user)

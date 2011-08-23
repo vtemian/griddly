@@ -10,7 +10,7 @@ to conquer any of your lands!
 </div>
     <div id="login_content" class="clearfix">
 
-        <form action="{% url login %}" method="POST">{% csrf_token %}
+        <form action="{% url django.contrib.auth.views.login %}" method="POST">{% csrf_token %}
             <ul id="login_list">
                 <li><label for="username">Username</label></li>
                 <li><input type="text" id="username" name="username"/></li>

@@ -3,7 +3,7 @@
   <component name="FacetManager">
     <facet type="django" name="Django">
       <configuration>
-        <option name="rootFolder" value="$MODULE_DIR$" />
+        <option name="rootFolder" value="$USER_HOME$" />
         <option name="templatesFolders" value="" />
         <option name="settingsModule" value="settings.py" />
         <option name="manageScript" value="manage.py" />
@@ -12,7 +12,7 @@
     </facet>
   </component>
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$USER_HOME$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

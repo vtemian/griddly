@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login
 from django.shortcuts import redirect
-from account.form import UserRegister
+from account.form import UserRegister, UserLogin
 
 from account.models import UserProfile
 
@@ -19,11 +19,14 @@ def register(request):
             return HttpResponse('invalid form')
 
 def login(request):
-    user = authenticate(username='secret', password='secret')
-    if user is not None:
-        if user.is_active:
-            auth_login(request, user)
-        else:
-            print "Your account has been disabled!"
+    form = UserLogin(request.POST)
+    if form.is_valid():
+        user = form.get_auth_user()
+        if user is not None:
+            if user.is_active:
+                auth_login(request, user)
+                return HttpResponse('ok')
+            return HttpResponse('disabled')
+        return HttpResponse('not')
     else:
-        print "Your username and password were incorrect."
+        return HttpResponse('error')

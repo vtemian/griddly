@@ -1,9 +1,4 @@
 {% extends 'index.html' %}
-{% block extrahead %}
-
-    <script type="text/javascript" src="{{ STATIC_URL }}js/login.js"></script>
-
-{% endblock %}
 {% block header %}
      <button id="login_button">Login</button>
 
@@ -19,9 +14,9 @@ to conquer any of your lands!
             <div id="general" class="error"></div>
             <ul id="login_list">
                 <li><label for="username">Username</label></li>
-                <li><input type="text" id="username" name="username" data-validate="validate(required, minlength(1)) on (keyup focus)"/></li><div id=>
+                <li><input type="text" id="username" name="username"/></li>
                 <li><label for="password">Password</label></li>
-                <li><input type="password" id="password" name="password" data-validate="validate(required, minlength(8)) on (keyup focus)" /></li>
+                <li><input type="password" id="password" name="password"/></li>
                 <li><button id="modal_login_button">Login</button></li>
                 <li>or</li>
                 <li>Login with Facebook / Google</li>
@@ -52,7 +47,7 @@ to conquer any of your lands!
             </aside>
 
 
-        <div id="register_mrodal" class="clearfix">
+        <div id="register_modal" class="clearfix">
             <div id="register_header" class="clearfix"><img src="{{ STATIC_URL }}img/logo_small.png" alt=""/><h4>Sign Up</h4></div>
             <div id="register_sub_header" class="clearfix">
                 You're seconds away from a new dimension of fun! Griddle takes you, your friends and many more
@@ -63,29 +58,26 @@ to conquer any of your lands!
                 of befriending or avoiding certain people.<br/>You have all reasons to start playing this amazing
                 game!</span>
 	        </div>
-
             <div id="register_content" class="clearfix">
 
-                <form action="{% url account.views.register %}" id="register-form" method="POST">
-                    {% csrf_token %}
-                    <div id="general" class="error"></div>
-                    <ul id="register_list">
-                        <li><label for="email">Email</label></li>
-                        <li><input type="text" id="email" name="email" data-validate="validate(required, email) on (keyup focus)"/></li>
-                        <li><label for="username">Username</label><span class="register_hint">only letters, numbers, and underscores</span></li>
-                        <li><input type="text" id="usernamer" name="username" required="yes" data-validate="validate(required, minlength(1)) on (keyup focus)" /></li>
-                        <li><label for="password">Password</label><span class="register_hint">at least 4 characters long</span></li>
-                        <li><input type="password" id="passwordr" name="password" required="yes" data-validate="validate(required, minlength(8)) on (keyup focus)" /></li>
-                        <li><label for="re-password">Re-Password</label></li>
-                        <li><input type="password" id="re-password" name="re-password" required="yes" data-validate="validate(required, minlength(8)) on (keyup focus)" /></li>
-                        <li><label for="location">Location</label><span class="register_hint">where in the world are you?</span></li>
-                        <li><input type="text" id="location" name="location"/></li>
-                        <li><button id="modal_register_button">Sign Up</button></li>
-                        <li><button type="reset">Reset</button></li>
-                    </ul>
+            <form action="{% url account.views.register %}" id="register-form" method="POST">
+                {% csrf_token %}
+                <ul id="register_list">
+                    <li><label for="email">Email</label></li>
+                    <li><input type="text" id="email" name="email"/></li>
+                    <li><label for="username">Username</label><span class="register_hint">only letters, numbers, and underscores</span></li>
+                    <li><input type="text" id="usernamer" name="username"/></li>
+                    <li><label for="password">Password</label><span class="register_hint">at least 4 characters long</span></li>
+                    <li><input type="password" id="passwordr" name="password"/></li>
+                    <li><label for="re-password">Re-Password</label></li>
+                    <li><input type="password" id="re-password" name="re-password"/></li>
+                    <li><label for="location">Location</label><span class="register_hint">where in the world are you?</span></li>
+                    <li><input type="text" id="location" name="location"/></li>
+                    <li><button id="modal_register_button">Sign Up</button></li>
+                </ul>
+            </form>
 
-                </form>
-                <img src="{{ STATIC_URL }}img/illustrations/thetwoofthem.png"/>
+            <img src="{{ STATIC_URL }}img/illustrations/thetwoofthem.png"/>
 
             </div>
 

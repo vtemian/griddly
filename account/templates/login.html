@@ -1,6 +1,11 @@
 {% extends 'index.html' %}
+{% block extrahead %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/django-validate.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/login.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/register.js"></script>
+{% endblock %}
 {% block header %}
-     <button id="login_button">Login</button>
+    <button id="login_button">Login</button>
 
     <div id="login_modal" class="clearfix">
     <div id="login_header" class="clearfix"><img src="{{ STATIC_URL }}img/logo_small.png" alt=""/><h4>Login</h4></div>
@@ -10,7 +15,7 @@ to conquer any of your lands!
 </div>
     <div id="login_content" class="clearfix">
 
-        <form post-data="{% url account.views.login %}" method="POST" id="login-form">{% csrf_token %}
+        <form action="{% url account.views.login %}" method="POST" id="login-form">{% csrf_token %}
             <div id="general" class="error"></div>
             <ul id="login_list">
                 <li><label for="username">Username</label></li>
@@ -62,6 +67,7 @@ to conquer any of your lands!
 
             <form action="{% url account.views.register %}" id="register-form" method="POST">
                 {% csrf_token %}
+                <div id="general" class="error"></div>
                 <ul id="register_list">
                     <li><label for="email">Email</label></li>
                     <li><input type="text" id="email" name="email"/></li>

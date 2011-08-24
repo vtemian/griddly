@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login
 from django.shortcuts import redirect
+from django.utils import simplejson
 from account.form import UserRegister, UserLogin
 
 from account.models import UserProfile
@@ -14,9 +15,9 @@ def register(request):
             user.save()
             UserProfile(user=user).save()
             auth_login(request,authenticate(username=request.POST['username'], password=request.POST['password']))
-            return redirect('/game/')
+            return HttpResponse(simplejson.dumps({'ok': '/game'}))
         else:
-            return HttpResponse('invalid form')
+            return HttpResponse(simplejson.dumps(form.errors))
 
 def login(request):
     form = UserLogin(request.POST)
@@ -25,8 +26,8 @@ def login(request):
         if user is not None:
             if user.is_active:
                 auth_login(request, user)
-                return HttpResponse('ok')
-            return HttpResponse('disabled')
-        return HttpResponse('not')
+                return HttpResponse(simplejson.dumps({'ok': '/game'}))
+            return HttpResponse(simplejson.dumps({'disabled': 'This account has been disabled'}))
+        return HttpResponse(simplejson.dumps({'not': 'Incorect username or password'}))
     else:
-        return HttpResponse('error')
+        return HttpResponse(simplejson.dumps(form.errors))

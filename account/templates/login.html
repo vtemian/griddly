@@ -10,7 +10,7 @@ to conquer any of your lands!
 </div>
     <div id="login_content" class="clearfix">
 
-        <form action={% url django.contrib.auth.views.login%} method="POST">{% csrf_token %}
+        <form action="{% url django.contrib.auth.views.login %}" method="POST">{% csrf_token %}
             <ul id="login_list">
                 <li><label for="username">Username</label></li>
                 <li><input type="text" id="username" name="username"/></li>
@@ -18,7 +18,7 @@ to conquer any of your lands!
                 <li><input type="password" id="password" name="password"/></li>
                 <li><button id="modal_login_button">Login</button></li>
                 <li>or</li>
-                <li>Login with Facebook / Google</li>
+                <li>Login with  Facebook/ Google</li>
             </ul>
         </form>
 
@@ -65,11 +65,11 @@ to conquer any of your lands!
                     <li><label for="email">Email</label></li>
                     <li><input type="text" id="email" name="email"/></li>
                     <li><label for="username">Username</label><span class="register_hint">only letters, numbers, and underscores</span></li>
-                    <li><input type="text" id="usernamer" name="username"/></li>
+                    <li><input type="text" id="usernamer" name="username" pattern="^[a-zA-Z0-9_]*$"/></li>
                     <li><label for="password">Password</label><span class="register_hint">at least 4 characters long</span></li>
-                    <li><input type="password" id="passwordr" name="password"/></li>
+                    <li><input type="password" id="passwordr" name="password" minlength="4"/></li>
                     <li><label for="re-password">Re-Password</label></li>
-                    <li><input type="password" id="re-password" name="re-password"/></li>
+                    <li><input type="password" id="re-password" name="re-password" data-equals="password"/></li>
                     <li><label for="location">Location</label><span class="register_hint">where in the world are you?</span></li>
                     <li><input type="text" id="location" name="location"/></li>
                     <li><button id="modal_register_button">Sign Up</button></li>

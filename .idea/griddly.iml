@@ -3,7 +3,7 @@
   <component name="FacetManager">
     <facet type="django" name="Django">
       <configuration>
-        <option name="rootFolder" value="$USER_HOME$" />
+        <option name="rootFolder" value="$MODULE_DIR$" />
         <option name="templatesFolders" value="" />
         <option name="settingsModule" value="settings.py" />
         <option name="manageScript" value="manage.py" />

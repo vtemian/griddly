@@ -1,10 +1,12 @@
 {% extends 'index.html' %}
-
+{% block extrahead %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/time.js"></script>
+{% endblock %}
 {% block header %}
 
     <div id="user_menu">
         <figure id="user_photo"><img src="{{ STATIC_URL }}img/avatars/small/arghy.jpg" alt="arghy"/></figure>
-        <div id="user_name">Hello,<br/>arghy</div>
+        <div id="user_name">Hello,<br/>{{ user.username }}</div>
 
 
         <div id="subnav_wrap" class="clearfix">
@@ -86,7 +88,33 @@
     <div id="map_user_info" class="clearfix">
     <div id="user_cash"><img src="{{ STATIC_URL }}img/money.png" alt="coins" /><h4 id="cash">{{ userprofile.money }}</h4></div>
     <div id="user_level"><a href="#" title="Level" class="tipsy"><img src="{{ STATIC_URL }}img/level.png" alt="level" /></a><h4 id="level">{{ userprofile.lvl }}</h4></div>
-    <div id="user_time"><h4 id="time">20:41 PM</h4></div>
+    <div id="user_time">
+ <script>
+
+ function show(){
+     var Digital=new Date()
+     var hours=Digital.getHours()
+     var minutes=Digital.getMinutes()
+     var seconds=Digital.getSeconds()
+     var dn="AM"
+     if (hours>12){
+     dn="PM"
+     hours=hours
+     }
+     if (hours==0)
+        hours=12
+     if (minutes<=9)
+        minutes="0"+minutes
+     if (seconds<=9)
+        seconds="0"+seconds
+     $('#user_time').html('<h4 id="time">' + hours + ':' + minutes + ':' + seconds + ' ' + dn + '</h4>');
+
+     setTimeout("show()",1000)
+    }
+     show()
+
+ </script>
+</div>
     </div>
 
     <div id="map_log" class="clearfix">

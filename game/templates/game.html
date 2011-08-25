@@ -1,11 +1,9 @@
 {% extends 'index.html' %}
-{% block extrahead %}
-    <script type="text/javascript" src="{{ STATIC_URL }}js/time.js"></script>
-{% endblock %}
+
 {% block header %}
 
     <div id="user_menu">
-        <figure id="user_photo"><img src="{{ STATIC_URL }}img/avatars/small/arghy.jpg" alt="arghy"/></figure>
+        <figure id="user_photo"><img src="{{ userprofile.gravatar_url }}" alt="arghy"/></figure>
         <div id="user_name">Hello,<br/>{{ user.username }}</div>
 
 

@@ -48,6 +48,8 @@
     google.setOnLoadCallback(OnLoad);
     </script>
      <script src="{{ STATIC_URL }}js/mylibs/map.js"></script>
+    {% block extrahead %}
+    {% endblock %}
 </head>
 
 <body onload="initialize();">

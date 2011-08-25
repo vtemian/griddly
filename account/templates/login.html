@@ -1,6 +1,11 @@
 {% extends 'index.html' %}
+{% block extrahead %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/django-validate.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/login.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/register.js"></script>
+{% endblock %}
 {% block header %}
-     <button id="login_button">Login</button>
+    <button id="login_button">Login</button>
 
     <div id="login_modal" class="clearfix">
     <div id="login_header" class="clearfix"><img src="{{ STATIC_URL }}img/logo_small.png" alt=""/><h4>Login</h4></div>
@@ -10,7 +15,8 @@ to conquer any of your lands!
 </div>
     <div id="login_content" class="clearfix">
 
-        <form action="{% url django.contrib.auth.views.login %}" method="POST">{% csrf_token %}
+        <form action="{% url account.views.login %}" method="POST" id="login-form">{% csrf_token %}
+            <div id="general" class="error"></div>
             <ul id="login_list">
                 <li><label for="username">Username</label></li>
                 <li><input type="text" id="username" name="username"/></li>
@@ -36,15 +42,9 @@ to conquer any of your lands!
 
     </div>
     
-    <script type="text/javascript">function checkForm(form)
-    {if(form.username.value==""){alert("Error: Username cannot be blank!");form.username.focus();return false;}
-    re=/^\w+$/;if(!re.test(form.username.value)){alert("Error: Username must contain only letters, numbers and underscores!");form.username.focus();return false;}
-    if(form.pwd1.value!=""&&form.pwd1.value==form.pwd2.value){if(form.pwd1.value.length<6){alert("Error: Password must contain at least six characters!");form.pwd1.focus();return false;}
-    if(form.pwd1.value==form.username.value){alert("Error: Password must be different from Username!");form.pwd1.focus();return false;}
-    re=/[0-9]/;if(!re.test(form.pwd1.value)){alert("Error: password must contain at least one number (0-9)!");form.pwd1.focus();return false;}
-    re=/[a-z]/;if(!re.test(form.pwd1.value)){alert("Error: password must contain at least one lowercase letter (a-z)!");form.pwd1.focus();return false;}
-    re=/[A-Z]/;if(!re.test(form.pwd1.value)){alert("Error: password must contain at least one uppercase letter (A-Z)!");form.pwd1.focus();return false;}}else{alert("Error: Please check that you've entered and confirmed your password!");form.pwd1.focus();return false;}
-    alert("You entered a valid password: "+form.pwd1.value);return true;}</script>
+    <script type="text/javascript">
+    
+    </script>
 
     </header>
 
@@ -70,21 +70,24 @@ to conquer any of your lands!
             <div id="register_content" class="clearfix">
 
             <script type="text/javascript">
-                
+                $('input[whitespace=true]', $('#register-form')).keyup(function(event){
+                    $(this).val($(this).val().replace(/ /g,''));
+                })
             </script>
             <form action="{% url account.views.register %}" id="register-form" method="POST">
                 {% csrf_token %}
+                <div id="general" class="error"></div>
                 <ul id="register_list">
                     <li><label for="email">Email</label></li>
-                    <li><input type="text" id="email" name="email" validate="required email"/></li>
+                    <li><input type="text" id="email" name="email" validate="required email" whitespace="true"/></li>
                     <li><label for="username">Username</label><span class="register_hint">only letters, numbers, and underscores</span></li>
-                    <li><input type="text" id="usernamer" name="username" pattern="^[a-zA-Z0-9_]*$"/></li>
+                    <li><input type="text" id="usernamer" name="username" pattern="^[a-zA-Z0-9_]*$" whitespace="true"/ ></li>
                     <li><label for="password">Password</label><span class="register_hint">at least 4 characters long</span></li>
-                    <li><input type="password" id="passwordr" name="password" minlength="4"/></li>
+                    <li><input type="password" id="passwordr" name="password" pattern="^[a-zA-Z0-9_-]*$" whitespace="true" /></li>
                     <li><label for="re-password">Re-Password</label></li>
-                    <li><input type="password" id="re-password" name="re-password" data-equals="password"/></li>
+                    <li><input type="password" id="re-password" name="re-password" data-equals="password" whitespace="true"/></li>
                     <li><label for="location">Location</label><span class="register_hint">where in the world are you?</span></li>
-                    <li><input type="text" id="location" name="location"/></li>
+                    <li><input type="text" id="location" name="location" whitespace="false"/></li>
                     <li><button id="modal_register_button">Sign Up</button></li>
                 </ul>
             </form>

@@ -3,8 +3,6 @@
   var locArray = [];
   var thePoly;
   var available=true;
-  var Timisoara = new google.maps.LatLng(45.758122, 21.231852);
-  var Incubator = new google.maps.LatLng(45.751641, 21.216823);
   var geocoder = null;
   var markerscount=0;
   var l1m;
@@ -20,6 +18,8 @@
 var initialLocation;
 var siberia = new google.maps.LatLng(60, 105);
 var newyork = new google.maps.LatLng(40.69847032728747, -73.9514422416687);
+var Timisoara = new google.maps.LatLng(45.758122, 21.231852);
+var Incubator = new google.maps.LatLng(45.751641, 21.216823);
 var browserSupportFlag =  new Boolean();
 
 function initialize() {
@@ -89,28 +89,12 @@ function initialize() {
 
 
   function makepolygon(){
-      get_center();
-      if(available){
-          var mark1pos = new google.maps.LatLng(markersArray[0].position.lat(),markersArray[2].position.lng());
-          var mark2pos = new google.maps.LatLng(markersArray[2].position.lat(),markersArray[0].position.lng());
-     var mark1=new google.maps.Marker({
-         position: mark1pos,
-         map: map,
-         draggable: false
-        });
-      markersArray[1]=mark1;
-      var mark2=new google.maps.Marker({
-         position: mark2pos,
-         map: map,
-         draggable: false
-        });
-      markersArray[3]=mark2;
      locArray.length = 0;
       for(var i in markersArray){
         locArray.push(markersArray[i].position);
       }
 
-      abc = new google.maps.Polygon({
+      thePoly = new google.maps.Polygon({
             paths: locArray,
             strokeColor: "#060606",
             strokeOpacity: 0.8,
@@ -120,10 +104,9 @@ function initialize() {
             draggable: true
           });
 
-          abc.setMap(map);
-      thePoly=abc;
+          thePoly.setMap(map);
       available=false;
-      }
+      
 
   }
 
@@ -194,28 +177,13 @@ function initialize() {
 
 
   function addMarker(location) {
-     if(markerscount==1){
         marker = new google.maps.Marker({
          position: location,
          map: map,
          draggable: true
         });
-        markersArray[2]=marker;
-        markerscount=2;
-        makepolygon();
-    }
-    if(markerscount==0){
-        marker = new google.maps.Marker({
-         position: location,
-         map: map,
-         draggable: true
-        });
-        markersArray[0]=marker;
-        markerscount=1;
-    }
-
-
-
+        markersArray[markerscount]=marker;
+        markerscount++;
   }
 
   function clearOverlays() {
@@ -260,8 +228,6 @@ function initialize() {
       if(thePoly){
          thePoly.setMap(null);
          available=true;
-         if(markersArray[1]){markersArray[1].setMap(null);}
-         if(markersArray[3]){markersArray[3].setMap(null);}
      }
   }
 

@@ -31,3 +31,7 @@ class UserLogin(forms.Form):
         password = self.cleaned_data.get('password')
         user = authenticate(username=username, password=password)
         return user
+
+class UserChangePassword(forms.Form):
+    old_password = forms.CharField(max_length=50)
+    new_password = forms.CharField(max_length=50)

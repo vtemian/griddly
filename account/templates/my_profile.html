@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+{% block extrahead %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/django-validate.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/profile.js"></script>
+
+{% endblock %}
+{% block header %}
+    {% include 'user_menu.html' %}
+{% endblock %}
+
+{% block content %}
+    <div id="container">
+        <div id="account-settings">
+            <div id="change-password-div">
+                <form action="{% url account.views.password_change %}" id="change-password">
+                    {% csrf_token %}
+                    <div id="general" class="error"></div>
+                    <label>Old password</label>
+                    <input type="pasword" name="old_password"><br>
+                    <label>New password</label>
+                    <input type="password" name="new_password"><br>
+                    <input type="submit" name="submit" value="submit">
+                </form>
+            </div>
+            <div id="change-email-div">
+                <form action="{% url account.views.password_change %}" id="change-email">
+                    {% csrf_token %}
+                    <div id="general" class="error"></div>
+                    <label>Email</label>
+                    <input type="email" name="email"><br>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

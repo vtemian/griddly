@@ -1,11 +1,18 @@
 from django.http import HttpResponse
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, check_password
 from django.contrib.auth import authenticate, login as auth_login
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render, render_to_response
+from django.template.context import RequestContext
 from django.utils import simplejson
-from account.form import UserRegister, UserLogin
+from account.form import UserRegister, UserLogin, UserChangePassword
 
 from account.models import UserProfile
+
+def profile(request):
+    user = UserProfile.objects.get(user=request.user)
+    return render_to_response('my_profile.html',
+                              {'userprofile' : user},
+                              context_instance=RequestContext(request))
 
 def register(request):
     if request.method == "POST":
@@ -31,3 +38,23 @@ def login(request):
         return HttpResponse(simplejson.dumps({'not': 'Incorect username or password'}))
     else:
         return HttpResponse(simplejson.dumps(form.errors))
+
+def password_change(request):
+    if request.method == 'POST':
+        form = UserChangePassword(request.POST)
+        if form.is_valid():
+            print request.POST.get('new_password')
+            if check_password(request.POST.get('old_password'), request.user.password):
+                user = request.user
+                user.set_password(request.POST.get('new_password'))
+                user.save()
+                return HttpResponse(simplejson.dumps({'message': 'The password has been changed'}))
+            else:
+                 return HttpResponse(simplejson.dumps({'lol': 'Incorect password'}))
+        else:
+            return HttpResponse(simplejson.dumps(form.errors))
+    return redirect('/game')
+
+s
+
+

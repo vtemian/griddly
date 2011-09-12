@@ -35,5 +35,8 @@ def login(request):
         return HttpResponse(simplejson.dumps(form.errors))
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fd82c93304b74f964c8e485003375f5463f47ce0
 

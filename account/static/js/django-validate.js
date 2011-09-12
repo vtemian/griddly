@@ -19,4 +19,5 @@ function validate($form, callback){
             callback.call(this, date);
         }
     });
+    return false;
 }

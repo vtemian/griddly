@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+{% block extrahead %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/django-validate.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/profile.js"></script>
+
+{% endblock %}
+{% block header %}
+    {% include 'user_menu.html' %}
+{% endblock %}
+
+{% block content %}
+	
+    <div id="alliances_list_holder">
+
+        <ul id="alliances_list" class="clearfix">
+
+            {% for user in users %}
+                <li class="clearfix">
+                    <div class="alliance_avatar"><img src="{{ user.gravatar_url }}?s=80" alt="alt" /></div>
+                    <a href="/profile/{{ user.id }}"><h2>{{ user.user.username }}</h2></a>
+                    <h3>Level: {{ user.lvl }} Money: $ {{ user.money }} Achieve Points: {{ user.achieve_points }}
+                        {% if user.territory %}
+                            Territory Area: {{ user.territory.area }} km2
+                        {% endif %}
+                    </h3>
+                </li>
+            {% endfor %}
+
+        </ul>
+
+    </div>
+    
+{% endblock %}

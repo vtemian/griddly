@@ -1,4 +1,4 @@
-# Django settings for griddly project.
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -43,14 +43,12 @@ USE_I18N = True
 # calendars according to the current locale
 USE_L10N = True
 
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
 
-# URL that handles the media served from MEDIA_ROOT. Make sure to use a
-# trailing slash.
-# Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_ROOT = os.path.abspath(os.path.join(PROJECT_ROOT, 'site_media', 'media'))
+MEDIA_URL = '/site_media/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -104,7 +102,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'urls'
 STATIC_URL = '/static/'
 TEMPLATE_DIRS = ('/home/wok/projects/griddly/templates',)
-LOGIN_REDIRECT_URL = '/game/'
+LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/'
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -113,12 +111,15 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_socketio',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'account',
+
     'alliance',
+    'account',
+    'profile',
     'common',
     'game',
     'external-api',
@@ -127,6 +128,10 @@ INSTALLED_APPS = (
     'checkin',
     'territory',
     'battle',
+    'ranks',
+    'notification',
+    'map',
+
 )
 
 # A sample logging configuration. The only tangible logging
@@ -134,6 +139,10 @@ INSTALLED_APPS = (
 # the site admins on every HTTP 500 error.
 # See http://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
+
+SOCKETIO_HOST = '10.0.0.60'
+SOCKETIO_PORT = '9000'
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,

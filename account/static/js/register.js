@@ -1,8 +1,8 @@
 $(document).ready(function(){
-    $('#register-form').ketchup({
+    $('#sign_up_form').ketchup({
         validateEvents: 'keyup'
     });
-    $('#register-form').submit(function() {
+    $('#sign_up_form').submit(function() {
         validate($(this));
         return false;
     });

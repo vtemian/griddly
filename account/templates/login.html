@@ -4,17 +4,148 @@
     <script type="text/javascript" src="{{ STATIC_URL }}js/login.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/register.js"></script>
 {% endblock %}
-{% block header %}
-    <button id="login_button">Login</button>
+{% block content %}
+    <div id="main_holder" class="clearfix">
 
-    <div id="login_modal" class="clearfix">
-    <div id="login_header" class="clearfix"><img src="{{ STATIC_URL }}img/logo_small.png" alt=""/><h4>Login</h4></div>
-    <div id="login_sub_header" class="clearfix">
-Check out what your friends have been doing, and make sure that your enemies are not intending
-to conquer any of your lands!
-</div>
-    <div id="login_content" class="clearfix">
+        	<div id="content">
 
+            <div id="about">
+                <div id="bubble_corner"><!--bubble corner--></div>
+                <h2>Welcome to the next level of fun and social networking.</h2><h4>But wait, there's <a href="#">more</a></h4>
+            	<div id="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+            </div>
+
+            <div id="animations_map">
+
+            </div>
+
+            <div id="tour">
+            <div id="tour_info"><h2>Still having doubts?</h2> <a href="#">Take the tour <img src="{{ STATIC_URL }}img/tour/route.png" alt="route" /></a></div>
+
+                <div id="tour_icons">
+
+                	<div id="phone"></div>
+                    <div id="compass"></div>
+                    <div id="coin"></div>
+                    <div id="checkin"></div>
+                    <div id="dollar"></div>
+
+                </div>
+
+            </div>
+
+            </div>
+
+            <div id="connect">
+
+                <div id="drop1">
+
+                	<div id="login">
+                    <button class="connect_button" id="login_button">login</button>
+
+                    </div>
+
+                	<div id="login_register">
+
+                    	<ul id="login_form">
+
+                        	<form action="{% url account.views.login %}" method="POST" id="login-form">{% csrf_token %}
+                                    <div id="general" class="error"></div>
+
+                                    <li><label for="username" class="label">username:</label></li>
+                                    <li><input type="text" id="username" name="username" class="input"/></li>
+                                    <li><label for="password" class="label">password:</label></li>
+                                    <li><input type="password" id="password" name="password" class="input" /></li>
+                                    <li><input type="submit" value="login" class="submit" /></li>
+
+                            </form>
+
+                        </ul>
+
+                        <div id="register_hide">
+
+                            <p>not a player yet?<br/>
+        don't miss out on the fun</p>
+
+                            <button class="connect_button" id="sign_up_button">sign up</button>
+
+                            <p>it's free and easy</p>
+
+                        </div>
+
+                    </div>
+
+               	 </div>
+
+                <div class="sep1_a"></div>
+
+                <div id="sign_up_dropdown">
+
+           		<div id="drop2">
+
+                <p id="easy_way">the easy way</p>
+
+                <button id="facebook_button">sign up with facebook</button>
+
+                <div id="or"></div>
+
+                <button id="google_button">sign up with google</button>
+
+                </div>
+                <div id="sep2"></div>
+                <div id="drop3">
+
+                 <p id="hard_way">the hard way</p>
+                 <p id="quicknpainless">it's quick and painless, we promise</p>
+
+                 <form action="{% url account.views.register %}" id="sign_up_form" method="POST">
+                    {% csrf_token %}
+                    <div id="general" class="error"></div>
+                     
+                    <ul>
+
+                        <li><label for="username" class="label">username</label></li>
+                        <li><input type="text" id="username" name="username" class="input" /></li>
+                        <li><label for="email" class="label">email</label></li>
+                        <li><input type="text" id="email" name="email" class="input" /></li>
+                        <li><label for="password" class="label">password</label></li>
+                        <li><input type="password" id="password" name="password" class="input" /></li>
+                        <li><label for="re_password" class="label">re-type password</label></li>
+                        <li><input type="password" id="re_password" name="re_password" class="input" /></li>
+                        <li><label for="location" class="label">location</label></li>
+                        <li><input type="text" id="location" name="location" class="input" /></li>
+                        <li><input type="submit" value="sign me up!!" class="submit" /></li>
+
+                    </ul>
+
+                </form>
+
+                </div>
+
+                <div id="sep3"></div>
+
+                </div>
+
+            </div>
+
+            <div id="mobile_app_downloads">
+
+            	<ul id="mobile_app_downloads_list">
+                	<li>
+
+                    <h2>no <b>checkins</b>, no <b>fun</b>...</h2>
+                    <h3>get yourself the mobile app</h3>
+
+                    </li>
+                    <li><img src="{{ STATIC_URL }}img/mobile_app/android.png" alt="Outclan Android Application Download" /></li>
+                    <li><img src="{{ STATIC_URL }}img/mobile_app/apple_iphone.png" alt="Outclan Apple Iphone Application Download" /></li>
+                    <li><img src="{{ STATIC_URL }}img/mobile_app/blackberry.png" alt="Outclan Blackberry Application Download" /></li>
+                </ul>
+
+            </div>
+
+        </div>
+    <div id="login-div" style="display:none">
         <form action="{% url account.views.login %}" method="POST" id="login-form">{% csrf_token %}
             <div id="general" class="error"></div>
             <ul id="login_list">
@@ -27,75 +158,9 @@ to conquer any of your lands!
                 <li>Login with Facebook / Google</li>
             </ul>
         </form>
-
-        <img src="{{ STATIC_URL }}img/illustrations/griddlyzaur.png"/>
-
-        </div>
-
-        <div id="login_footer" class="clearfix">
-            <ul>
-                <li><a href="#">Don't have an account yet?</a></li>
-                <li><a href="#">Lost Password?</a></li>
-                <li><a href="#">Is this safe?</a></li>
-            </ul>
-        </div>
-
     </div>
-
-    </header>
-
-    <div id="main" role="main" class="clearfix">
-        <div><img src="{{ STATIC_URL }}img/map_bg_test.png" alt="map_test"/></div>
-
-            <aside id="register_section">
-                <button id="register_button">Register</button>
-            </aside>
-
-
-        <div id="register_modal" class="clearfix">
-            <div id="register_header" class="clearfix"><img src="{{ STATIC_URL }}img/logo_small.png" alt=""/><h4>Sign Up</h4></div>
-            <div id="register_sub_header" class="clearfix">
-                You're seconds away from a new dimension of fun! Griddle takes you, your friends and many more
-                into the frenzy of developing strategies to help you grow and defend your own land.
-                <span id="register_description_toggle">(More...)</span>
-
-                <span id="register_description">And the beauty of it all is the connection with real life - from the map you play on, to the possibility
-                of befriending or avoiding certain people.<br/>You have all reasons to start playing this amazing
-                game!</span>
-	        </div>
-            <div id="register_content" class="clearfix">
-
-            <form action="{% url account.views.register %}" id="register-form" method="POST">
-                {% csrf_token %}
-                <div id="general" class="error"></div>
-                <ul id="register_list">
-                    <li><label for="email">Email</label></li>
-                    <li><input type="text" id="email" name="email"/></li>
-                    <li><label for="username">Username</label><span class="register_hint">only letters, numbers, and underscores</span></li>
-                    <li><input type="text" id="usernamer" name="username"/></li>
-                    <li><label for="password">Password</label><span class="register_hint">at least 4 characters long</span></li>
-                    <li><input type="password" id="passwordr" name="password"/></li>
-                    <li><label for="re-password">Re-Password</label></li>
-                    <li><input type="password" id="re-password" name="re-password"/></li>
-                    <li><label for="location">Location</label><span class="register_hint">where in the world are you?</span></li>
-                    <li><input type="text" id="location" name="location"/></li>
-                    <li><button id="modal_register_button">Sign Up</button></li>
-                </ul>
-            </form>
-
-            <img src="{{ STATIC_URL }}img/illustrations/thetwoofthem.png"/>
-
-            </div>
-
-        <div id="register_footer" class="clearfix">
-            <ul>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">Privacy</a></li>
-                <li><a href="#">Terms</a></li>
-            </ul>
-        </div>
-
-    </div>
-        <h3 id="game_desc">A game based on earning money by doing check-ins or by owning territories where a lot of check-ins are made and using that money to upgrade your territory, buy more or attack others.
-        </h3> 
 {% endblock %}
+
+
+
+        

@@ -1,0 +1,86 @@
+{% extends 'index.html' %}
+{% block extrahead %}
+    <link rel="stylesheet" href="http://fromvega.com/code/autocomplete/autocomplete.css" type="text/css">
+    <script src="http://fromvega.com/code/autocomplete/dimensions.js" type="text/javascript"></script>
+    <script src="http://fromvega.com/code/autocomplete/autocomplete.js" type="text/javascript"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/libs/ajaxupload.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/django-validate.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/profile.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/clan_admin.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/autocomplete_user.js"></script>
+
+
+{% endblock %}
+{% block header %}
+    {% include 'user_menu.html' %}
+{% endblock %}
+
+{% block content %}
+    {% if rank == '1' %}
+        <form action="{% url alliance.views.name_change %}" id="change-name-form" type="placeholder">
+            <div id="general" class=".error"></div>
+            <h4><input type="text" name="name" placeholder="{{ my_alliance.name }}"/></h4>
+            {% csrf_token %}
+        </form>
+    {% else %}
+        <lable id="clan-name">{{ my_alliance.name }}</lable><hr><br>
+    {% endif %}
+    <div id="modal-news" style="display:none">
+        <form action="{% url alliance.views.create_news %}" id="news-form">
+            <label>Text</label>
+            <textarea id="text" name="text"></textarea>
+            <button>Submit</button>
+        </form>
+    </div>
+    {% if rank == '1' %}
+        <label id="create-news">Create news</label>
+    {% endif %}
+    <div id="news">
+        {% include 'clan_stream.html' %}
+    </div>
+
+    <div id="clan_members">
+        <label>Members</label>
+        <hr>
+        {% for member in clan_members %}
+            <div id="member">
+                <label id="member-username">
+                    {{ member.user.username }}
+                </label>
+                {% if rank == '1' %}
+                    <span id="del-member"> - </span>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <hr>
+    </div>
+    <label id="add-member">Add member</label>
+
+    <div id="send-invites" style="display: none">
+        <form id="requests">
+            <div id="recipients" style="width: 300px">
+                <label>members</label>
+                <input type="text" id="new-recipient" autocomplete="off" />
+            </div>
+            <button id="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <div id="avatar-div">
+        {% if my_alliance.avatar %}
+            <img src="{{ my_alliance.avatar.url }}" width="150px" height="150px">
+        {% endif %}
+
+        {% if rank == '1' %}
+            <form action="{% url alliance.views.upload_avatar %}" id="avatar-form" method="POST" enctype="multipart/form-data">
+                <table>
+                    {{ avatar_form.as_table }}
+                </table>
+                <button>Submit</button>
+            </form>
+            
+        {% endif %}
+    </div>
+
+
+{% endblock %}

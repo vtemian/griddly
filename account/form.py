@@ -7,7 +7,7 @@ class UserRegister(forms.Form):
     email = forms.EmailField(max_length=30)
     password = forms.PasswordInput()
     username = forms.CharField(max_length=30)
-
+    
     def clean_username(self):
         username = self.cleaned_data.get("username")
         user = User.objects.filter(username=username).exists()
@@ -31,7 +31,3 @@ class UserLogin(forms.Form):
         password = self.cleaned_data.get('password')
         user = authenticate(username=username, password=password)
         return user
-
-class UserChangePassword(forms.Form):
-    old_password = forms.CharField(max_length=50)
-    new_password = forms.CharField(max_length=50)

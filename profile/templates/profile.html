@@ -1,0 +1,112 @@
+
+{% extends 'index.html' %}
+{% block extrahead %}
+    <script type="text/javascript" >
+        var user = "{{ userprofileid.user.username }}"
+    </script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/django-validate.js"></script>
+    <link rel="stylesheet" href="http://fromvega.com/code/autocomplete/autocomplete.css" type="text/css">
+    <script src="http://fromvega.com/code/autocomplete/dimensions.js" type="text/javascript"></script>
+    <script src="http://fromvega.com/code/autocomplete/autocomplete.js" type="text/javascript"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/autocomplete_user.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/profile.js"></script>
+    <script type=text/javascript src="{{ STATIC_URL }}js/notification.js"></script>
+{% endblock %}
+{% block header %}
+    {% include 'user_menu2.html' %}
+{% endblock %}
+{% block content %}
+    <div id="main" role="main">
+
+     	<div id="profile_holder" class="clearfix">
+
+        	<div id="profile_left_sidebar">
+
+
+                    <div id="profile_avatar"><img src="{{ userprofileid.gravatar_url }}?s=100" /></div>
+
+
+                        {% if userprofileid != userprofile %}
+                            <ul id="profile_buttons" class="clearfix">
+                                {% if userprofile not in friends.all and not friend_request%}
+                                    <li><button id="add-friend" class="profile_button">Add Friend</button></li>
+                                {% else %}{% if friend_request %}
+                                    <li><button id="another-request" class="profile_button">Friend Requested</button></li>
+                                {% else %}
+                                    <li><button id="un-friend" class="profile_button">Unfriend</button></li>
+                                {% endif %}{% endif %}
+                                {% if not userprofileid.alliance %}
+                                    <li><button id="add-alliance" class="profile_button">Alliance</button></li>
+                                {% endif %}
+                                <li><button id="private-message" class="profile_button">Private Message</button></li>
+                            </ul>
+                        {% endif %}
+                        <ul id="friend_list">
+                    	    <li>Friend List</li>
+                            {% for friend in friends.all %}
+                                <li><img src="{{ friend.gravatar_url }}?s=40" alt="avatar" /></li>
+                            {% endfor %}
+                        </ul>
+            
+
+            </div>
+
+            <div id="profile_content">
+            	<div id="profile_status" class="user_online"></div>
+            	<div id="profile_user_name">
+                	<h2>{{ userprofileid.user.first_name }} {{ userprofileid.user.last_name }}</h2><h3>( {{ userprofileid.user.username }} )</h3>
+                </div>
+
+                <div id="user_profile_statistics"> <ul>
+                    <span class="info_list_item">Level:</span>{{ userprofile.lvl }}
+                    {% if my_alliance %}
+                        <span class="info_list_item">Alliance:{{ my_alliance.name }}</span>
+                            <span id="dismiss-clan">-</span>
+
+                    {% endif %}
+                    </ul></div>
+
+                <ul id="user_badges" class="clearfix">
+
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+
+                </ul>
+            </div>
+
+            <div id="profile_right_sidebar">
+
+            	<div id="profile_territory_info">
+                	<img src="{{ STATIC_URL }}img/profile/territory_runtime.png" />
+                </div>
+
+            	<ul id="profile_social_info">
+                	<li>Social Info</li>
+                    <li>{{ userprofileid.google }}</li>
+                    <li>{{ userprofileid.facebook }}</li>
+                    <li>{{ userprofileid.yahoo }}</li>
+                    <li>{{ userprofileid.user.email }}</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div id="div-message" class="clearfix" style="display:none; width: 300px;">
+        <form action='{% url profile.views.send_message %}' id="message-form" autocomplete="off">
+            <div id="recipients" style="width: 300px">
+                To:
+                <input type="text" id="new-recipient" autocomplete="off" />
+            </div>
+            <textarea id="message"></textarea>
+            <button>Send</button><button type="reset">Reset</button>
+        </form>
+    </div>
+{% endblock %}

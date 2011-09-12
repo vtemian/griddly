@@ -1,0 +1,8 @@
+<div class="simple-news">
+    <input type="hidden" id="news-id" value="{{ news.id }}">
+    <p>{{ news.text }}<br>
+    created by {{ news.profile.user.username }} at {{ news.created_at }}<br>
+    </p>
+    <label id="like" class="ok">Like:<span id="value">{{ news.like.all.count }}</span></label>
+    <label id="unlike">Unlike:<span id="value">{{ news.unlike.all.count }}</span></label>
+</div>

@@ -1,0 +1,30 @@
+{% if notification.seen%}
+    <li class="clearfix"  id="notification">
+{% else %}
+    <li class="clearfix unseen"  id="notification">
+{% endif %}
+
+    <div class="notifications_sender">
+        <p class="small_avatar welcome_avatar clearfix" style="background-image: url({{ notification.sender.gravatar_url }}?s=38)">
+         <img src="{{ notification.sender.gravatar_url }}?s=38" alt="avatar"/></p>
+    </div>
+
+    <div class="notifications_info">
+        <h5 class="notifications_header">{{ notification.sender.user.username }}</h5>
+        <h6 class="notifications_info_text">{{ notification.message }}
+        <input type="hidden" value="{{ notification.id }}" id="noteid">
+        {% if not notification.finished %}
+            {% if notification.type == "Friend Request" %}
+                    <button class="notification_accept_button" id="accept-friend-request"></button>
+                    <button class="notification_decline_button" id="decline-friend-request"></button>
+            {% else %}
+                {% if notification.type == "Clan" %}
+                        <button class="notification_accept_button" id="accept-clan-request"></button>
+                        <button class="notification_decline_button" id="decline-clan-request"></button>
+                {% endif %}
+            {% endif %}
+        {% endif %}
+        </h6>
+    </div>
+
+</li>

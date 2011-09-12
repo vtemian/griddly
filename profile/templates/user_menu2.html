@@ -1,0 +1,131 @@
+<script>
+    var socket = io.connect('10.0.0.90', {port:8080});
+    socket.on('identified', function (data) {
+        socket.emit('handshaking', { user: '{{ user.username }}' });
+    });
+</script>
+            
+<ul id="menu">
+    <li><a href="modes.html"><img src="{{ STATIC_URL }}img/menu/game_modes.png" alt="Game Modes"></a></li>
+    <li><a href="/ranks"><img src="{{ STATIC_URL }}img/menu/alliances.png" alt="Game Modes"></a></li>
+    <li><a href="/ranks"><img src="{{ STATIC_URL }}img/menu/ranks.png" alt="Game Modes"></a></li>
+    {% if my_alliance %}
+        <li><a href="/clan">My clan</a></li>
+    {% endif %}
+</ul>
+
+
+
+<!--User Menu START -->
+
+<ul id="user" class="clearfix">
+
+
+    <div id="notifications_holder">
+
+        <li id="notifications"><h6 id="notifications_nr">{{ notifications.all.count }}</h6><li>
+
+        <li id="legend">
+
+            <ul id="requests_legend" class="clearfix">
+
+                <li id="friend_requests">
+
+                    <img src="{{ STATIC_URL }}img/user/notifications/friend_requests.png" alt="Friend Requests" />
+                
+                    <div class="individual_notifications_bubble" {% if friend_notification_unseen.count == 0 %} style="display: none" {% endif %}>{{ friend_notification_unseen.count }}</div>
+
+                    <div class="notifications_body">
+                            <div class="notifications_body_inner">
+                                <ul class="notifications_items clearfix">
+                                    {% for notification in friend_notification %}
+                                        {% include 'notification.html' %}
+                                    {% endfor %}
+                                </ul>
+                        </div>
+                    </div>
+                </li>
+
+                <li id="messages">
+                    <img src="{{ STATIC_URL }}img/user/notifications/messages.png" alt="Friend Requests" />
+
+                    <div class="individual_notifications_bubble" {% if message_notification_unseen.count == 0 %} style="display: none" {% endif %}>{{ message_notification_unseen.count }}</div>
+
+                    <div class="notifications_body">
+                            <div class="notifications_body_inner">
+                                <div class="notifications_body_inner" >
+                                    <ul class="notifications_items clearfix">
+                                        {% for notification in message_notification %}
+                                            {% include 'notification.html' %}
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                        </div>
+                    </div>
+
+                </li>
+
+                <li id="alliance_requests">
+                    <img src="{{ STATIC_URL }}img/user/notifications/friend_requests.png" alt="Friend Requests" />
+
+                    <div class="individual_notifications_bubble" {% if clan_notification_unseen.count == 0 %} style="display: none" {% endif %}>{{ clan_notification_unseen.count }}</div>
+
+                    <div class="notifications_body">
+                            <div class="notifications_body_inner">
+                                <div class="notifications_body_inner" >
+                                    <ul class="notifications_items clearfix">
+                                        {% for notification in clan_notification %}
+                                            {% include 'notification.html' %}
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+
+        <li>
+
+     </div>
+
+
+
+    <li id="welcome" class="clearfix">
+
+    <p class="small_avatar welcome_avatar clearfix" style="background-image: url({{ userprofile.gravatar_url }}?s=50)">
+    <img src="{{ STATIC_URL }}img/user/default.png" alt="avatar"/>
+    </p>
+
+    <ul id="hello" class="clearfix">
+        <li><h2>Hello there,</h2></li>
+        <li><h3>{{ user.username }}</h3></li>
+    </ul>
+
+
+    <li>
+    <li id="user_profile_holder">
+
+            <div id="user_profile">
+
+        <img src="{{ STATIC_URL }}img/user/shillouette.png" alt="profile">
+
+             </div>
+
+            <div id="user_profile_menu">
+
+                <div id="user_profile_menu_inner" class="clearfix">
+
+                    <ul id="settings_menu">
+                        <li><a href="/profile">Edit Profile</a></li>
+                        <li><a href="#">Invite</a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+    <li>
+</ul>

@@ -8,4 +8,4 @@ class Location(models.Model):
 
     territory = models.ForeignKey("territory.Territory", related_name="locations", null=True)
     
-    subscription = models.IntegerField(max_length=20, null=True)
+    subscription = models.FloatField(max_length=20, default=1)

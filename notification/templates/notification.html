@@ -21,7 +21,9 @@
                 {% if notification.type == "Clan" %}
                         <button class="notification_accept_button" id="accept-clan-request"></button>
                         <button class="notification_decline_button" id="decline-clan-request"></button>
-                {% endif %}
+                {% else %}{% if notification.type == "Message" %}
+                    <button id="reply-btn" data-sender="{{ notification.sender.user.username }}">Reply</button>
+                {% endif %}{% endif %}
             {% endif %}
         {% endif %}
         </h6>

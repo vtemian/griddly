@@ -35,6 +35,44 @@ $(document).ready(function(){
         //TODO: make realtime changes
     });
 
+    $('#reply-btn').click(function(){
+        
+        $('#replyModalForm').modal({
+			opacity:80,
+			overlayCss: {backgroundColor:"#5b5b5b"},
+            minHeight:400,
+	        minWidth: 600,
+
+		});
+        
+        var user = $(this).data("sender")
+
+        if (jQuery.inArray(user,users) == -1)
+            users.push(user)
+
+        console.log(users)
+        
+        put_users(users, $('#new-recipient'))
+        setAutoComplete("new-recipient", "recipients-results", "/profile/get_users?user=");
+    });
+
+    $('#replyForm').submit(function(){
+        var message = $('#message').val()
+        if (message.trim()  != ''){
+            $.each(users, function(index, user){
+                $.post('/profile/sendmessage/', {'user':user, 'message':message}, function(data){
+                    var obj = jQuery.parseJSON(data);
+                    socket.emit('notification', obj);
+
+                })
+                console.log('message submited')
+            });
+            $.modal.close();
+        }else
+            alert("You can't send an empty message!")
+        return false;
+    })
+
     $('#private-message').click(function(){
         $('#div-message').modal({
 			opacity:80,

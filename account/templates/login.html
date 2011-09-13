@@ -155,69 +155,12 @@
                 <li><input type="password" id="password" name="password"/></li>
                 <li><button id="modal_login_button">Login</button></li>
                 <li>or</li>
-                <li>Login with  Facebook/ Google</li>
+                <li>Login with Facebook / Google</li>
             </ul>
         </form>
     </div>
-<<<<<<< HEAD
 {% endblock %}
 
-=======
-    
-    <script type="text/javascript">
-    
-    </script>
-
-    </header>
-
-    <div id="main" role="main" class="clearfix">
-        <div><img src="{{ STATIC_URL }}img/map_bg_test.png" alt="map_test"/></div>
-
-            <aside id="register_section">
-                <button id="register_button">Register</button>
-            </aside>
-
-
-        <div id="register_modal" class="clearfix">
-            <div id="register_header" class="clearfix"><img src="{{ STATIC_URL }}img/logo_small.png" alt=""/><h4>Sign Up</h4></div>
-            <div id="register_sub_header" class="clearfix">
-                You're seconds away from a new dimension of fun! Griddle takes you, your friends and many more
-                into the frenzy of developing strategies to help you grow and defend your own land.
-                <span id="register_description_toggle">(More...)</span>
-
-                <span id="register_description">And the beauty of it all is the connection with real life - from the map you play on, to the possibility
-                of befriending or avoiding certain people.<br/>You have all reasons to start playing this amazing
-                game!</span>
-	        </div>
-            <div id="register_content" class="clearfix">
-
-            <script type="text/javascript">
-                $('input[whitespace=true]', $('#register-form')).keyup(function(event){
-                    $(this).val($(this).val().replace(/ /g,''));
-                })
-            </script>
-            <form action="{% url account.views.register %}" id="register-form" method="POST">
-                {% csrf_token %}
-                <div id="general" class="error"></div>
-                <ul id="register_list">
-                    <li><label for="email">Email</label></li>
-                    <li><input type="text" id="email" name="email" validate="required email" whitespace="true"/></li>
-                    <li><label for="username">Username</label><span class="register_hint">only letters, numbers, and underscores</span></li>
-                    <li><input type="text" id="usernamer" name="username" pattern="^[a-zA-Z0-9_]*$" whitespace="true"/ ></li>
-                    <li><label for="password">Password</label><span class="register_hint">at least 4 characters long</span></li>
-                    <li><input type="password" id="passwordr" name="password" pattern="^[a-zA-Z0-9_-]*$" whitespace="true" /></li>
-                    <li><label for="re-password">Re-Password</label></li>
-                    <li><input type="password" id="re-password" name="re-password" data-equals="password" whitespace="true"/></li>
-                    <li><label for="location">Location</label><span class="register_hint">where in the world are you?</span></li>
-                    <li><input type="text" id="location" name="location" whitespace="false"/></li>
-                    <li><button id="modal_register_button">Sign Up</button></li>
-                </ul>
-            </form>
-
-            <img src="{{ STATIC_URL }}img/illustrations/thetwoofthem.png"/>
-
-            </div>
->>>>>>> fd82c93304b74f964c8e485003375f5463f47ce0
 
 
         

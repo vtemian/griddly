@@ -4,31 +4,33 @@ $(document).ready(function(){
         $.post('/profile/friendrequest/', {'id': id, 'type': 'accept'}, function(data){
             console.log('nice')
             //TODO: make succes/fail notification on the client-side
-        })
-    })
+        });
+    });
+    
     $('#decline-friend-request').click(function(){
         var id = $('#noteid', $(this).parent()).val()
         $.post('/profile/friendrequest/', {'id': id, 'type': 'decline'}, function(data){
             console.log('nice')
             //TODO: make succes/fail notification on the client-side
-        })
-    })
+        });
+    });
+
     $('#accept-clan-request').click(function(){
         var id = $('#noteid', $(this).parent()).val()
         $.post('/alliance/process_request/', {'id': id, 'type': 'accept'}, function(data){
             console.log('nice')
             //TODO: make succes/fail notification on the client-side
-        })
-        
-    })
+        });
+    });
+
     $('#decline-clan-request').click(function(){
         var id = $('#noteid', $(this).parent()).val()
         $.post('/alliance/process_request/', {'id': id, 'type': 'decline'}, function(data){
             console.log('nice')
             //TODO: make succes/fail notification on the client-side
-        })
+        });
+    });
 
-    })
     $('#notification').live('mouseover', function(){
 
             if ($(this).hasClass('unseen')){
@@ -80,4 +82,6 @@ $(document).ready(function(){
             $('.individual_notifications_bubble', '#alliance_requests').css('display', 'block')
         }
     });
+
+    
 });

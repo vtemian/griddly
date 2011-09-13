@@ -1,0 +1,20 @@
+<script type=text/javascript src="{{ STATIC_URL }}socket.io-client/dist/socket.io.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<div id="messageDiv">
+    <span id="userName">{{ user.user.username }}</span> is at <span id="venueName">{{ location.name }}</span>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var socket = io.connect('10.0.0.90', {port:8080});
+        socket.on('identified', function (data) {
+            socket.emit('handshaking', { user: 'server' });
+        });
+        var message = $('#messageDiv').html()
+    {% for user in users.friends.all %}
+        var user = "{{ user.user.username }}"
+        socket.emit("checkin", {'user': user, 'message': message, 'locationLat': {{ location.lat }}, 'locationLng': {{ location.lng }}})
+    {% endfor %}
+    })
+
+
+</script>

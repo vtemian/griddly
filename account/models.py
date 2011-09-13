@@ -23,6 +23,7 @@ class UserProfile(models.Model):
     achieve_points = models.IntegerField(default=0)
 
     clan_stream = models.CharField(max_length=30, default="none")
+    friends_stream = models.BooleanField(max_length=30, default=True)
 
     widget_top = models.CharField(max_length=30, default="0")
     widget_left = models.CharField(max_length=30, default="0")

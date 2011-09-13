@@ -2,6 +2,8 @@ from django.contrib.auth.models import User
 from django.db.models.query_utils import Q
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login as auth_login
+from django.shortcuts import render_to_response
+from django.template.context import RequestContext
 from account.models import UserProfile
 from alliance.models import Alliance
 from battle.models import Battle
@@ -9,7 +11,9 @@ from checkin.models import Checkin
 from location.models import Location
 from datetime import datetime, timedelta
 from nodejs_server.utils import encode_for_socketio
+from profile.models import Friend
 from territory.models import Territory
+import websocket
 
 def login(request):
     username = request.GET['username']
@@ -28,16 +32,7 @@ def getbattleresults(battle):
     return attackers_checkins - defender_checkins
 
 def checkin_notification(msg):
-    SOCKET_IO_HOST = "127.0.0.1"
-    SOCKET_IO_PORT = 8080
-
-    socket_io_url = 'ws://' + SOCKET_IO_HOST + ':' + str(SOCKET_IO_PORT) + '/socket.io/websocket'
-
-    ws = websocket.create_connection(socket_io_url)
-
-    msg = encode_for_socketio(msg)
-    ws.send(msg)
-
+    pass
 def checkingin(request):
     if request.method == 'GET':
         userName = request.GET['username']
@@ -46,12 +41,17 @@ def checkingin(request):
         locLang = request.GET['lat']
         up = UserProfile.objects.get(user__username=userName)
         location, created = Location.objects.get_or_create(name=locName, lng=locLong, lat=locLang)
+
+        users, created = Friend.objects.get_or_create(user=up.user, friends__friends_stream=True)
+
         if created:
             location.subscription = 1
             location.save()
 
         checkin = Checkin(user=up, location=location)
         nowdatetime = datetime.now()
+
+
 
         try:
             battle = Battle.objects.get(Q(attacker__members=up)|Q(defender__members=up), active=True, capital=location)
@@ -85,18 +85,22 @@ def checkingin(request):
             checkin.created_at = nowdatetime
             checkin.save()
 
+            money_rate = up.lvl * up.lvl
+            exp_rate = up.lvl
 
+            if up.lvl == 1:
+                money_rate = 5
+                exp_rate = 2
 
-            money = location.subscription * up.lvl * up.lvl
-            exp = location.subscription * up.lvl
-
+            money = float(location.subscription) * money_rate
+            exp = location.subscription * exp_rate
+            
             up.money += ( money * (100 - up.money_to_all) ) / 100
             up.exp += ( exp * (100 - up.exp_to_all ) ) / 100
             if up.exp >= 5 * up.lvl * up.lvl:
                 up.lvl += 1
             up.save()
-
-            checkin_notification({'type':'up_notification', 'recipients':up.user.username})
+            print up.exp
             try:
                 alliance = Alliance.objects.get(members=up)
                 users = alliance.members.all()
@@ -108,9 +112,9 @@ def checkingin(request):
                     if user.exp >= 5 * user.lvl * user.lvl:
                         user.lvl += 1
                     user.save()
-                checkin_notification({'type':'alliance_notification', 'recipients':node_users})
             except Alliance.DoesNotExist:
                 pass
+            
             try:
                 owner = UserProfile.objects.get(territory__locations=location)
                 if owner != up:
@@ -121,4 +125,9 @@ def checkingin(request):
                     owner.save()
             except UserProfile.DoesNotExist:
                 pass
+
+        return render_to_response('checkin-done.html',
+                              {'users': users, 'location':location, 'user':up},
+                              context_instance=RequestContext(request))
+    
     return HttpResponse('a')

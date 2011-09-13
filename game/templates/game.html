@@ -8,6 +8,7 @@
     <script src="http://fromvega.com/code/autocomplete/dimensions.js" type="text/javascript"></script>
     <script src="http://fromvega.com/code/autocomplete/autocomplete.js" type="text/javascript"></script>
     <script type=text/javascript src="{{ STATIC_URL }}js/notification.js"></script>
+    <script type=text/javascript src="{{ STATIC_URL }}js/profile.js"></script>
     <script type=text/javascript src="{{ STATIC_URL }}js/widgets.js"></script>
     <script type=text/javascript src="{{ STATIC_URL }}js/streams.js"></script>
     <script type=text/javascript src="{{ STATIC_URL }}js/django-validate.js"></script>
@@ -17,52 +18,7 @@
 
 {% endblock %}
 {% block header %}
-<<<<<<< HEAD
     {% include 'user_menu2.html' %}
-=======
-
-    <div id="user_menu">
-        <figure id="user_photo"><img src="{{ userprofile.gravatar_url }}" alt="arghy"/></figure>
-        <div id="user_name">Hello,<br/>{{ user.username }}</div>
-
-
-        <div id="subnav_wrap" class="clearfix">
-
-
-        <ul id="game_settings">
-        <li>Game</li>
-        <li>Messages</li>
-        <li>Friends</li>
-        <li>Battles</li>
-        <li>Ceva</li>
-        </ul>
-
-        <ul id="account_settings">
-            
-            <li>Account</li>
-            <li>Edit Profile</li>
-            <li>Settings</li>
-            <li>Invite</li>
-
-
-            <li><form action="{% url django.contrib.auth.views.logout_then_login %}"><button>Logout</button></form></li>
-        </ul>
-
-        </div>
-    </div>
-
-    <div id="user_notifications_holder"><div id="user_notifications"></div><button id="user_notification">7</button></div>
-
-
-    <nav id="menu">
-        <ul id="menu_list">
-        <li><a href="#" class="tipsy" title="Game Modes"><img src="{{ STATIC_URL }}img/menu/game_modes.png" /></a></li>
-        <li><a href="alliances.html" class="tipsy" title="Alliances"><img src="{{ STATIC_URL }}img/menu/alliances.png" /></a></li>
-        <li><a href="ranks.html" class="tipsy" title="Ranks"><img src="{{ STATIC_URL }}img/menu/ranks.png"/></a></li>
-        <li><a href="profile.html" title="O sa dispar de aici in curand">Profile</a></li>
-        </ul>
-    </nav>
->>>>>>> fd82c93304b74f964c8e485003375f5463f47ce0
 {% endblock %}
 
 {% block content %}
@@ -70,7 +26,6 @@
 
     <div id="map_settings_buttons_wrapper" class="clearfix">
 
-<<<<<<< HEAD
      
     <div id="map_holder">
         {% include 'map.html' %}
@@ -93,82 +48,6 @@
                         <div id="widget_level_checkins_graph_info">checkins last 7 days</div>
                     </div>
                     <div id="widget_level_checkins_stats"><ul><li>481 <img src="{{ STATIC_URL }}img/map_widget/checkins.png" /></li><li>244 <img src="{{ STATIC_URL }}img/map_widget/places.png" /></li></ul></div>
-=======
-     <ul id="map_settings_buttons">
-        <li><button onclick="makepolygon();">Define Territory</button></li>
-        <li><button onclick="deletePolys();">Delete Territory</button></li>
-        <li><button onclick="clearOverlays();">Hide Markers</button></li>
-        <li><button onclick="showOverlays();">Show Markers</button></li>
-        <li><button onclick="deleteMarkers();">Delete Markers</button></li>
-        <li><button onclick="deleteMarkers(), deletePolys(), deletevenues();">Delete Everything</button></li>
-        <li><button onclick="getvalue();">Show Places</button></li>
-        </ul>
-
-    </div>
-
-     <div id="map_filters_buttons_wrapper" class="clearfix">
-
-     <ul id="map_filters_buttons">
-        <li><button>Animations Off</button></li>
-        <li><button>Show Capitals</button></li>
-     </ul>
-
-    </div>
-
-    </div>
-    <div id="map_canvas" style="width:980px; height:400px;">
-    </div>
-
-    <div id="map_user_info" class="clearfix">
-    <div id="user_cash"><img src="{{ STATIC_URL }}img/money.png" alt="coins" /><h4 id="cash">{{ userprofile.money }}</h4></div>
-    <div id="user_level"><a href="#" title="Level" class="tipsy"><img src="{{ STATIC_URL }}img/level.png" alt="level" /></a><h4 id="level">{{ userprofile.lvl }}</h4></div>
-    <div id="user_time">
- <script>
-
- function show(){
-     var Digital=new Date()
-     var hours=Digital.getHours()
-     var minutes=Digital.getMinutes()
-     var seconds=Digital.getSeconds()
-     var dn="AM"
-     if (hours>12){
-     dn="PM"
-     hours=hours
-     }
-     if (hours==0)
-        hours=12
-     if (minutes<=9)
-        minutes="0"+minutes
-     if (seconds<=9)
-        seconds="0"+seconds
-     $('#user_time').html('<h4 id="time">' + hours + ':' + minutes + ':' + seconds + ' ' + dn + '</h4>');
-
-     setTimeout("show()",1000)
-    }
-     show()
-
- </script>
-</div>
-    </div>
-
-    <div id="map_log" class="clearfix">
-
-
-    <ul id="map_log_entry_list">
-    <li>
-        <div class="map_log_entry clearfix">
-
-            <div id="map_log_data">
-            <h5>IUN 07, 2011</h5>
-            <h6><span class="small">at</span> 23:07 PM</h6>
-            <div id="map_log_data_avatar"><img src="{{ STATIC_URL }}img/log/log_avatar.png" alt="log_avatar"/></div>
-            </div>
-
-            <div id="map_log_info">
-
-                <div class="map_log_info_header"><div class="map_log_info_header_x"></div>
-                Alliance
->>>>>>> fd82c93304b74f964c8e485003375f5463f47ce0
                 </div>
 
             </div>
@@ -257,5 +136,15 @@
     </div>
 
 
+    </div>
+    <div id="replyModalForm" style="display:none">
+        <form id="replyForm" action="{% url profile.views.send_message %}" >
+            <div id="recipients" style="width: 300px">
+                To:
+                <input type="text" id="new-recipient" autocomplete="off" />
+            </div>
+            <textarea id="message"></textarea>
+            <button>Send</button><button type="reset">Reset</button>
+        </form>
     </div>
 {% endblock %}

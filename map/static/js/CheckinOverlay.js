@@ -1,7 +1,9 @@
-function CheckinOverlay(text, point, map) {
+function CheckinOverlay(text, point, map, x, y) {
   this.map_ = map;
   this.text_ = text;
   this.point_ = point;
+  this.x = x;
+  this.y = y;
   this.setMap(map);
 }
 
@@ -26,6 +28,6 @@ CheckinOverlay.prototype.draw = function() {
 
     var div = this.div_;
 
-    div.style.left = point.x + 'px';
-    div.style.top = point.y + 'px';
+    div.style.left = point.x - this.x + 'px';
+    div.style.top = point.y - this.y + 'px';
 }

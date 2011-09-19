@@ -7,7 +7,6 @@
 
 		// {Gm.MVCArray} The list of polygon margins.
 		this.margins = new Gm.MVCArray();
-
 		this.bindToPath(this.getPath());
 	};
 
@@ -17,7 +16,7 @@
 	/// @override Sets the path of the polygon.
 	ObservablePolygon.prototype.setPath = function (path) {
 		this.unbindFromPath();
-
+        
 		Gm.Polygon.prototype.setPath.apply(this, arguments);
 
 		// Add the existing points
@@ -256,10 +255,16 @@
 	ObservablePolygon.prototype.onMarginMouseMove = function (margin) {
 		this.onMarginFocus(margin.index, margin);
 	};
+    ObservablePolygon.prototype.onMarginMouseMove = function (margin) {
+		this.onMarginFocus(margin.index, margin);
+	};
 
 	/// @protected Fires the margin:focus event.
 	ObservablePolygon.prototype.onMarginFocus = function (index, margin) {
-		Gm.event.trigger(this, "margin:focus", index);
+        Gm.event.trigger(this, "margin:focus", index);
+	};
+    ObservablePolygon.prototype.onClick = function () {
+        console.log('a')
 	};
 
 	return ObservablePolygon;

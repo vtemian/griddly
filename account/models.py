@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from territory.models import Territory
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
@@ -17,8 +16,6 @@ class UserProfile(models.Model):
     
     money_to_all = models.IntegerField(null=True, default=20)
     exp_to_all = models.IntegerField(null=True, default=20)
-
-    territory = models.ForeignKey(Territory, null=True)
 
     achieve_points = models.IntegerField(default=0)
 

@@ -1,7 +1,13 @@
-/**
- * Created by PyCharm.
- * User: wok
- * Date: 9/15/11
- * Time: 9:16 PM
- * To change this template use File | Settings | File Templates.
- */
+$(document).ready(function(){
+    $('#warRequest').live('click', function(){
+        var username = $(this).data('username')
+        $.post('/battle/request/war', {'username': username}, function(data){
+            var obj = jQuery.parseJSON(data)
+            if(obj.nice != undefined){
+                console.log(obj.nice)
+            }else{
+                console.log(obj.error)
+            }
+        })
+    });
+})

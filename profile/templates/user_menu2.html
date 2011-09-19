@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    var socket = io.connect('10.0.0.90', {port:8080});
+    var socket = io.connect('localhost', {port:8080});
     socket.on('identified', function (data) {
         socket.emit('handshaking', { user: '{{ user.username }}' });
     });

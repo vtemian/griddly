@@ -13,7 +13,6 @@ from datetime import datetime, timedelta
 from nodejs_server.utils import encode_for_socketio
 from profile.models import Friend
 from territory.models import Territory
-import websocket
 
 def login(request):
     username = request.GET['username']
@@ -26,13 +25,14 @@ def login(request):
         return HttpResponse('not_logged')
 
 def getbattleresults(battle):
-    attackers_checkins = Checkin.objects.filter(user__in=battle.attacker.members.all(), battle=battle).count()
-    defender_checkins = Checkin.objects.filter(user__in=battle.defender.members.all(), battle=battle).count()
+    attackers_checkins = Checkin.objects.filter(user=battle.attacker, battle=battle).count()
+    defender_checkins = Checkin.objects.filter(user=battle.defender, battle=battle).count()
 
     return attackers_checkins - defender_checkins
 
 def checkin_notification(msg):
     pass
+
 def checkingin(request):
     if request.method == 'GET':
         userName = request.GET['username']
@@ -41,20 +41,20 @@ def checkingin(request):
         locLang = request.GET['lat']
         up = UserProfile.objects.get(user__username=userName)
         location, created = Location.objects.get_or_create(name=locName, lng=locLong, lat=locLang)
-
-        users, created = Friend.objects.get_or_create(user=up.user, friends__friends_stream=True)
-
+        try:
+            users = Friend.objects.get(user=up.user, friends__friends_stream=True)
+        except Exception:
+            users = []
         if created:
             location.subscription = 1
             location.save()
-
+        users.append(up)
+        print users
         checkin = Checkin(user=up, location=location)
         nowdatetime = datetime.now()
 
-
-
         try:
-            battle = Battle.objects.get(Q(attacker__members=up)|Q(defender__members=up), active=True, capital=location)
+            battle = Battle.objects.get(Q(attacker=up)|Q(defender=up), active=True)
             try:
                 latest_checkin = Checkin.objects.filter(user=up, location=location).order_by('-created_at')[0]
                 if (nowdatetime - latest_checkin.created_at) < timedelta (seconds = 1):
@@ -66,12 +66,12 @@ def checkingin(request):
             checkin.battle = battle
             checkin.save()
 
-            if nowdatetime - battle.start_time >= timedelta(hours = 24):
+            if nowdatetime - battle.start_time >= timedelta(minutes = 2):
                 if getbattleresults(battle) < 0:
                     battle.winner = battle.defender
                 else:
                     battle.winner = battle.attacker
-
+                
                 battle.save()
                     
         except Battle.DoesNotExist:
@@ -125,9 +125,11 @@ def checkingin(request):
                     owner.save()
             except UserProfile.DoesNotExist:
                 pass
+        if users:
+            return render_to_response('checkin-done.html',
+                                  {'users': users, 'location':location, 'user':up},
+                                  context_instance=RequestContext(request))
+        else:
+            return HttpResponse('done')
 
-        return render_to_response('checkin-done.html',
-                              {'users': users, 'location':location, 'user':up},
-                              context_instance=RequestContext(request))
-    
     return HttpResponse('a')

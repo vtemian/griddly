@@ -1,135 +1,175 @@
-<!doctype html>
-<html>
-	<head>
-		<script type="text/javascript" charset="utf-8" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
+<script type="text/javascript" charset="utf-8" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=true"></script>
 
-		<script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}js/ObservablePolygon.js"></script>
-		<script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}js/EditablePolygon.js"></script>
+<script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}js/ObservablePolygon.js"></script>
+<script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}js/EditablePolygon.js"></script>
+<script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}js/CheckinOverlay.js"></script>
+<script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}js/warRequest.js"></script>
 
-		<script type="text/javascript" charset="utf-8">
-			if (!Function.prototype.bind) {
-				Function.prototype.bind = function (scope) {
-					var me = this, args = arguments.length > 1 ? Array.prototype.slice(arguments, 1) : null;
+<script type="text/javascript" charset="utf-8">
+    if (!Function.prototype.bind) {
+        Function.prototype.bind = function (scope) {
+            var me = this, args = arguments.length > 1 ? Array.prototype.slice(arguments, 1) : null;
 
-					return function () {
-						me.apply(scope, args ? args.concat(Array.prototype.slice.call(arguments, 0)) : arguments);
-					};
-				};
-			}
-		</script>
+            return function () {
+                me.apply(scope, args ? args.concat(Array.prototype.slice.call(arguments, 0)) : arguments);
+            };
+        };
+    }
+</script>
 
-		<script type="text/javascript" charset="utf-8">
-			var app = {
-				initializeMap: function () {
-					this.bodyEl = $(document);
-					this.mapEl = $("#map");
+<script type="text/javascript" charset="utf-8">
+    var app = {
+        initializeMap: function () {
+            this.bodyEl = $(document);
+            this.mapEl = $("#map");
 
-					this.mapEl.width(this.bodyEl.width() - 40);
-					this.mapEl.height(this.bodyEl.height() - 40);
+            this.mapEl.width(this.bodyEl.width() - 40);
+            this.mapEl.height(this.bodyEl.height() - 40);
 
-					this.map = new google.maps.Map(this.mapEl[0], {
-						zoom: 17,
-						mapTypeId: google.maps.MapTypeId.ROADMAP,
-						center: new google.maps.LatLng(0, 0)
-					});
+            this.map = new google.maps.Map(this.mapEl[0], {
+                zoom: 17,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                center: new google.maps.LatLng(0, 0)
+            });
 
-                    var map = this.map
+            var map = this.map
 
-                    if(navigator.geolocation) {
-                        navigator.geolocation.getCurrentPosition(function(position) {
-                              initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-                              map.setCenter(initialLocation);
-                        });
-                    } else if (google.gears) {
-                        var geo = google.gears.factory.create('beta.geolocation');
-                        geo.getCurrentPosition(function(position) {
-                          initialLocation = new google.maps.LatLng(position.latitude,position.longitude);
-                          map.setCenter(initialLocation);
-                        });
-                    } else {
-                        console.log('Your location sucks')
-                        //TODO: get user location in another way
-                    }
-				},
+            if(navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                      initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+                      map.setCenter(initialLocation);
+                });
+            } else if (google.gears) {
+                var geo = google.gears.factory.create('beta.geolocation');
+                geo.getCurrentPosition(function(position) {
+                  initialLocation = new google.maps.LatLng(position.latitude,position.longitude);
+                  map.setCenter(initialLocation);
+                });
+            } else {
+                console.log('Your location sucks')
+                //TODO: get user location in another way
+            }
+        },
 
-				launch: function () {
-					var me = this;
+        launch: function () {
+            var me = this;
+            map = this.map
+            this.initializeMap();
 
-					this.initializeMap();
 
-					this.place = new google.maps.EditablePolygon({
-						strokeColor: "orange",
-						strokeWeight: 2,
-						fillColor: "yellow",
+            {% for territory in territories %}
+                var path = new google.maps.MVCArray();
 
-						handleImage: "{{ STATIC_URL }}img/handle.png"
-					});
-
-					this.place.setMap(this.map);
-
-                    {% for territory in territories %}
-                        var path = new google.maps.MVCArray();
-
-                            {% for point in territory.points.all %}
-                                path.push(new google.maps.LatLng({{ point.lat }}, {{ point.lng }}));
-                            {% endfor %}
-
-                        this.place = new google.maps.ObservablePolygon({
-                            paths: path,
-                            strokeColor: "orange",
-                            strokeWeight: 2,
-                            fillColor: "yellow",
-
-                            handleImage: "{{ STATIC_URL }}img/handle.png"
-                        });
-
-					    this.place.setMap(this.map);
+                    {% for point in territory.points.all %}
+                        path.push(new google.maps.LatLng({{ point.lat }}, {{ point.lng }}));
                     {% endfor %}
 
-					$("#begin-edit-btn").click(function () {
-						me.place.beginEdit();
-					});
-					
-					$("#end-edit-btn").click(function () {
-						me.place.endEdit();
-					});
+                this.place = new google.maps.ObservablePolygon({
+                    paths: path,
+                    strokeColor: "yellow",
+                    strokeWeight: 2,
+                    fillColor: "blue",
 
-					$("#get-path-btn").click(function () {
-						var path = me.place.getPath().getArray().map(function (p) {
-							return p.lat() + ',' + p.lng();
-						}).join("; ");
+                    handleImage: "{{ STATIC_URL }}img/handle.png"
+                });
+                    var war = '';
+                    {% if not war  %}
+                        war = "<span id='warRequest' data-username='{{ territory.owner.user.username }}''>War Request</span>";
+                    {% endif %}
+                    
+                    $div = "<div style='background:red; display:none;' id='territoryOverlay' class='{{ territory.owner.user.username }}'>" +
+                             war
+                            +"</div>";
 
-						$.post('{% url territory.views.create_territory %}', {'path': path}, function(data){
-                            console.log('nice')
-                            //TODO: send alert to client
-                        })
-					});
-				}
-			};
+                    $('#map').after($div)
 
-			$(app.launch.bind(app));
+                    google.maps.event.addListener(this.place, 'click', function(e) {
+                        $('.{{ territory.owner.user.username }}').modal({
+                            opacity:80,
+                            overlayCss: {backgroundColor:"#5b5b5b"},
+                            minHeight:400,
+                            minWidth: 600,
 
-            $(document).ready(function(){
-                socket.on('checkin', function(data){
-
-                    point = new google.maps.LatLng(data.locationLat, data.locationLng)
-                    var marker = new google.maps.Marker({
-                          position: point,
-                          map: app.map,
-                          title: data.message
+                        });
                     });
 
-                    app.map.setCenter(point, 17)
+                this.place.setMap(this.map);
+            {% endfor %}
+            {% if my_territory  %}
+                var path = new google.maps.MVCArray();
+
+                {% for point in my_territory.points.all %}
+                    path.push(new google.maps.LatLng({{ point.lat }}, {{ point.lng }}));
+                {% endfor %}
+                this.place = new google.maps.EditablePolygon({
+                    paths: path,
+                    strokeColor: "orange",
+                    strokeWeight: 2,
+                    fillColor: "yellow",
+
+                    handleImage: "{{ STATIC_URL }}img/handle.png"
                 });
-            })
-		</script>
+            {% else %}
+                this.place = new google.maps.EditablePolygon({
+                    strokeColor: "orange",
+                    strokeWeight: 2,
+                    fillColor: "yellow",
+    
+                    handleImage: "{{ STATIC_URL }}img/handle.png"
+                });
+            {% endif %}
 
-		<style type="text/css" charset="utf-8">
-			
-		</style>
-	</head>
-	<body>
 
-		<div id="map"></div>
-	</body>
-</html>
+            this.place.setMap(this.map);
+            
+            $("#begin-edit-btn").click(function () {
+                me.place.beginEdit();
+            });
+
+            $("#end-edit-btn").click(function () {
+                me.place.endEdit();
+            });
+            $("#get-path-btn").click(function () {
+                var points = new Array();
+                var firstPoint = null;
+                var path = me.place.getPath().getArray().map(function (p) {
+                    points.push(p)
+                    return p.lat() + ',' + p.lng();
+                }).join("; ");
+
+                if(false){
+                    var area = google.maps.geometry.spherical.computeArea(points);
+                    $.post('{% url territory.views.create_territory %}', {'path': path, 'area': area}, function(data){
+                        var obj = JSON.parse(data)
+                        if(obj.nice == 'nice'){
+                            console.log('nice')
+                            //TODO: send alert to client
+                        }else{
+                            if(obj.error == 'money'){
+                                console.log("You don't have enough money!")
+                            }else if(obj.error == 'territory'){
+                                console.log("You have a territory!")
+                            }
+                        }
+                    })
+                }
+            });
+        }
+    };
+
+    $(app.launch.bind(app));
+
+    $(document).ready(function(){
+        socket.on('checkin', function(data){
+
+            point = new google.maps.LatLng(data.locationLat, data.locationLng)
+            
+            new CheckinOverlay("<div>"+ data.message +"</div>", point, app.map, 32, 75);
+
+            app.map.setCenter(point, 17)
+        });
+    })
+</script>
+
+<div id="map"></div>

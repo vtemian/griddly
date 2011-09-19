@@ -45,7 +45,7 @@ def user_menu(request):
 
 def myprofile(request):
     user = UserProfile.objects.get(user=request.user)
-    return render_to_response('my_profile2.html',
+    return render_to_response('my_profile.html',
                               user_menu(request),
                               context_instance=RequestContext(request))
 

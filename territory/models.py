@@ -1,5 +1,6 @@
 from django.db import models
 from Items.models import Defends
+from account.models import UserProfile
 from location.models import Location
 
 class Points(models.Model):
@@ -15,3 +16,5 @@ class Territory(models.Model):
     area = models.IntegerField(max_length=6)
 
     points = models.ManyToManyField(Points, null=True)
+
+    owner = models.ForeignKey(UserProfile)

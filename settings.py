@@ -111,7 +111,6 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_socketio',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -131,6 +130,7 @@ INSTALLED_APPS = (
     'ranks',
     'notification',
     'map',
+    'foursquare',
 
 )
 

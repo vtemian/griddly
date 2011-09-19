@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce414521-cb02-4640-8fa9-df3dc02f3b8c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/websocket" afterPath="$PROJECT_DIR$/src/websocket" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game/templates/game.html" afterPath="$PROJECT_DIR$/game/templates/game.html" />
     </list>
@@ -83,7 +84,7 @@
       <file leaf-file-name="game.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/game/templates/game.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="1" selection-start="1690" selection-end="1690" vertical-scroll-proportion="0.40966386">
+            <state line="24" column="154" selection-start="1614" selection-end="1614" vertical-scroll-proportion="0.28361344">
               <folding />
             </state>
           </provider>
@@ -794,7 +795,7 @@
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="checkin" />
+    <option name="LAST_COMMIT_MESSAGE" value="checkin in map" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -812,6 +813,7 @@
     <MESSAGE value="FEEDBACK img+css+js" />
     <MESSAGE value="FEEDBACK all" />
     <MESSAGE value="checkin" />
+    <MESSAGE value="checkin in map" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -906,7 +908,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/game/templates/game.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="1" selection-start="1690" selection-end="1690" vertical-scroll-proportion="0.40966386">
+        <state line="24" column="154" selection-start="1614" selection-end="1614" vertical-scroll-proportion="0.28361344">
           <folding />
         </state>
       </provider>

@@ -48,8 +48,7 @@ def checkingin(request):
         if created:
             location.subscription = 1
             location.save()
-        users.append(up)
-        print users
+
         checkin = Checkin(user=up, location=location)
         nowdatetime = datetime.now()
 

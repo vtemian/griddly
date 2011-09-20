@@ -9,3 +9,5 @@ class Location(models.Model):
     territory = models.ForeignKey("territory.Territory", related_name="locations", null=True)
     
     subscription = models.FloatField(max_length=20, default=1)
+
+    zone = models.CharField(max_length=30)

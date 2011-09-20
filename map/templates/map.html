@@ -56,7 +56,7 @@
             var me = this;
             map = this.map
             this.initializeMap();
-
+            var points = new Array();
 
             {% for territory in territories %}
                 var path = new google.maps.MVCArray();
@@ -96,6 +96,29 @@
 
                 this.place.setMap(this.map);
             {% endfor %}
+
+            google.maps.event.addListener(this.map, 'dragend', function(e) {
+                var mapCenter = me.map.getCenter();
+                $.get("https://api.foursquare.com/v2/venues/search?ll="+mapCenter.lat()+","+mapCenter.lng()+"&oauth_token=T53KMW3DZTJSK2B0G5BO2F3DVZ0VA0A5KR3PXRIHXS5VCQ5F&v=2011",function(data){
+                    if(data.meta.code == '200'){
+                        venues = data.response.groups[0].items
+                        $.each(venues, function(index, value){
+                            var point = new google.maps.LatLng(value.location.lat, value.location.lng)
+                            var name = value.name
+                            if (jQuery.inArray(name, points) == -1){
+                                var marker = new google.maps.Marker({
+                                  position: point,
+                                  title: name,
+                                });
+                                marker.setMap(me.map);
+                                points.push(name);
+                                console.log('a')
+                            }
+                        })
+                    }
+                })
+            });
+
             {% if my_territory  %}
                 var path = new google.maps.MVCArray();
 
@@ -137,7 +160,7 @@
                     points.push(p)
                     return p.lat() + ',' + p.lng();
                 }).join("; ");
-
+                
                 if(false){
                     var area = google.maps.geometry.spherical.computeArea(points);
                     $.post('{% url territory.views.create_territory %}', {'path': path, 'area': area}, function(data){
@@ -161,6 +184,7 @@
     $(app.launch.bind(app));
 
     $(document).ready(function(){
+        var center = app.map.getCenter();
         socket.on('checkin', function(data){
 
             point = new google.maps.LatLng(data.locationLat, data.locationLng)

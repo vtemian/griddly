@@ -18,7 +18,7 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-        var socket = io.connect('www.outlcan.com', {port:8080});
+        var socket = io.connect('www.outlcan.com', {port:5555});
         socket.on('identified', function (data) {
             socket.emit('handshaking', { user: 'server' });
         });

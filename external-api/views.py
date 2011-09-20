@@ -42,9 +42,14 @@ def checkingin(request):
         up = UserProfile.objects.get(user__username=userName)
         location, created = Location.objects.get_or_create(name=locName, lng=locLong, lat=locLang)
         try:
-            users = Friend.objects.get(user=up.user, friends__friends_stream=True)
+            users = Friend.objects.get(user=up.user).friends.all()
+            friends = []
+            for user in users:
+                if user.friends_stream:
+                    friends.append(user)
         except Exception:
-            users = []
+            friends = []
+
         if created:
             location.subscription = 1
             location.save()
@@ -99,7 +104,7 @@ def checkingin(request):
             if up.exp >= 5 * up.lvl * up.lvl:
                 up.lvl += 1
             up.save()
-            print up.exp
+            
             try:
                 alliance = Alliance.objects.get(members=up)
                 users = alliance.members.all()
@@ -124,9 +129,10 @@ def checkingin(request):
                     owner.save()
             except UserProfile.DoesNotExist:
                 pass
-        if users:
+            
+        if friends:
             return render_to_response('checkin-done.html',
-                                  {'users': users, 'location':location, 'user':up},
+                                  {'friends': friends, 'location':location, 'user':up},
                                   context_instance=RequestContext(request))
         else:
             return HttpResponse('done')

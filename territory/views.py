@@ -6,7 +6,6 @@ from territory.models import *
 @csrf_exempt
 def create_territory(request):
     if request.method == 'POST':
-        
         up = UserProfile.objects.get(user=request.user)
         try:
             terrytories = Territory.objects.get(owner=up)

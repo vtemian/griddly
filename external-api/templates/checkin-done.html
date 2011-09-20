@@ -18,13 +18,13 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-        var socket = io.connect('www.outlcan.com', {port:5555});
+        var socket = io.connect('www.outclan.com', {port:5555});
         socket.on('identified', function (data) {
             socket.emit('handshaking', { user: 'server' });
         });
         var message = $('#messageDiv').html()
         
-    {% for user in users.friends.all %}
+    {% for user in friends %}
         var user = "{{ user.user.username }}"
         socket.emit("checkin", {'user': user, 'message': message, 'locationLat': {{ location.lat }}, 'locationLng': {{ location.lng }}})
     {% endfor %}

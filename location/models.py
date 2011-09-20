@@ -10,4 +10,4 @@ class Location(models.Model):
     
     subscription = models.FloatField(max_length=20, default=1)
 
-    zone = models.CharField(max_length=30)
+    zone = models.CharField(max_length=30, null=True)

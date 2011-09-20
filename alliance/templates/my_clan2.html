@@ -28,7 +28,20 @@
                                     <span id="del-member" data-username={{ member.user.username }}> - </span>
                                 {% endif %}
                             {% endfor %}
-                    </ul>
+
+                   </ul>
+            
+                   <label id="add-member">Add member</label>
+
+                    <div id="send-invites" style="display: none">
+                        <form id="requests">
+                            <div id="recipients" style="width: 300px">
+                                <label>members</label>
+                                <input type="text" id="new-recipient" autocomplete="off" />
+                            </div>
+                            <button id="submit-btn">Submit</button>
+                        </form>
+                    </div>
 
             </div>
 
@@ -45,7 +58,7 @@
                 <label id="create-news">Create news</label>
             {% endif %}
 
-    
+            
 
             <div id="alliance_content">
                 {% include 'clan_stream.html' %}

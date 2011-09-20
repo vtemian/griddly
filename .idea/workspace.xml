@@ -57,7 +57,7 @@
       <file leaf-file-name="my_clan2.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/alliance/templates/my_clan2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="62" selection-start="2881" selection-end="2881" vertical-scroll-proportion="0.70884144">
+            <state line="49" column="39" selection-start="2230" selection-end="2230" vertical-scroll-proportion="0.3887195">
               <folding />
             </state>
           </provider>
@@ -772,7 +772,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/alliance/templates/my_clan2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="62" selection-start="2881" selection-end="2881" vertical-scroll-proportion="0.70884144">
+        <state line="49" column="39" selection-start="2230" selection-end="2230" vertical-scroll-proportion="0.3887195">
           <folding />
         </state>
       </provider>

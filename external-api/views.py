@@ -40,7 +40,7 @@ def checkingin(request):
         locLong = request.GET['lng']
         locLang = request.GET['lat']
         up = UserProfile.objects.get(user__username=userName)
-        location, created = Location.objects.get_or_create(name=locName, lng=locLong, lat=locLang)
+        location, created = Location.objects.get_or_create(name=locName, lng=float(locLong), lat=float(locLang))
         try:
             users = Friend.objects.get(user=up.user).friends.all()
             friends = []

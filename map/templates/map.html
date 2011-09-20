@@ -50,6 +50,7 @@
                 console.log('Your location sucks')
                 //TODO: get user location in another way
             }
+            
         },
 
         launch: function () {
@@ -97,28 +98,6 @@
                 this.place.setMap(this.map);
             {% endfor %}
 
-            google.maps.event.addListener(this.map, 'dragend', function(e) {
-                var mapCenter = me.map.getCenter();
-                $.get("https://api.foursquare.com/v2/venues/search?ll="+mapCenter.lat()+","+mapCenter.lng()+"&oauth_token=T53KMW3DZTJSK2B0G5BO2F3DVZ0VA0A5KR3PXRIHXS5VCQ5F&v=2011",function(data){
-                    if(data.meta.code == '200'){
-                        venues = data.response.groups[0].items
-                        $.each(venues, function(index, value){
-                            var point = new google.maps.LatLng(value.location.lat, value.location.lng)
-                            var name = value.name
-                            if (jQuery.inArray(name, points) == -1){
-                                var marker = new google.maps.Marker({
-                                  position: point,
-                                  title: name,
-                                });
-                                marker.setMap(me.map);
-                                points.push(name);
-                                console.log('a')
-                            }
-                        })
-                    }
-                })
-            });
-
             {% if my_territory  %}
                 var path = new google.maps.MVCArray();
 
@@ -143,16 +122,56 @@
                 });
             {% endif %}
 
-
             this.place.setMap(this.map);
             
             $("#begin-edit-btn").click(function () {
-                me.place.beginEdit();
+                me.place.beginEdit()
             });
 
             $("#end-edit-btn").click(function () {
-                me.place.endEdit();
+                var points = new Array();
+                var firstPoint = null;
+                var path = me.place.getPath().getArray().map(function (p) {
+                    points.push(p)
+                    return p.lat() + ',' + p.lng();
+                }).join("; ");
+                var ok = false;
+                var venues = ""
+                $.post('{% url territory.views.verify_territory %}', {'path': path }, function(data){
+                    var obj = jQuery.parseJSON(data)
+                    var locations = obj.locations
+                    $.each(locations, function(index, value){
+                        value = jQuery.parseJSON(value)
+                        if(me.place.contains(value.lat, value.lng)){
+                            ok = true;
+                            venues += value.lat + ','+value.lng + ';'
+                            var marker = new google.maps.Marker({
+                                position: new google.maps.LatLng(value.lat, value.lng),
+                                title:""
+                            });
+                            marker.setMap(me.map)
+                        }
+                    });
+                    if(ok){
+                        var area = google.maps.geometry.spherical.computeArea(points);
+                        $.post('{% url territory.views.create_territory %}', {'path': path, 'area': area, 'locations': venues}, function(data){
+                            var obj = JSON.parse(data)
+                            if(obj.nice == 'nice'){
+                                console.log('nice')
+                                //TODO: send alert to client
+                            }else{
+                                if(obj.error == 'money'){
+                                    console.log("You don't have enough money!")
+                                }else if(obj.error == 'territory'){
+                                    console.log("You have a territory!")
+                                }
+                            }
+                        })
+                    }
+                })
+
             });
+        
             $("#get-path-btn").click(function () {
                 var points = new Array();
                 var firstPoint = null;
@@ -162,29 +181,17 @@
                 }).join("; ");
                 
                 if(false){
-                    var area = google.maps.geometry.spherical.computeArea(points);
-                    $.post('{% url territory.views.create_territory %}', {'path': path, 'area': area}, function(data){
-                        var obj = JSON.parse(data)
-                        if(obj.nice == 'nice'){
-                            console.log('nice')
-                            //TODO: send alert to client
-                        }else{
-                            if(obj.error == 'money'){
-                                console.log("You don't have enough money!")
-                            }else if(obj.error == 'territory'){
-                                console.log("You have a territory!")
-                            }
-                        }
-                    })
+
                 }
             });
+            
         }
     };
 
     $(app.launch.bind(app));
 
     $(document).ready(function(){
-        var center = app.map.getCenter();
+        
         socket.on('checkin', function(data){
 
             point = new google.maps.LatLng(data.locationLat, data.locationLng)

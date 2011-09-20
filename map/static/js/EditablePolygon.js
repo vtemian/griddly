@@ -120,11 +120,9 @@
 			position: point
 		});
 	};
-    EditablePolygon.prototype.contains = function(point) {
+    EditablePolygon.prototype.contains = function(y , x) {
         var j=0;
         var oddNodes = false;
-        var x = point.lng();
-        var y = point.lat();
 
         var paths = this.getPath();
         console.log(paths)

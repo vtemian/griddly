@@ -85,7 +85,7 @@ $(document).ready(function(){
     })
 
     //check if u can vote
-    $.each($('.simple-news'), function(index, element){
+    $.each($('.alliance_content_news'), function(index, element){
         var id = $('#news-id', element).val()
         $.get('/clan/check-like-state', {'id': id}, function(data){
             if(data == 'ok'){
@@ -103,12 +103,16 @@ $(document).ready(function(){
 
     $('#del-member').live('click', function(){
         //TODO: realtime notification
-        var username = $(this).prev().html().trim()
-        var $member = $(this).parent()
+        var username = $(this).data('username')
+        console.log(username)
+        var $member = $(this).prev()
+        var $del = $(this)
+        if(false){
         $.post('/clan/del-member', {'username': username}, function(data){
            if(data == 'ok'){
                console.log('The member has been removed!')
                $member.remove()
+               $del.remove()
            }else if(data == 'failed-member'){
                console.log("This member doesn't exists")
            }else if(data == 'failed-rights'){
@@ -116,7 +120,7 @@ $(document).ready(function(){
            }else{
                 console.log(data)
            }
-        });
+        });}
 
     });
 })

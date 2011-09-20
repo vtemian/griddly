@@ -19,10 +19,10 @@ def my_clan(request):
 
     context['clan_members'] = my_clan.members.all()
     context['avatar_form'] = UploadAvatar()
-
+    context['clan_stream'] = AllianceNews.objects.filter(alliance=Alliance.objects.get(members=context['userprofile']))
     context['rank'] = context['userprofile'].alliancemembership_set.all()[0].rank
     
-    return render_to_response('my_clan.html',
+    return render_to_response('my_clan2.html',
                               context,
                               context_instance=RequestContext(request))
 

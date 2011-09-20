@@ -1,11 +1,11 @@
-<div id="news">
-    {% for entry in clan_stream %}
-        <hr>
-        {% if entry.type == "simple" %}
-            {% with entry as news %}
-                {% include 'news.html' %}
-            {% endwith %}
-        {% endif %}
-        </hr>
-    {% endfor %}
-</div>
+{% for entry in clan_stream %}
+    <hr>
+
+    {% if entry.type == "simple" %}
+        {% with entry as news %}
+            {% include 'news.html' %}
+        {% endwith %}
+    {% endif %}
+    </hr>
+
+{% endfor %}

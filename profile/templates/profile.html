@@ -60,9 +60,9 @@
                 </div>
 
                 <div id="user_profile_statistics"> <ul>
-                    <span class="info_list_item">Level:</span>{{ userprofile.lvl }}
-                    {% if my_alliance %}
-                        <span class="info_list_item">Alliance:{{ my_alliance.name }}</span>
+                    <span class="info_list_item">Level:</span>{{ userprofileid.lvl }}
+                    {% if alliance %}
+                        <span class="info_list_item">Clan: {{ alliance.name }}</span>
                             <span id="dismiss-clan">-</span>
 
                     {% endif %}
@@ -93,7 +93,6 @@
                     <li>{{ userprofileid.google }}</li>
                     <li>{{ userprofileid.facebook }}</li>
                     <li>{{ userprofileid.yahoo }}</li>
-                    <li>{{ userprofileid.user.email }}</li>
                 </ul>
 
             </div>

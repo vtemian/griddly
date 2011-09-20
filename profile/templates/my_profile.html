@@ -1,89 +1,119 @@
 {% extends 'index.html' %}
-{% block extrahead %}
-    <script type="text/javascript" src="{{ STATIC_URL }}js/django-validate.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}js/profile.js"></script>
 
+
+{% block extrahead %}
+    <script type="text/javascript" >
+        var user = "{{ userprofileid.user.username }}"
+    </script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/django-validate.js"></script>
+    <link rel="stylesheet" href="http://fromvega.com/code/autocomplete/autocomplete.css" type="text/css">
+    <script src="http://fromvega.com/code/autocomplete/dimensions.js" type="text/javascript"></script>
+    <script src="http://fromvega.com/code/autocomplete/autocomplete.js" type="text/javascript"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/autocomplete_user.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/profile.js"></script>
+    <script type=text/javascript src="{{ STATIC_URL }}js/notification.js"></script>
 {% endblock %}
 {% block header %}
     {% include 'user_menu2.html' %}
 {% endblock %}
-
 {% block content %}
-   	<div id="profile" >
-        <figure id="profile_avatar"><img src="{{ userprofile.gravatar_url }}?s=150" alt="avatar" /></figure>
-    </div>    
-     
-    <div id="info" class="clearfix">
-        <div id="info_name" class="clearfix">
-            <form action="{% url profile.views.first_name_change %}" id="change-first_name-form" type="placeholder">
-                <div id="general" class=".error"></div>
-                <h4><input type="text" name="first_name" placeholder="{{ user.first_name }}"/></h4>
-                {% csrf_token %}
-            </form>
-            <form action="{% url profile.views.last_name_change %}" id="change-last_name-form" type="placeholder">
-                <div id="general" class=".error"></div>
-                <h4><input type="text" name="last_name" placeholder="{{ user.last_name }}"/></h4>
-                {% csrf_token %}
-            </form>
-            <h5>{{ user.username }}</h5>
+    <div id="main" role="main">
+
+     	<div id="profile_holder" class="clearfix">
+
+        	<div id="profile_left_sidebar">
+                <div id="profile_avatar"><img src="{{ userprofile.gravatar_url }}?s=100" /></div>
+                    <ul id="friend_list">
+                        <li>Friend List</li>
+                        {% for friend in friends.all %}
+                            <li><img src="{{ friend.gravatar_url }}?s=40" alt="avatar" /></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+            <div id="profile_content">
+            	<div id="profile_status" class="user_online"></div>
+            	<div id="profile_user_name">
+                    <form action="{% url profile.views.first_name_change %}" id="change-first_name-form" type="placeholder">
+                        <div id="general" class=".error"></div>
+                        <h4><input type="text" name="first_name" placeholder="{{ user.first_name }}"/></h4>
+                        {% csrf_token %}
+                    </form>
+                    <form action="{% url profile.views.last_name_change %}" id="change-last_name-form" type="placeholder">
+                        <div id="general" class=".error"></div>
+                        <h4><input type="text" name="last_name" placeholder="{{ user.last_name }}"/></h4>
+                        {% csrf_token %}
+                    </form>
+                    <h3>( {{ userprofile.user.username }} )</h3>
+                </div>
+
+                <div id="user_profile_statistics"> <ul>
+                    <span class="info_list_item">Level:</span>{{ userprofile.lvl }}
+                    {% if my_alliance %}
+                        <span class="info_list_item">Alliance:{{ my_alliance.name }}</span>
+                            <span id="dismiss-clan">-</span>
+
+                    {% endif %}
+                    </ul></div>
+
+                <ul id="user_badges" class="clearfix">
+
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+
+                </ul>
+            </div>
+
+            <div id="profile_right_sidebar">
+
+            	<div id="profile_territory_info">
+                	<img src="{{ STATIC_URL }}img/profile/territory_runtime.png" />
+                </div>
+
+            	<ul id="profile_social_info">
+                	<li>Social Info</li>
+                    <li>
+                        <form action="{% url profile.views.email_change %}" id="change-email" type="placeholder">
+                            <div id="general" class="error"></div>
+                            <input type="text" name="email" placeholder="{{ user.email }}"><br>
+                             {% csrf_token %}
+                        </form>
+                    </li>
+                    <li>
+                        <form action="{% url profile.views.personal_info_change %}" id="change-personal_info" type="placeholder">
+                            <div id="general" class="error"></div>
+                            <input type="hidden" name="type" value="facebook">
+                            <input type="text" name="info" placeholder="{{ userprofile.facebook }}"><br>
+                             {% csrf_token %}
+                        </form>
+                    </li>
+                    <li>
+                        <form action="{% url profile.views.personal_info_change %}" id="change-personal_info" type="placeholder">
+                            <div id="general" class="error"></div>
+                            <input type="hidden" name="type" value="google">
+                            <input type="text" name="info" placeholder="{{ userprofile.google }}"><br>
+                             {% csrf_token %}
+                        </form>
+                    </li>
+                    <li>
+                        <form action="{% url profile.views.personal_info_change %}" id="change-personal_info" type="placeholder">
+                            <div id="general" class="error"></div>
+                            <input type="hidden" name="type" value="yahoo">
+                            <input type="text" name="info" placeholder="{{ userprofile.yahoo }}"><br>
+                             {% csrf_token %}
+                        </form>
+                    </li>
+                </ul>
+
+            </div>
+
         </div>
-    
-        <div id="info_list" class="clearfix">
-            <ul>
-            <li><span class="info_list_item">Level:</span>{{ userprofile.lvl }}</li>
-            {% if my_alliance %}
-                <li><span class="info_list_item">Alliance:{{ my_alliance.name }}</span>
-                    <span id="dismiss-clan">-</span>
-                </li>
-            {% endif %}
-            </ul>
-        </div>
-    </div>
-       
-    <div id="badges" class="clearfix">
-        <h6>Badges</h6>
-        <ul id="badges_list">
-        </ul>
-    </div>
-    
-    <div id="stats">
-        <h6><img src="{{ STATIC_URL }}img/user.png" alt="{{ user.username }}'s info"/>Personal Info<label id="plus">+</label></h6>
-        <hr/>
-        <ul class="profile_social_info">
-            <li>
-                <form action="{% url profile.views.email_change %}" id="change-email" type="placeholder">
-                    <div id="general" class="error"></div>
-                    <input type="text" name="email" placeholder="{{ user.email }}"><br>
-                     {% csrf_token %}
-                </form>
-                <form action="{% url profile.views.personal_info_change %}" id="change-personal_info" type="placeholder">
-                    <div id="general" class="error"></div>
-                    <input type="hidden" name="type" value="facebook">
-                    <input type="text" name="info" placeholder="{{ userprofile.facebook }}"><br>
-                     {% csrf_token %}
-                </form>
-                <form action="{% url profile.views.personal_info_change %}" id="change-personal_info" type="placeholder">
-                    <div id="general" class="error"></div>
-                    <input type="hidden" name="type" value="google">
-                    <input type="text" name="info" placeholder="{{ userprofile.google }}"><br>
-                     {% csrf_token %}
-                </form>
-                <form action="{% url profile.views.personal_info_change %}" id="change-personal_info" type="placeholder">
-                    <div id="general" class="error"></div>
-                    <input type="hidden" name="type" value="yahoo">
-                    <input type="text" name="info" placeholder="{{ userprofile.yahoo }}"><br>
-                     {% csrf_token %}
-                </form>
-            </li>
-        </ul>
-        <br/>
-        <h6><img src="{{ STATIC_URL }}img/stats.png" alt="{{ user.username }}'s stats"/>Stats</h6>
-        <hr/>
-        <ul class="stats_info">
-            <li>Territory Level: 17</li>
-            <li>Profit: 700$ / Day</li>
-            <li>Battles Won: 106</li>
-            <li>Badges: 25</li>
-        </ul>
+
     </div>
 {% endblock %}

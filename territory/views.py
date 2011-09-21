@@ -50,6 +50,7 @@ def create_territory(request):
 @csrf_exempt
 def verify_territory(request):
     if request.method == 'POST':
+        
         path =  request.POST.get('path')
         points = path.split(';')
         minx = 999.00
@@ -78,6 +79,6 @@ def verify_territory(request):
 
             return HttpResponse(simplejson.dumps({'locations': json_locations}))
         else:
-            return HttpResponse(simplejson.dumps({'error': minx}))
+            return HttpResponse(simplejson.dumps({'error': 'error'}))
         
     return HttpResponse('Not here!')

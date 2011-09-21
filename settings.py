@@ -100,7 +100,6 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'urls'
-STATIC_URL = '/static/'
 TEMPLATE_DIRS = ('/home/wok/projects/griddly/templates',)
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/'

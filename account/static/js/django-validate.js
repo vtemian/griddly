@@ -4,8 +4,9 @@ function validate($form, callback){
         date = jQuery.parseJSON(date)
         if(date.message != undefined){
             $('#general', $form).empty()
-            console.log(date.message)
-            $('#bara_p').html(date.message)
+           console.log(date.message)
+
+            $('#notifications_bar').html(date.message).slideDown(200).delay(1000).slideUp(200);
         }else
         if(date.ok != undefined){
             document.location = date.ok

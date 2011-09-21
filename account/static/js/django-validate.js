@@ -5,7 +5,7 @@ function validate($form, callback){
         if(date.message != undefined){
             $('#general', $form).empty()
             console.log(date.message)
-            //TODO: confirmation
+            $('#bara_p').html(date.message)
         }else
         if(date.ok != undefined){
             document.location = date.ok

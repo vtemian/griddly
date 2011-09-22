@@ -23,15 +23,25 @@
                    <ul id="member_list">
                     	<li>Members</li>
                            {% for member in clan_members %}
-                                <li><div id="alliance_member_avatar"><img src="{{ member.gravatar_url }}?s=35" /></div><div id="alliance_member_username">{{ member.user.username }}</div><div id="alliance_member_joindate">joined 09.09.2011</div><div id="alliance_member_level">{{ member.lvl }}</div></li>
-                                {% if rank == '1' %}
-                                    <span id="del-member" data-username={{ member.user.username }}> - </span>
-                                {% endif %}
-                            {% endfor %}
+                      
+                        <li>
+                            <div class="alliance_member_avatar"><img src="{{ member.gravatar_url }}?s=34"/></div>
+                            <ul class="alliance_member_name_joindate clearfix">
+                               <li><div class="alliance_member_username">{{ member.user.username }}</div></li>
+                               <li><div class="alliance_member_joindate">joined 09.09.2011</div></li>
+                            </ul>
+                            <div class="alliance_member_level">{{ member.lvl }}</div>
+                        </li>
 
+                       
+                            {% endfor %}
                    </ul>
-            
-                   <label id="add-member">Add member</label>
+
+                {% if rank == '1' %}
+                   <div id="alliance_left_sidebar_admin_add_remove">
+                    		<button class="admin_buttons">add member</button> <button class="admin_buttons">remove member</button>
+                   	</div>
+                {% endif %}
 
                     <div id="send-invites" style="display: none">
                         <form id="requests">
@@ -45,41 +55,34 @@
 
             </div>
 
-
-
-            <div id="modal-news" style="display:none">
-                <form action="{% url alliance.views.create_news %}" id="news-form">
-                    <label>Text</label>
-                    <textarea id="text" name="text"></textarea>
-                    <button>Submit</button>
-                </form>
-            </div>
-            {% if rank == '1' %}
-                <label id="create-news">Create news</label>
-            {% endif %}
-
-            
-
             <div id="alliance_content">
                 {% include 'clan_stream.html' %}
             </div>
 
             <div id="alliance_right_sidebar">
+                    {% if rank == '1' %}
+                    <div id="alliance_right_sidebar_admin">
+
+                    	<p>You're the admin of this clan. You can post news, change the avatar or add and remove members.</p>
+
+                        <button class="admin_buttons" id="create-news">add news</button> <button class="admin_buttons" id="upload-avatar">upl. avatar</button>
+
+                    </div>
+                    {% endif %}
+
+                     <div id="modal-news" style="display:none">
+                        <form action="{% url alliance.views.create_news %}" id="news-form">
+                            <label>Text</label>
+                            <textarea id="text" name="text"></textarea>
+                            <button>Submit</button>
+                        </form>
+                    </div>
 
                 	<div id="alliance_right_sidebar_avatar">
                     	{% if my_alliance.avatar %}
                             <img src="{{ my_alliance.avatar.url }}" width="150px" height="150px">
                         {% endif %}
 
-                        {% if rank == '1' %}
-                            <form action="{% url alliance.views.upload_avatar %}" id="avatar-form" method="POST" enctype="multipart/form-data">
-                                <table>
-                                    {{ avatar_form.as_table }}
-                                </table>
-                                <button>Submit</button>
-                            </form>
-
-                        {% endif %}
                     </div>
 
                     <ul id="alliance_right_sidebar_info">

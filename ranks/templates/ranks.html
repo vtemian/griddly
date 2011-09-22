@@ -9,25 +9,40 @@
 {% endblock %}
 
 {% block content %}
-	
-    <div id="alliances_list_holder">
 
-        <ul id="alliances_list" class="clearfix">
+    <div id="ranks_holder" class="clearfix">
 
-            {% for user in users %}
-                <li class="clearfix">
-                    <div class="alliance_avatar"><img src="{{ user.gravatar_url }}?s=80" alt="alt" /></div>
-                    <a href="/profile/{{ user.id }}"><h2>{{ user.user.username }}</h2></a>
-                    <h3>Level: {{ user.lvl }} Money: $ {{ user.money }} Achieve Points: {{ user.achieve_points }}
-                        {% if user.territory %}
-                            Territory Area: {{ user.territory.area }} km2
-                        {% endif %}
-                    </h3>
+        	<ul id="ranks_list">
+
+                 {% for user in users %}
+
+            	<li class="clearfix">
+                	<div class="ranks_list_rank"><img src="{{ STATIC_URL }}img/ranks/crown.png" alt="Crown" /><br/>#1</div>
+                    <div class="ranks_list_alliance_info" {% if user == userprofile %}style="border: 1px solid #acc7c4;" {% endif %}>
+                    	<p class="small_avatar ranks_list_alliance_info_avatar clearfix" style="background-image: url('{{ user.gravatar_url }}?s=59')">
+                       <img src="{{ user.gravatar_url }}?s=59" alt="Avatar" />
+                        </p>
+                        <ul class="ranks_list_alliance_stats">
+                        	<li>{{ user.user.username }}</li>
+                        	<li>
+                            	<ul class="clearfix">
+                                    <li><b>Level:</b>{{ user.lvl }}</li>
+                                    {% if user.territory %}
+                                    <li><b>Territory:</b>{{ user.territory.area }}km<sup>2</sup></li>
+                                    {% endif %}
+                                    <li><b>Money:</b> $ {{ user.money }}</li>
+                                    <li><b>Achievement Points:</b> {{ user.achieve_points }}</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <a href="/profile/{{ user.id }}">View Profile</a>
+                    </div>
                 </li>
-            {% endfor %}
 
-        </ul>
+                 {% endfor %}
 
-    </div>
+            </ul>
+
+     	</div>
     
 {% endblock %}

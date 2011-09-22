@@ -9,7 +9,6 @@
 
 			clickable: false
 		});
-
 		this.markerImage = new Gm.MarkerImage(this.handleImage);
 		this.markerImage.anchor = new Gm.Point(5, 5);
 	};
@@ -25,6 +24,7 @@
 
 	EditablePolygon.prototype.beginEdit = function () {
 		if (!this.editing) {
+            console.log('a')
 			this.editing = true;
 
 			this.focusedIndex = 0;
@@ -37,7 +37,6 @@
 			this.mapMouseOutListener = Gm.event.addListener(this.map, "mouseout", this.onMapMouseOut.bind(this));
 
 			this.getPath().forEach(function (point) {
-                console.log(point.marker)
 				point.marker.setVisible(true);
 			});
 		}
@@ -64,6 +63,9 @@
 
 	/// @protected Creates a marker.
 	EditablePolygon.prototype.createMarker = function (options) {
+
+        console.log(this.editing)
+
 		var marker = new Gm.Marker({
 			position: options.position,
 
@@ -76,14 +78,13 @@
 
 			map: this.map
 		});
-
 		marker.point = options.position;
-
+        
 		marker.dragEndListener = Gm.event.addListener(marker, "dragend", this.onMarkerDragEnd.bind(this, marker));
 		marker.dragStartListener = Gm.event.addListener(marker, "dragstart", this.onMarkerDragStart.bind(this));
 		marker.mouseOverListener = Gm.event.addListener(marker, "mouseover", this.onMarkerMouseOver.bind(this));
 
-		return marker;
+        return marker;
 	};
 
 	/// @protected Destroys the marker.
@@ -95,17 +96,16 @@
 		Gm.event.removeListener(marker.mouseOverListener);
 	};
 
-	/// @override Sets the path of the polygon.
-	EditablePolygon.prototype.setPath = function (path) {
-		Gm.ObservablePolygon.prototype.setPath.apply(this, arguments);
-
+	
+    /// @override Sets the path of the polygon.
+	EditablePolygon.prototype.setPaths = function (path) {
+		Gm.ObservablePolygon.prototype.setPaths.apply(this, arguments);
 		// Add the existing points
 		var path = this.getPath(), len = path.getLength(),
 			me = this;
-
 		path.forEach(function (point, index) {
 			// Add the marker for the point
-			point.marker = this.createMarker({
+			point.marker = me.createMarker({
 				position: point
 			});
 		})
@@ -133,7 +133,7 @@
 	EditablePolygon.prototype.onMapMouseMove = function (e) {
 		if (this.focusedIndex !== null) {
 			var path = this.getPath(), len = path.getLength();
-
+            
 			if (len == 1) {
 				var points = [ path.getAt(this.focusedIndex), e.latLng ];
 
@@ -155,16 +155,17 @@
 	};
 
 	EditablePolygon.prototype.onMarkerMouseOver = function () {
-		if (this.getPath().getLength() > 2) {
+        if (this.getPath().getLength() > 2) {
 			this.focusedIndex = null;
 			this.dragPolyline.setPath([]);
 		}
 	};
 
 	EditablePolygon.prototype.onMarkerDragStart = function () {
-		if (this.getPath().getLength() > 2) {
+        if (this.getPath().getLength() > 2) {
 			this.focusedIndex = null;
 			this.dragPolyline.setPath([]);
+
 		}
 	};
 

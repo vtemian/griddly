@@ -105,13 +105,16 @@
                     path.push(new google.maps.LatLng({{ point.lat }}, {{ point.lng }}));
                 {% endfor %}
                 this.place = new google.maps.EditablePolygon({
-                    paths: path,
                     strokeColor: "orange",
                     strokeWeight: 2,
                     fillColor: "yellow",
 
-                    handleImage: "{{ STATIC_URL }}img/handle.png"
+                    handleImage: "{{ STATIC_URL }}img/handle.png",
+
                 });
+                this.place.setMap(this.map);
+                this.place.setPaths(path)
+                this.place.beginEdit()
             {% else %}
                 this.place = new google.maps.EditablePolygon({
                     strokeColor: "orange",
@@ -190,6 +193,7 @@
 
                 }
             });
+
             
         }
     };
@@ -206,6 +210,18 @@
 
             app.map.setCenter(point, 17)
         });
+
+        $.get('/location/get-locations', {'lat': app.map.getCenter().lat(), 'lng': app.map.getCenter().lng()}, function(data){
+            var obj = $.parseJSON(data);
+            var locations = obj.locations
+            $.each(locations, function(index, value){
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(value.lat, value.lng),
+                    title:""
+                });
+                marker.setMap(app.map)
+            })
+        })
     })
 </script>
 

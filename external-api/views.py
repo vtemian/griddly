@@ -8,7 +8,7 @@ from account.models import UserProfile
 from alliance.models import Alliance
 from battle.models import Battle
 from checkin.models import Checkin
-from location.models import Location
+from location.models import Location, Loyalty
 from datetime import datetime, timedelta
 from nodejs_server.utils import encode_for_socketio
 from profile.models import Friend
@@ -39,9 +39,8 @@ def checkingin(request):
         locName = request.GET['checkin']
         locLong = request.GET['lng']
         locLang = request.GET['lat']
-        locZone = request.GET['zone']
         up = UserProfile.objects.get(user__username=userName)
-        location, created = Location.objects.get_or_create(name=locName, lng=float(locLong), lat=float(locLang), zone=locZone)
+        location, created = Location.objects.get_or_create(name=locName, lng=float(locLong), lat=float(locLang))
         try:
             users = Friend.objects.get(user=up.user).friends.all()
             friends = []
@@ -70,7 +69,7 @@ def checkingin(request):
             checkin.created_at = nowdatetime
             checkin.battle = battle
             checkin.save()
-
+            
             if nowdatetime - battle.start_time >= timedelta(minutes = 2):
                 if getbattleresults(battle) < 0:
                     battle.winner = battle.defender
@@ -121,13 +120,16 @@ def checkingin(request):
                 pass
             
             try:
-                owner = UserProfile.objects.get(territory__locations=location)
-                if owner != up:
-                    owner.exp += up.lvl * location.subscription / UserProfile.objects.filter(alliance_set__members=owner).count() / 2
-                    owner.lvl += up.lvl * up.lvl * location.subscription / 2
-                    if owner.exp >= 5 * owner.lvl * owner.lvl:
-                        owner.lvl += 1
-                    owner.save()
+                if location.territory:
+                    owner = location.territory.owner
+                    if owner:
+                        if owner != up:
+                            owner.exp += up.lvl * location.subscription / UserProfile.objects.filter(alliance_set__members=owner).count() / 2
+                            owner.lvl += up.lvl * up.lvl * location.subscription / 2
+                            if owner.exp >= 5 * owner.lvl * owner.lvl:
+                                owner.lvl += 1
+                            owner.save()
+
             except UserProfile.DoesNotExist:
                 pass
             

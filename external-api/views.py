@@ -33,6 +33,13 @@ def getbattleresults(battle):
 def checkin_notification(msg):
     pass
 
+def check_loyalty(userProfile):
+    loyalties = Loyalty.objects.filter(active=True, userProfile=userProfile)
+    for loyalty in loyalties:
+        if loyalty.value < 50:
+            return False
+    return True
+
 def checkingin(request):
     if request.method == 'GET':
         userName = request.GET['username']
@@ -70,14 +77,38 @@ def checkingin(request):
             checkin.battle = battle
             checkin.save()
             
-            if nowdatetime - battle.start_time >= timedelta(minutes = 2):
-                if getbattleresults(battle) < 0:
-                    battle.winner = battle.defender
-                else:
-                    battle.winner = battle.attacker
-                
+            my_loyalty, created = Loyalty.objects.get_or_create(location=location, userProfile=up)
+            my_loyalty.value += 10
+
+            if battle.attacker == up:
+                enemy = battle.defender
+            else:
+                enemy = battle.attacker
+
+
+
+            enemy_loyalty, created = Loyalty.objects.get_or_create(location=location, userProfile=enemy)
+
+            print enemy.user.username
+
+            if check_loyalty(up):
+                battle.active = False
+                battle.winner = up
+
+                print location.territory
+                location.territory.owner = up
+
+                location.territory.save()
+                my_loyalty.active = False
+                enemy_loyalty.active = False
                 battle.save()
-                    
+            else:
+
+                enemy_loyalty.value -= 10
+
+            enemy_loyalty.save()
+            my_loyalty.save()
+                
         except Battle.DoesNotExist:
             try:
                 latest_checkin = Checkin.objects.filter(user=up, location=location).order_by('-created_at')[0]
@@ -124,12 +155,14 @@ def checkingin(request):
                     owner = location.territory.owner
                     if owner:
                         if owner != up:
-                            owner.exp += up.lvl * location.subscription / UserProfile.objects.filter(alliance_set__members=owner).count() / 2
-                            owner.lvl += up.lvl * up.lvl * location.subscription / 2
-                            if owner.exp >= 5 * owner.lvl * owner.lvl:
-                                owner.lvl += 1
-                            owner.save()
-
+                            try:
+                                owner.exp += up.lvl * location.subscription / Alliance.objects.get(members=up).members.all().count() / 2
+                                owner.lvl += up.lvl * up.lvl * location.subscription / 2
+                                if owner.exp >= 5 * owner.lvl * owner.lvl:
+                                    owner.lvl += 1
+                                owner.save()
+                            except Alliance.DoesNotExist:
+                                pass
             except UserProfile.DoesNotExist:
                 pass
             

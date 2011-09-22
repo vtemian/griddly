@@ -160,21 +160,16 @@
                             var area = google.maps.geometry.spherical.computeArea(points);
                             $.post('{% url territory.views.create_territory %}', {'path': path, 'area': area, 'locations': venues}, function(data){
                                 var obj = JSON.parse(data)
-                                if(obj.nice == 'nice'){
-                                    console.log('nice')
+                                if(obj.nice != undefined){
+                                    $('#notifications_bar').html(obj.nice).slideDown(200).delay(1000).slideUp(200);
                                     me.place.endEdit()
-                                    //TODO: send alert to client
                                 }else{
-                                    if(obj.error == 'money'){
-                                        console.log("You don't have enough money!")
-                                    }else if(obj.error == 'territory'){
-                                        console.log("You have a territory!")
-                                    }
+                                    $('#notifications_bar').html(obj.error).slideDown(200).delay(1000).slideUp(200);
                                 }
                             })
                         }
                     }else{
-                        console.log('error')
+                        $('#notifications_bar').html(obj.error).slideDown(200).delay(1000).slideUp(200);
                         //TODO: nnotification fail
                     }
                 })

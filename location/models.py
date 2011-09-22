@@ -14,3 +14,4 @@ class Loyalty(models.Model):
     value = models.IntegerField(default=0, max_length=30)
     location = models.ForeignKey(Location)
     userProfile = models.ForeignKey(UserProfile)
+    active = models.BooleanField(default=True)

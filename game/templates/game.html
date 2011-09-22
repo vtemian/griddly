@@ -99,8 +99,8 @@
                     if ( {{ userprofile.lvl }} >= {{ request.environ.CLAN_LVL|default:"1" }} ){
                         if({{ userprofile.money }} >= {{ request.environ.CLAN_MONEY|default:"10" }}){
                             $('#make-clan').modal({
-                                opacity:80,
-                                overlayCss: {backgroundColor:"#5b5b5b"},
+                                opacity:90,
+                                overlayCss: {backgroundColor:"#eee"},
                                 minHeight:400,
                                 minWidth: 600,
                             });
@@ -117,20 +117,22 @@
         </script>
         <div id="make-clan" style="display: none">
             <form action="{% url alliance.views.create %}" id="make-clan-form">
-                <label>clan name</label>
+                <label>Clan name:</label>
                 <div id="general" class=".error"></div>
                 <input type="text" id="clan-name" name="name" />
                 <button type="submit">Send Request</button>
                 {% csrf_token %}
-                <br>
             </form>
+            <br/><br/>
+
             <form id="requests">
                 <div id="recipients" style="width: 300px">
-                    <label>members</label>
-                    <input type="text" id="new-recipient" autocomplete="off" />
+                   <label>Members</label>
+                   <input type="text" id="new-recipient" autocomplete="off" />
 
                 </div>
             </form>
+
         </div>
     {% endif %}
     

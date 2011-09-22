@@ -1,12 +1,12 @@
-/* 
+/*
  * HTML5 ✰ Boilerplate
  *
- * What follows is the result of much research on cross-browser styling. 
+ * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
  * Kroc Camen, and the H5BP dev community and team.
  *
  * Detailed information about this CSS: h5bp.com/css
- * 
+ *
  * ==|== normalize ==========================================================
  */
 
@@ -38,7 +38,7 @@ html , body { height:100%}
 
 body, button, input, select, textarea {  font-family:Tahoma, Geneva, sans-serif; color:#4d4e50; }
 
-/* 
+/*
  * Remove text-shadow in selection highlight: h5bp.com/i
  * These selection declarations have to be separate
  * Also: hot pink! (or customize the background color to match your design)
@@ -111,13 +111,13 @@ nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0
 
 /*
  * 1. Improve image quality when scaled in IE7: h5bp.com/d
- * 2. Remove the gap between images and borders on image containers: h5bp.com/e 
+ * 2. Remove the gap between images and borders on image containers: h5bp.com/e
  */
 
 img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
 
 /*
- * Correct overflow not hidden in IE9 
+ * Correct overflow not hidden in IE9
  */
 
 svg:not(:root) { overflow: hidden; }
@@ -140,9 +140,9 @@ fieldset { border: 0; margin: 0; padding: 0; }
 /* Indicate that 'label' will shift focus to the associated form element */
 label { cursor: pointer; }
 
-/* 
- * 1. Correct color not inheriting in IE6/7/8/9 
- * 2. Correct alignment displayed oddly in IE6/7 
+/*
+ * 1. Correct color not inheriting in IE6/7/8/9
+ * 2. Correct alignment displayed oddly in IE6/7
  */
 
 legend { border: 0; *margin-left: -7px; padding: 0;  }
@@ -183,14 +183,14 @@ input[type="checkbox"], input[type="radio"] { box-sizing: border-box; }
 input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
 input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
 
-/* 
- * Remove inner padding and border in FF3/4: h5bp.com/l 
+/*
+ * Remove inner padding and border in FF3/4: h5bp.com/l
  */
 
 button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
 
-/* 
- * 1. Remove default vertical scrollbar in IE6/7/8/9 
+/*
+ * 1. Remove default vertical scrollbar in IE6/7/8/9
  * 2. Allow only vertical resizing
  */
 
@@ -212,42 +212,58 @@ td { vertical-align: top; }
 /* ==|== primary styles =====================================================
    Author: Alexandru Arghirescu
    ========================================================================== */
-   
+
 /* =============================================================================
    GLOBAL
    ========================================================================== */
-   
+
 /* ******************************
    Avatars
-   ****************************** */   
-   
+   ****************************** */
+
    .small_avatar{
-   	float: left;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
-	
+   	float:left;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+
    }
-   
+
    .small_avatar img{
    opacity: 0;
    }
-  
- 
+
+
 /* ******************************
    Separators
-   ****************************** */      
-   
+   ****************************** */
+
    .separator{
    width:100%;
    border-top:1px solid #b8b8b8;
    border-bottom:1px solid #fff;
    }
 
+/* ******************************
+   Admin Buttons
+   ****************************** */
+
+.admin_buttons{
+	background:#acc7c4;
+	border:0px;
+	padding:3px 7px 3px 7px;
+	color:#fff;
+	font-weight:bold;
+
+	border-radius:2px;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+	}
+
 /* =============================================================================
    HOME
    ========================================================================== */
-   
+
 #container {
    min-height:100%;
    position:relative;
@@ -270,17 +286,17 @@ td { vertical-align: top; }
 
 	display:none;
 }
-   
+
 /* ******************************
    Header
-   ****************************** */   
+   ****************************** */
 
 #header_holder{
 	width:100%;
 	height:50px;
 	background:#ececec;
 	}
-	
+
 header{
 	width:960px;
 	height:50px;
@@ -288,16 +304,21 @@ header{
 	border-right:1px solid #ececec;
 	position:relative;
 	}
-	
+
 #logo{
 	width:121px;
 	height:33px;
 	float:left;
 	margin-top:7px;
 	}
-	
-/* *************Menu**************  */ 	
-	
+
+	#logo:active{
+	margin-top:8px;
+	}
+
+
+/* *************Menu**************  */
+
 #menu{
 	float:left;
 	margin-top:0px;
@@ -310,10 +331,10 @@ header{
 }
 
 #menu li{
-	height:25px;
+	height:30px;
 	float:left;
 	padding:10px;
-	padding-top:14px;
+	padding-top:9px;
 	border-left:1px solid #e5e4e4;
 	border-right:1px solid #f4f4f4;
 }
@@ -321,17 +342,20 @@ header{
 #menu li:hover{
 	background:#eaeaea;
 	cursor:pointer;
-	
 }
 
-/* *************User**************  */ 	
+#menu_active{
+	background:#f0f0f0;
+}
+
+/* *************User**************  */
 
 #user{
 	height:49px;
 	list-style:none;
 	padding-left:0px;
 	margin-top:0px;
-	float:right;	
+	float:right;
 }
 
 #user li{
@@ -356,7 +380,7 @@ header{
 	cursor:pointer;
 	opacity:0;
 	width: 1px;
-	
+
 }
 
 
@@ -370,7 +394,6 @@ header{
 .welcome_avatar{
 	margin-left:5px;
 	margin-top:3px;
-	float:left;
 }
 
 #user_profile_holder{
@@ -389,7 +412,7 @@ header{
 
 
 
-/* *************User Profile Menu**************  */ 
+/* *************User Profile Menu**************  */
 
 #user_profile_menu{
 	position:absolute;
@@ -398,7 +421,7 @@ header{
 	z-index:100;
 	border:1px solid #b8b8b8;
 	display:none;
-	
+
 }
 
 #user_profile_menu_inner{
@@ -416,7 +439,7 @@ header{
 	clear:left;
 	padding:2px 10px 2px 10px;
 	min-width:100px;
-	
+
 	text-shadow:1px 1px 0px #fff;
 	border-top:1px solid #f6f6f6;
 	border-bottom:1px solid #b8b8b8;
@@ -467,13 +490,13 @@ header{
 	text-shadow:1px 1px 0px #fff;
 }
 
-/* *************Notifications**************  */ 
+/* *************Notifications**************  */
 
 #notifications_nr{
 	padding:4px;
 	margin:13px 0px 0px 0px;
 	text-align:center;
-	
+
 	color:#fff;
 	font-size:13px;
 	font-weight:bold;
@@ -485,7 +508,7 @@ header{
 #requests_legend{
 	list-style:none;
 	margin:0px;
-	
+
 	visibility:hidden;
 }
 
@@ -493,7 +516,7 @@ header{
 	position:relative;
 	float:left;
 	height:22px;
-	padding:17px 10px 10px 10px;	
+	padding:17px 10px 10px 10px;
 	border-right:1px solid #e5e4e4;
 	border-left:1px solid #dcdcdc;
 	z-index:100;
@@ -513,14 +536,14 @@ header{
 	padding-bottom:1px;
 	background:#f24b39;
 
-	
+
 	font-size:10px;
 	font-weight:bold;
 	display:inline;
 	text-align:center;
 	color:#f3f3f3;
 	text-shadow:1px 1px 0px #646567;
-	
+
 	-moz-border-radius:6px;
 	-webkit-border-radius:6px;
 	border-radius:6px;
@@ -529,26 +552,26 @@ header{
 
 .notifications_body{
 	position:absolute;
-	
+
 	top:50px;
-	
+
 	right:50%;
 	margin-right:-130px;
-	
+
 	background-color:#e8e8e8;
 	border:1px solid #bbbbbb;
-	
+
 	display:none;
-	
+
 }
 
 .notifications_body_inner{
 	width:260px;
-	border:1px solid #fff;	
-	
+	border:1px solid #fff;
+
 }
 
-/* *************Notifications Content**************  */ 
+/* *************Notifications Content**************  */
 
 .notifications_items{
 	list-style:none;
@@ -572,12 +595,12 @@ header{
 }
 
 .notifications_sender{
-	float:left;	
+	float:left;
 	height:40px;
 	margin:0px;
 	padding:0px;
-	
-	
+
+
 }
 
 .notifications_info{
@@ -585,10 +608,10 @@ header{
 	width:140px;
 	height:35px;
 	margin:0px;
-	
+
 	padding-top:5px;
 	padding-left:5px;
-	
+
 	text-shadow:1px 1px 0px #fff;
 }
 
@@ -601,7 +624,7 @@ header{
 .notifications_info_text{
 	padding:0px;
 	margin:0px;
-	
+
 	font-size:11px;
 	font-weight:100;
 }
@@ -619,7 +642,7 @@ header{
 	height:20px;
 	margin-top:6px;
 	background-color:#acc7c4;
-	
+
 	border-radius:5px;
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
@@ -637,7 +660,7 @@ header{
 	margin-left:5px;
 	margin-top:6px;
 	background-color:#acc7c4;
-	
+
 	border-radius:5px;
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
@@ -653,11 +676,11 @@ header{
 	margin-left:5px;
 	padding:5px 15px 5px 15px;
 	background-color:#acc7c4;
-	
+
 	border-radius:2px;
 	-moz-border-radius:2px;
 	-webkit-border-radius:2px;
-	
+
 	font-size:11px;
 	font-weight:bold;
 	color:#fff;
@@ -671,7 +694,7 @@ header{
 
 /* ******************************
    Main
-   ****************************** */ 
+   ****************************** */
 #main{
 	padding-bottom:85px;
 }
@@ -679,8 +702,8 @@ header{
 
 /* ******************************
    Map
-   ****************************** */ 
-   
+   ****************************** */
+
 #map_holder{
 	margin-bottom:10px;
 	position:relative;
@@ -688,24 +711,24 @@ header{
 
 /* ******************************
    Map Widget
-   ****************************** */ 
-   
-#widget{ 
+   ****************************** */
+
+#widget{
 	position:absolute;
 	z-index:200;
-	
+
 	background:#f3f3f3;
 	box-shadow:1px 0px 10px #666;
-	
+
 	width:250px;
 
 	top:50px;
 	left:50px;
-	
+
 	border-radius:8px;
 	-moz-border-radius:8px;
 	-webkit-border-radius:8px;
-	
+
 	padding-top:5px;
 	padding-bottom:5px;
 	opacity:0.9;
@@ -716,7 +739,7 @@ header{
 	height:25px;
 	width:100%;
 	border-bottom:1px solid #dedede;
-	
+
 	background-image: -webkit-gradient(
     linear,
     left bottom,
@@ -742,17 +765,17 @@ background-image: -moz-linear-gradient(
 	margin-left:5px;
 
 	}
-	
+
 	#widget_money_info{
 	float:left;
-	
+
 	font-size:17px;
 	font-weight:bold;
 	text-shadow:1px 1px 0px #fff;
 	margin-top:2px;
 	margin-left:10px;
-	
-	
+
+
 	}
 
 #widget_level{
@@ -760,8 +783,8 @@ background-image: -moz-linear-gradient(
 	width:100%;
 	border-top:1px solid #fff;
 	border-bottom:1px solid #dedede;
-	
-	
+
+
 	background:#f6f6f6;
 }
 
@@ -779,7 +802,7 @@ background-image: -moz-linear-gradient(
 		font-weight:bold;
 		text-shadow:1px 1px 0px #fff;
 		text-align:center;
-		
+
 		-moz-border-radius-topleft:5px;
 		-moz-border-radius-topright:5px;
 		-webkit-border-top-left-radius:5px;
@@ -792,7 +815,7 @@ background-image: -moz-linear-gradient(
 		font-weight:bold;
 		text-shadow:1px 0px 0px #fff;
 		text-align:center;
-		
+
 		-moz-border-radius-bottomleft:5px;
 		-moz-border-radius-bottomright:5px;
 		-webkit-border-bottom-left-radius:5px;
@@ -809,15 +832,15 @@ background-image: -moz-linear-gradient(
 			width:115px;
 			margin-top:7px;
 		}
-		
+
 		#widget_level_checkins_graph{
 			margin-bottom:2px;
 		}
-		
+
 		#widget_level_checkins_graph_info{
 			font-size:11px;
 		}
-		
+
 	#widget_level_checkins_stats{
 		float:right;
 		margin-top:3px;
@@ -830,7 +853,7 @@ background-image: -moz-linear-gradient(
 			font-size:14px;
 			font-weight:bold;
 		}
-		
+
 		#widget_level_checkins_stats ul li:first-child{
 			margin-bottom:5px;
 		}
@@ -842,10 +865,149 @@ background-image: -moz-linear-gradient(
 }
 
 /* ******************************
+   WAR Widget
+   ****************************** */
+
+#war_widget{
+	position:absolute;
+	z-index:200;
+
+	background:#f3f3f3;
+	box-shadow:1px 0px 10px #666;
+
+	width:250px;
+
+	top:190px;
+	left:50px;
+
+	border-radius:8px;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+
+	padding-top:5px;
+	padding-bottom:5px;
+	opacity:0.9;
+	cursor:move;
+}
+
+#war_widget_header{
+	height:25px;
+	width:100%;
+	border-bottom:1px solid #dedede;
+
+	background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.45, rgb(235,235,235)),
+    color-stop(0.74, rgb(243,243,243))
+);
+background-image: -moz-linear-gradient(
+    center bottom,
+    rgb(235,235,235) 45%,
+    rgb(243,243,243) 74%
+);
+}
+
+	#war_widget_info{
+	float:left;
+	font-size:17px;
+	font-weight:bold;
+	text-shadow:1px 1px 0px #fff;
+	margin-top:2px;
+	margin-left:10px;
+
+
+	}
+
+	#war_widget_bar{
+	width:100%;
+	border-top:1px solid #fff;
+	border-bottom:1px solid #dedede;
+
+
+	background:#f6f6f6;
+}
+
+	#war_widget_battle_history{
+	border-top:1px solid #fff;
+	width:100%;
+	}
+/* ************ Map Battle Bar ************ */
+
+@charset "utf-8";
+/* CSS Document */
+
+#battle_bar_holder{
+float:left;
+width:170px;
+height:30px;
+position:relative;
+}
+
+#battle_bar {
+width:170px;
+height:30px;
+border-radius:6px;
+background-color:#CCC;
+border:1px solid #999;
+}
+
+#battle_bar_progress{
+width:160px;
+height:30px;
+margin:0px auto;
+position:relative;
+overflow:hidden;
+}
+
+#team1{
+position:absolute;
+height:25px;
+width:80px;
+top:5px;
+left:0px;
+background-color:#e88888;
+
+}
+
+#team1_popup{
+position:absolute;
+height:50px;
+width:50px;
+top:40px;
+left:5px;
+border-radius:6px;
+background-color:#e88888;
+display:none;
+}
+
+#team2{
+position:absolute;
+height:25px;
+width:80px;
+top:5px;
+right:0px;
+background-color:#85b1d3;
+
+}
+
+#team2_popup{
+position:absolute;
+height:50px;
+width:50px;
+top:40px;
+right:5px;
+border-radius:6px;
+background-color:#85b1d3;
+display:none;
+}
+
+/* ******************************
    Map Checkin Overlay
-   ****************************** */ 
-   
-   
+   ****************************** */
+
+
 .checkin_overlay{
 	position:absolute;
 	left:500px;
@@ -856,7 +1018,7 @@ background-image: -moz-linear-gradient(
 	position:relative;
 	width:63px;
 	height:75px;
-	background:url(/static/img/map/checkins/marker.png) no-repeat;
+	background:url(../img/map/checkins/marker.png) no-repeat;
 	z-index:2;
 }
 
@@ -869,9 +1031,9 @@ background-image: -moz-linear-gradient(
 		-webkit-border-radius: 30px;
 		-moz-border-radius: 30px;
 		border-radius: 30px;
-		
+
 	   }
-	   
+
 	   .checkin_avatar img{
 	   opacity: 0;
 	   }
@@ -881,19 +1043,20 @@ background-image: -moz-linear-gradient(
 	top:6px;
 	left:49px;
 	height:40px;
-    width:200px;
 	background:#acc7c4;
 	z-index:1;
 	padding-left:20px;
 	padding-top:5px;
 	padding-bottom:5px;
 	padding-right:20px;
-	
+
 	-moz-border-radius-topright:5px;
 	-moz-border-radius-bottomright:5px;
 	-webkit-border-top-right-radius:5px;
 	-webkit-border-bottom-right-radius:5px;
-	
+
+	opacity:0;
+
 }
 
 .checkin_overlay_info ul{
@@ -909,15 +1072,15 @@ background-image: -moz-linear-gradient(
 
 /* ******************************
    Map Sidebars
-   ****************************** */ 
-   
+   ****************************** */
+
 .sidebar_inner{
 	position:relative;
 	border:1px solid #fff;
 	width:100%;
 	height:250px;
 }
-   
+
 #sidebar_left{
 	position:absolute;
 	z-index:300;
@@ -927,28 +1090,28 @@ background-image: -moz-linear-gradient(
 	background-color:#f3f3f3;
 	border:1px solid #d2d2d2;
 	border-left:0px;
-	
-	
+
+
 }
 	#sidebar_left_handle{
 		position:absolute;
-		
+
 		width:40px;
 		height:150px;
-		
+
 		margin-top:50px;
-		
+
 		right:-41px;
-		
+
 		background-color:#f3f3f3;
-		
+
 		border:1px solid #d2d2d2;
 		border-left:0px;
-		
+
 		cursor:pointer;
 
 	}
-	
+
 	#sidebar_left_handle>img{
 			float:left;
 			margin-top:60px;
@@ -960,44 +1123,44 @@ background-image: -moz-linear-gradient(
 	z-index:300;
 	top:30%;
 	right:2px;
-	
+
 	width:0%;
 	background-color:#f3f3f3;
 	border:1px solid #d2d2d2;
 	border-right:0px;
-	
-	
+
+
 }
 
 	#sidebar_right_handle{
 		position:absolute;
-		
+
 		width:40px;
 		height:150px;
-		
+
 		margin-top:50px;
-		
+
 		left:-41px;
-		
+
 		background-color:#f3f3f3;
-		
+
 		border:1px solid #d2d2d2;
 		border-right:0px;
-		
+
 		cursor:pointer;
 	}
-	
+
 		#sidebar_right_handle>img{
 			float:left;
 			margin-top:60px;
 			margin-left:8px;
 		}
-	
+
 
 /* ******************************
    Footer
-   ****************************** */ 
-  
+   ****************************** */
+
 #footer_wrap{
 	position:absolute;
     bottom:0;
@@ -1080,7 +1243,7 @@ footer{
 /* =============================================================================
    LANDING
    ========================================================================== */
-   
+
 #main_holder{
 	position:relative;
 	width:960px;
@@ -1090,7 +1253,7 @@ footer{
 /* ******************************
    Content
    ****************************** */
-   
+
 #content{
 	width:665px;
 	float:left;
@@ -1102,16 +1265,16 @@ footer{
 	background:#fff;
 
 	margin-bottom:10px;
-	
+
 	border-radius:5px;
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
-	
-	box-shadow:0px 0px 10px #dbdbdb;	
-	
+
+	box-shadow:0px 0px 10px #dbdbdb;
+
 	padding:5px;
-	
-	
+
+
 }
 
 #about #bubble_corner{
@@ -1136,9 +1299,9 @@ footer{
 	width:600px;
 	margin-left:20px;
 	margin-bottom:20px;
-	
+
 	padding-top:20px;
-	
+
 	border-top:1px solid #ebebeb;
 	display:none;
 }
@@ -1147,43 +1310,43 @@ footer{
 	width:665px;
 	height:420px;
 	background-image:url(../img/animations_map.png);
-	
+
 	border-radius:10px;
 	-moz-border-radius:10px;
 	-webkit-border-radius:10px;
-	
+
 	box-shadow:0px 0px 5px #ccc;
 }
-   
+
 #tour{
 	width:655px;
 	height:66px;
-	
+
 	margin-top:10px;
-	
+
 	background:#fff url(../img/tour/sky.png) right no-repeat;
-	
+
 	border-radius:5px;
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
-	
-	box-shadow:0px 0px 10px #dbdbdb;	
-	
+
+	box-shadow:0px 0px 10px #dbdbdb;
+
 	padding:5px;
 }
 
 #tour_info{
 	float:left;
 	display:inline;
-	
-	margin-top:20px;	
+
+	margin-top:20px;
 }
 
 #tour_info>h2{
 	display:inline;
 	margin-left:20px;
 	margin-right:20px;
-	
+
 	text-shadow:1px 1px 0px #FFF;
 }
 
@@ -1192,11 +1355,11 @@ footer{
 	background-color:#ededed;
 	padding:8px 20px 12px 20px;
 	border:1px solid #CCC;
-	
+
 	border-radius:15px;
 	-moz-border-radius:15px;
 	-webkit-border-radius:15px;
-	
+
 	font-size:16px;
 	font-weight:bold;
 	text-decoration:none;
@@ -1215,12 +1378,12 @@ footer{
 	float:right;
 	width:150px;
 	height:20px;
-	
+
 	margin-top:27px;
 	margin-right:30px;
 }
 
-/* *************Icons**************  */ 
+/* *************Icons**************  */
 
 #phone{
 	background:url(../img/tour/icons/phone.png);
@@ -1228,7 +1391,7 @@ footer{
 	height:48px;
 	position:absolute;
 	z-index:90;
-	
+
 	right:20px;
 	top:-20px;
 }
@@ -1239,7 +1402,7 @@ footer{
 	height:44px;
 	position:absolute;
 	z-index:50;
-	
+
 	right:30px;
 	top:-10px;
 }
@@ -1250,7 +1413,7 @@ footer{
 	height:20px;
 	position:absolute;
 	z-index:100;
-	
+
 	right:65px;
 	top:4px;
 }
@@ -1261,7 +1424,7 @@ footer{
 	height:44px;
 	position:absolute;
 	z-index:60;
-	
+
 	right:60px;
 	top:-20px;
 }
@@ -1271,8 +1434,8 @@ footer{
 
 /* ******************************
    Connect
-   ****************************** */ 
-   
+   ****************************** */
+
 #connect{
 	position:relative;
 	z-index:100;
@@ -1324,7 +1487,7 @@ footer{
 	background:url(../img/sign_up/separator3.png) no-repeat;
 }
 
-/* *************Login & Register Buttons**************  */ 
+/* *************Login & Register Buttons**************  */
 
 #connect_form{
 	width:149px;
@@ -1334,16 +1497,16 @@ footer{
 .connect_button{
 	width:149px;
 	height:40px;
-	
+
 	background:url(../img/sign_up/button_bg.png);
-	
+
 	border:0px;
-	
+
 	font-size:16px;
 	font-weight:bold;
 	color:#fff;
 	text-shadow:0px -1px 0px #6c6b6b;
-	
+
 	margin-left:23%;
 	padding-bottom:3px;
 
@@ -1354,7 +1517,7 @@ footer{
 }
 
 .connect_button:active{
-	
+
 }
 
 /* INPUT STYLING */
@@ -1369,17 +1532,17 @@ footer{
 	width:181px;
 	padding:7px;
 	border:1px solid #9c9c9c;
-	
+
 	border-radius:5px;
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
-	
+
 	font-weight:bold;
-	text-shadow: 0px 1px 0px #fff;  
-    outline: none;  
-    background: -webkit-gradient(linear, left top, left bottombottom, from(#dadada), to(#ececec));  
-    background: -moz-linear-gradient(top,  #dadada,  #ececec); 
-	
+	text-shadow: 0px 1px 0px #fff;
+    outline: none;
+    background: -webkit-gradient(linear, left top, left bottombottom, from(#dadada), to(#ececec));
+    background: -moz-linear-gradient(top,  #dadada,  #ececec);
+
 	opacity:0.8;
 }
 
@@ -1387,17 +1550,17 @@ footer{
 	width:181px;
 	padding:7px;
 	border:1px solid #9c9c9c;
-	
+
 	border-radius:5px;
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
-	
+
 	font-weight:bold;
-	text-shadow: 0px 1px 0px #fff;  
-    outline: none;  
-    background: -webkit-gradient(linear, left top, left bottombottom, from(#dadada), to(#ffffff));  
-    background: -moz-linear-gradient(top,  #dadada,  #ffffff); 
-	
+	text-shadow: 0px 1px 0px #fff;
+    outline: none;
+    background: -webkit-gradient(linear, left top, left bottombottom, from(#dadada), to(#ffffff));
+    background: -moz-linear-gradient(top,  #dadada,  #ffffff);
+
 	opacity:1;
 }
 
@@ -1405,17 +1568,17 @@ footer{
 	width:100px;
 	padding:7px;
 	border:1px solid #9c9c9c;
-	
+
 	border-radius:5px;
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
-	
+
 	margin-top:10px;
-	
+
 	margin-left:23%;
 }
 
-/* *************Login**************  */ 
+/* *************Login**************  */
 
 #login{
 	width:281px;
@@ -1430,7 +1593,7 @@ footer{
 	margin:0px auto;
 	margin-top:20px;
 	padding-bottom:20px;
-	
+
 	display:none;
 }
 
@@ -1445,7 +1608,7 @@ footer{
 	text-shadow:1px 1px 0px #7c7c7c;
 }
 
-/* *************Register**************  */ 
+/* *************Register**************  */
 
 #login_register{
 	width:281px;
@@ -1463,9 +1626,9 @@ footer{
 	margin:0px;
 }
 
-/* *************Register Form**************  */ 
+/* *************Register Form**************  */
 
-/* *************Easy Way**************  */ 
+/* *************Easy Way**************  */
 #easy_way{
 	color:#fff;
 	font-size:14px;
@@ -1480,22 +1643,22 @@ footer{
 	width:197px;
 	height:37px;
 	padding-left:40px;
-	
+
 	background:url(../img/sign_up/f_g_button.png);
-	
+
 	border:0px;
-	
+
 	font-size:12px;
 	font-weight:bold;
 	color:#fff;
 	text-shadow:0px -1px 0px #333c49;
-	
+
 	margin-left:15%;
-	
+
 	margin-top:20px;
 	margin-bottom:0px;
-	
-	
+
+
 }
 
 #or{
@@ -1503,7 +1666,7 @@ footer{
 	height:9px;
 	margin:0px auto;
 	background:url(../img/sign_up/or.png);
-	
+
 	margin-top:15px;
 	margin-bottom:15px;
 }
@@ -1512,26 +1675,26 @@ footer{
 	width:197px;
 	height:37px;
 	padding-left:40px;
-	
+
 	background:url(../img/sign_up/f_g_button.png);
 	background-position:0px -37px;
-	
+
 	border:0px;
-	
+
 	font-size:12px;
 	font-weight:bold;
 	color:#4f4f4f;
 	text-shadow:0px -1px 0px #e3e2e2;
-	
+
 	margin-left:15%;
-	
+
 	margin-top:0px;
 	margin-bottom:20px;
-	
-	
+
+
 }
 
-/* *************Hard Way**************  */ 
+/* *************Hard Way**************  */
 
 #hard_way{
 	color:#fff;
@@ -1580,22 +1743,22 @@ footer{
 
 /* ******************************
    Mobile App Downloads
-   ****************************** */ 
-   
+   ****************************** */
+
 #mobile_app_downloads{
 	width:281px;
 	float:right;
-	
+
 	margin-right:-281px;
-	
+
 	margin-top:245px;
-	
+
 	background-color:#fff;
-	
+
 	border-radius:5px;
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
-	
+
 	box-shadow:0px 0px 10px #dbdbdb;
 }
 
@@ -1623,7 +1786,7 @@ footer{
 #mobile_app_downloads_list li{
 	width:260px;
 	margin:0px auto;
-	
+
 	margin-top:5px;
 	padding:3px;
 	cursor:pointer;
@@ -1655,14 +1818,14 @@ footer{
 /* =============================================================================
    PROFILE
    ========================================================================== */
-   
+
 #profile_holder{
 	clear:both;
 	position:relative;
 	width:960px;
 	margin:0px auto;
 	background-color:#fff;
-	box-shadow:0px 0px 10px #dbdbdb;	
+	box-shadow:0px 0px 10px #dbdbdb;
 }
 
 #profile_left_sidebar{
@@ -1689,13 +1852,13 @@ footer{
 	background-color:#f9f9f9;
 	border-left:1px solid #fff;
 }
-   
+
 /* ******************************
    Sidebar Left
-   ****************************** */ 
+   ****************************** */
 
-   
-/* *************Avatar**************  */ 
+
+/* *************Avatar**************  */
 
 #profile_avatar{
 	width:100px;
@@ -1705,7 +1868,7 @@ footer{
 	background:#dfdfdf;
 }
 
-/* *************Buttons**************  */ 
+/* *************Buttons**************  */
 
 .profile_button{
 	background:#dfdfdf;
@@ -1759,8 +1922,8 @@ footer{
 
 /* ******************************
    Profile Content
-   ****************************** */ 
-   
+   ****************************** */
+
 /* *******Online Status */
 
 #profile_status{
@@ -1769,7 +1932,7 @@ footer{
 	float:left;
 	margin-top:11px;
 	margin-left:12px;
-	
+
 	border-radius:8px;
 	-moz-border-radius:8px;
 	-webkit-border-radius:8px;
@@ -1781,7 +1944,7 @@ footer{
 
 #profile_user_name{
 	padding:10px 0px 10px 0px;
-	
+
 }
 
 #profile_user_name>h2{
@@ -1790,7 +1953,7 @@ footer{
 	margin-left:10px;
 	padding:0px;
 	display:inline;
-	
+
 }
 
 #profile_user_name>h3{
@@ -1799,7 +1962,7 @@ footer{
 	margin-left:10px;
 	padding:0px;
 	display:inline;
-}	
+}
 
 /* *************User Statistics************ */
 
@@ -1823,18 +1986,18 @@ footer{
 	height:50px;
 	margin-left:13px;
 	margin-top:13px;
-	
+
 	background-color:#CCC;
-	
+
 	border-radius:25px;
 	-moz-border-radius:25px;
 	-webkit-border-radius:25px;
 }
 
-	
+
 /* ******************************
    Sidebar Right
-   ****************************** */ 
+   ****************************** */
 
 #profile_territory_info{
 	width:250px;
@@ -1861,10 +2024,11 @@ footer{
 	margin-bottom:10px;
 	background:#dfdfdf;
 }
+
 /* =============================================================================
    ALLIANCE
    ========================================================================== */
-   
+
 #alliance_holder{
 	clear:both;
 	position:relative;
@@ -1873,7 +2037,7 @@ footer{
 	background-color:#fff;
 	box-shadow:0px 0px 10px #dbdbdb;
 	}
-	
+
 #alliance_left_sidebar{
 	width:230px;
 	float:left;
@@ -1898,7 +2062,7 @@ footer{
 
 /* ******************************
    Alliance Sidebar Left
-   ****************************** */ 	
+   ****************************** */
 
 #member_list{
 	width:230px;
@@ -1907,7 +2071,7 @@ footer{
 	padding:0px;
 }
 
-#member_list li{
+#member_list>li{
 	width:220px;
 	height:40px;
 	margin-left:5px;
@@ -1917,11 +2081,11 @@ footer{
 	cursor:pointer;
 }
 
-#member_list li:hover{
+#member_list>li:hover{
 	background:#e6e6e6;
 }
 
-#member_list li:first-child{
+#member_list>li:first-child{
 	width:226px;
 	height:20px;
 	margin:0px;
@@ -1935,46 +2099,72 @@ footer{
 
 /* *************Alliance Member Avatar************ */
 
-#alliance_member_avatar{
+.alliance_member_avatar{
 	float:left;
 	margin-left:3px;
 	margin-top:3px;
 }
 
-#alliance_member_username{
+.alliance_member_name_joindate{
+	list-style:none;
+	width:140px;
 	float:left;
+	margin:0px;
+	margin-left:5px;
+	margin-top:5px;
+}
+
+.alliance_member_name_joindate li{
+	width:135px;
+}
+
+.alliance_member_username{
 	font-size:13px;
 	font-weight:bold;
 	text-shadow:1px 1px 0px #fff;
-	margin-top:5px;
-	margin-left:4px;
 }
 
-#alliance_member_joindate{
-	float:left;
+.alliance_member_joindate{
 	font-size:10px;
-	margin-top:22px;
-	margin-left:-72px;
 }
 
-#alliance_member_level{
-	float:left;
-	
-	margin-left:20px;
-	margin-top:5px;
+.alliance_member_level{
+	float:right;
+
+	margin-right:5px;
+	margin-top:6px;
 	font-size:16px;
 	font-weight:bold;
 	background:#dfdfdf;
 	padding:5px;
-	
+
 	border-radius:5px;
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
 }
 
+#alliance_left_sidebar_admin_add_remove{
+width:220px;
+padding:5px;
+background:#e2eeee;
+}
+
 /* ******************************
    Alliance Sidebar Right
-   ****************************** */ 
+   ****************************** */
+
+#alliance_right_sidebar_admin{
+	background:#e2eeee;
+	width:189px;
+	padding:5px;
+	border:0px 1px 0px 0px #fff;
+}
+
+	#alliance_right_sidebar_admin p{
+	text-align:center;
+	color:#a7a4a6;
+	font-size:11px;
+	}
 
 #alliance_right_sidebar_avatar{
 	width:150px;
@@ -2006,12 +2196,14 @@ footer{
 
 /* ******************************
    Alliance Content
-   ****************************** */ 
+   ****************************** */
 
 .alliance_content_news{
 	width:506px;
 	margin:0px auto;
+	margin-top:10px;
 	padding:10px;
+	border-bottom:1px solid #f5f5f5;
 }
 
 .alliance_content_news_header{
@@ -2056,22 +2248,146 @@ footer{
 	background:#f9f9f9;
 	padding:10px;
 	margin-top:5px;
-	margin-bottom:15px;
+	margin-bottom:10px;
 }
 
 /* =============================================================================
    RANKS
    ========================================================================== */
-   
+
 #ranks_holder{
 	clear:both;
 	position:relative;
 	width:960px;
-	height:400px;
 	margin:0px auto;
+	margin-bottom:10px;
 	background-color:#fff;
-	box-shadow:0px 0px 10px #dbdbdb;	
+	box-shadow:0px 0px 10px #dbdbdb;
 }
+
+#ranks_list{
+	list-style:none;
+}
+
+#ranks_list>li{
+	height:70px;
+	margin-top:10px;
+}
+
+#ranks_list>li:first-child .ranks_list_rank{
+height:55px;
+padding-top:15px;
+}
+
+.ranks_list_rank{
+	float:left;
+	width:45px;
+	height:45px;
+	background:#f6f6f6;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+
+	margin:0px 10px 0px 10px;
+	padding:25px 0px 0px 0px;
+	text-align:center;
+
+	font-size:16px;
+	font-weight:bold;
+}
+
+.ranks_list_alliance_info{
+	float:left;
+	width:880px;
+	height:70px;
+	background:#f9f9f9;
+	border:1px solid #eee;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+
+}
+
+	.ranks_list_alliance_info img{
+	width:59px;
+	height:59px;
+	float:left;
+	margin-top:5px;
+	margin-left:5px;
+	}
+
+		.ranks_list_alliance_info_avatar{
+		margin-top:3px;
+		margin-left:5px;
+		}
+
+	.ranks_list_alliance_stats{
+	float:left;
+	list-style:none;
+	padding:0px;
+	margin-top:14px;
+	margin-left:10px;
+	font-size:18px;
+	font-weight:bold;
+	text-shadow:1px 1px 0px #fff;
+	}
+
+
+			.ranks_list_alliance_stats>li{
+			margin-top:5px;
+			}
+
+			.ranks_list_alliance_stats>li:first-child{
+			margin-top:0px;
+			}
+
+					.ranks_list_alliance_stats ul{
+					list-style:none;
+					margin:0px;
+					font-size:14px;
+					font-weight:bold;
+					color:#a0a0a0;
+					text-shadow:1px 1px 0px #fff;
+					}
+
+						.ranks_list_alliance_stats ul>li{
+						float:left;
+						margin-left:15px;
+						}
+
+						.ranks_list_alliance_stats ul>li:first-child{
+						margin-left:0px;
+						}
+
+						.ranks_list_alliance_stats ul>li b{
+						font-size:12px;
+						color:#b6b6b6;
+						}
+
+
+
+
+	.ranks_list_alliance_info a{
+	float:right;
+	background:#dfdfdf;
+	padding:4px 10px 4px 10px;
+	margin:21px 15px 0px 0px;
+	border-radius:2px;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+	color:#fff;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #adadad;
+	}
+
+	.ranks_list_alliance_info a:hover{
+	background:#cecece;
+	}
+
+	.ranks_list_alliance_info a:active{
+	margin-top:22px;
+	}
 
 /* ==|== non-semantic helper classes ========================================
    Please define your styles before this section.
@@ -2093,7 +2409,7 @@ footer{
 /* Hide visually and from screenreaders, but maintain layout */
 .invisible { visibility: hidden; }
 
-/* Contain floats: h5bp.com/q */ 
+/* Contain floats: h5bp.com/q */
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
@@ -2122,7 +2438,7 @@ footer{
    Print styles.
    Inlined to avoid required HTTP connection: h5bp.com/r
    ========================================================================== */
- 
+
 @media print {
   * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */
   a, a:visited { text-decoration: underline; }

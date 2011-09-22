@@ -37,6 +37,7 @@
 			this.mapMouseOutListener = Gm.event.addListener(this.map, "mouseout", this.onMapMouseOut.bind(this));
 
 			this.getPath().forEach(function (point) {
+                console.log(point.marker)
 				point.marker.setVisible(true);
 			});
 		}
@@ -56,6 +57,7 @@
 
 			this.getPath().forEach(function (point) {
 				point.marker.setVisible(false);
+                console.log(point)
 			});
 		}
 	};
@@ -98,7 +100,7 @@
 		Gm.ObservablePolygon.prototype.setPath.apply(this, arguments);
 
 		// Add the existing points
-		var path = this.getPath(), len = path.getLength(), 
+		var path = this.getPath(), len = path.getLength(),
 			me = this;
 
 		path.forEach(function (point, index) {
@@ -120,25 +122,7 @@
 			position: point
 		});
 	};
-    EditablePolygon.prototype.contains = function(y , x) {
-        var j=0;
-        var oddNodes = false;
 
-        var paths = this.getPath();
-        console.log(paths)
-        for (var i=0; i < paths.getLength(); i++) {
-            j++;
-            if (j == paths.getLength()) {j = 0;}
-                if (((paths.getAt(i).lat() < y) && (paths.getAt(j).lat() >= y)) || ((paths.getAt(j).lat() < y) && (paths.getAt(i).lat() >= y))) {
-                    if ( paths.getAt(i).lng() + (y - paths.getAt(i).lat())
-                    /  (paths.getAt(j).lat()-paths.getAt(i).lat())
-                    *  (paths.getAt(j).lng() - paths.getAt(i).lng())<x ) {
-                            oddNodes = !oddNodes
-                    }
-            }
-        }
-        return oddNodes;
-    }
 	/// @protected @override
 	EditablePolygon.prototype.onPathPointRemoved = function (index, point) {
 		Gm.ObservablePolygon.prototype.onPathPointRemoved.apply(this, arguments);
@@ -186,14 +170,13 @@
 
 	EditablePolygon.prototype.onMarkerDragEnd = function (marker, e) {
 		this.getPath().setAt(marker.point.index, e.latLng);
-		
+
 		marker.point = e.latLng;
 	};
 
 	EditablePolygon.prototype.onMapClick = function (e) {
 		if (this.focusedIndex !== null) {
 			this.getPath().insertAt(this.focusedIndex, e.latLng);
-
 		}
 	};
 
@@ -203,6 +186,24 @@
 
 		Gm.ObservablePolygon.prototype.onMarginFocus.apply(this, arguments);
 	};
+    EditablePolygon.prototype.contains = function(y , x) {
+            var j=0;
+            var oddNodes = false;
 
+            var paths = this.getPath();
+            console.log(paths)
+            for (var i=0; i < paths.getLength(); i++) {
+                j++;
+                if (j == paths.getLength()) {j = 0;}
+                    if (((paths.getAt(i).lat() < y) && (paths.getAt(j).lat() >= y)) || ((paths.getAt(j).lat() < y) && (paths.getAt(i).lat() >= y))) {
+                        if ( paths.getAt(i).lng() + (y - paths.getAt(i).lat())
+                        /  (paths.getAt(j).lat()-paths.getAt(i).lat())
+                        *  (paths.getAt(j).lng() - paths.getAt(i).lng())<x ) {
+                                oddNodes = !oddNodes
+                        }
+                }
+            }
+            return oddNodes;
+    }
 	return EditablePolygon;
 })(google.maps);

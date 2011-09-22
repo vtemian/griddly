@@ -159,6 +159,7 @@
                                 var obj = JSON.parse(data)
                                 if(obj.nice == 'nice'){
                                     console.log('nice')
+                                    me.place.endEdit()
                                     //TODO: send alert to client
                                 }else{
                                     if(obj.error == 'money'){

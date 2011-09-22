@@ -24,8 +24,8 @@
             this.bodyEl = $(document);
             this.mapEl = $("#map");
 
-            this.mapEl.width(this.bodyEl.width() - 40);
-            this.mapEl.height(this.bodyEl.height() - 40);
+            this.mapEl.width(this.bodyEl.width());
+            this.mapEl.height(this.bodyEl.height() - 163);
 
             this.map = new google.maps.Map(this.mapEl[0], {
                 zoom: 17,

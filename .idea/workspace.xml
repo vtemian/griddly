@@ -520,7 +520,7 @@
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="bara notificari sus + css [fix]" />
+    <option name="LAST_COMMIT_MESSAGE" value="notification buttons + fix" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -551,6 +551,7 @@
     <MESSAGE value="Map Resize Fix (on refresh) + Notifications" />
     <MESSAGE value="ranks page, alliance page, alliance page admin options + fixes." />
     <MESSAGE value="bara notificari sus + css [fix]" />
+    <MESSAGE value="notification buttons + fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

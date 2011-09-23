@@ -198,19 +198,19 @@
     $(document).ready(function(){
         
         socket.on('checkin', function(data){
-            var message = "<div class='checkin_overlay clearfix' id='messageDiv'>"+
-                +"<div class='checkin_overlay_marker'>"+
-                     +"<p class='checkin_avatar clearfix' style='background-image:url("+data.gravatar_url+"?s=45)'>"+
-                        +"<img src='"+data.gravatar_url+"?s=45' alt='avatar'/>"+
-                     +"</p>"+
-                +"</div>"+
-                +"<div class='checkin_overlay_info'>"+
-                    +"<ul>"+
-                        +"<li>Checked in at: "+data.locationName+"</li>"+
-                       +"<li>45 minutes ago</li>"+
-                    +"</ul>"+
-                +"</div>"+
-            +"</div>";
+            var message = "<div class='checkin_overlay clearfix' id='messageDiv'>\
+                <div class='checkin_overlay_marker'>\
+                     <p class='checkin_avatar clearfix' style='background-image:url("+data.gravatar_url+"?s=45)'>\
+                        <img src='"+data.gravatar_url+"?s=45' alt='avatar'/>\
+                     </p>\
+                </div>\
+                <div class='checkin_overlay_info'>\
+                    <ul>\
+                        <li>Checked in at: "+data.locationName+"</li>\
+                       <li>45 minutes ago</li>\
+                    </ul>\
+                </div>\
+            </div>";
             
             point = new google.maps.LatLng(data.locationLat, data.locationLng)
             console.log(message)

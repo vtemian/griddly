@@ -191,14 +191,13 @@ def checkingin(request):
                 pass
 
         if friends:
-            
             ws.send('2::')
             ws.send('5:1::{"name":"handshaking", "args":[{"user":"server"}]}')
             for friend in friends:
                 ws.send('2::')
                 ws.send('5:1::{"name":"checkin", "args":[{"user":"'+str(friend.user.username)+'", "gratar_url":"'+str(friend.gravatar_url)+'", "locationName":"'+str(location.name)+'", "locationLat":"'+str(location.lat)+'", "locationLng": "'+str(location.lng)+'"}]}')
             print ws.recv()
-
+            ws.close()
         else:
             return HttpResponse('done')
 

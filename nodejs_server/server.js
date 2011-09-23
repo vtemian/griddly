@@ -40,6 +40,6 @@ io.sockets.on('connection', function (socket) {
         console.log(user)
         console.log('a')
         if(index != -1)
-            clients[index].emit('checkin', {'message': data.message, 'locationLat': data.locationLat, 'locationLng': data.locationLng})
+            clients[index].emit('checkin', {'gravatar_url': data.gravatar_url, 'locationLat': data.locationLat, 'locationLng': data.locationLng, 'locationName': data.locationName})
     });
 });

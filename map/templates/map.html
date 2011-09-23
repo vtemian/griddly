@@ -214,8 +214,8 @@
             +"</div>";
             
             point = new google.maps.LatLng(data.locationLat, data.locationLng)
-            
-            new CheckinOverlay("<div>"+ message +"</div>", point, app.map, 32, 75);
+            console.log(message)
+            new CheckinOverlay(message, point, app.map, 32, 75);
 
             app.map.setCenter(point, 17)
         });

@@ -4,7 +4,7 @@
     <list default="true" id="ce414521-cb02-4640-8fa9-df3dc02f3b8c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/websocket" afterPath="$PROJECT_DIR$/src/websocket" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/external-api/views.py" afterPath="$PROJECT_DIR$/external-api/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodejs_server/server.js" afterPath="$PROJECT_DIR$/nodejs_server/server.js" />
     </list>
     <ignored path="griddly.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,11 +30,8 @@
       <file leaf-file-name="checkin-done.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/external-api/templates/checkin-done.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="6" selection-start="658" selection-end="658" vertical-scroll-proportion="-10.434783">
-              <folding>
-                <marker date="1316784094000" expanded="true" signature="132:646" placeholder="{...}" />
-                <marker date="1316784094000" expanded="true" signature="238:295" placeholder="{...}" />
-              </folding>
+            <state line="7" column="38" selection-start="331" selection-end="331" vertical-scroll-proportion="-4.5652175">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -48,10 +45,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/external-api/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="197" column="28" selection-start="7192" selection-end="7192" vertical-scroll-proportion="0.6385542">
+            <state line="200" column="28" selection-start="7286" selection-end="7286" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -84,10 +81,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="server.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="server.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nodejs_server/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="23" selection-start="881" selection-end="881" vertical-scroll-proportion="0.0">
+            <state line="6" column="21" selection-start="225" selection-end="225" vertical-scroll-proportion="0.18072289">
               <folding />
             </state>
           </provider>
@@ -147,9 +144,9 @@
         <option value="$PROJECT_DIR$/territory/views.py" />
         <option value="$PROJECT_DIR$/location/models.py" />
         <option value="$PROJECT_DIR$/map/templates/map.html" />
-        <option value="$PROJECT_DIR$/nodejs_server/server.js" />
         <option value="$PROJECT_DIR$/external-api/templates/checkin-done.html" />
         <option value="$PROJECT_DIR$/external-api/views.py" />
+        <option value="$PROJECT_DIR$/nodejs_server/server.js" />
       </list>
     </option>
   </component>
@@ -839,11 +836,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/location/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="38" selection-start="177" selection-end="177" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="5" selection-start="724" selection-end="724" vertical-scroll-proportion="0.0" />
@@ -863,20 +855,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nodejs_server/server.js">
+    <entry file="file://$PROJECT_DIR$/external-api/templates/checkin-done.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="23" selection-start="881" selection-end="881" vertical-scroll-proportion="0.0">
+        <state line="7" column="38" selection-start="331" selection-end="331" vertical-scroll-proportion="-4.5652175">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/external-api/templates/checkin-done.html">
+    <entry file="file://$PROJECT_DIR$/location/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="6" selection-start="658" selection-end="658" vertical-scroll-proportion="-10.434783">
-          <folding>
-            <marker date="1316784094000" expanded="true" signature="132:646" placeholder="{...}" />
-            <marker date="1316784094000" expanded="true" signature="238:295" placeholder="{...}" />
-          </folding>
+        <state line="5" column="38" selection-start="177" selection-end="177" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="251" selection-end="310" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -887,16 +881,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/profile/views.py">
+    <entry file="file://$PROJECT_DIR$/external-api/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="251" selection-end="310" vertical-scroll-proportion="0.0">
+        <state line="200" column="28" selection-start="7286" selection-end="7286" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/external-api/views.py">
+    <entry file="file://$PROJECT_DIR$/nodejs_server/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="197" column="28" selection-start="7192" selection-end="7192" vertical-scroll-proportion="0.6385542">
+        <state line="6" column="21" selection-start="225" selection-end="225" vertical-scroll-proportion="0.18072289">
           <folding />
         </state>
       </provider>

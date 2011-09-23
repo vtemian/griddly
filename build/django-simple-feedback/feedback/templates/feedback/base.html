@@ -1,0 +1,51 @@
+{% load i18n %}
+<div id="feedback_container">
+	<div id="feedback_opener"></div>
+	<div id="feedback_slider">
+		<div id="feedback_content">
+            <a href="#"><img id="closeicon" src="{{ STATIC_URL}}img/close_icon.jpg" alt="Close" height="14"/></a>
+            <img class="userimg" src="{{ STATIC_URL }}feedback/img/user.png" alt="User" height="60"/>
+            <h3>Cher utilisateur,</h3>
+            <p>{% trans "Vous n'êtes pas content? Vous avez <strong>un bug</strong> à signaler, une remarque, une <strong>suggestion</strong>, un encouragement ?" %}</p>
+            <br/>
+            <br/>
+            {% trans "Dites le nous ,"%}<br/>
+            <br/>
+
+            <form id="feedback_form" method="post" action="{% url feedback.views.feedback %}">
+			  {% csrf_token %}
+              <input type="hidden" name="path" value="{{ PATH }}" />
+			  <p>
+				<textarea name="feedback"></textarea>
+			  </p>
+			  <input type="submit" value="{% trans "Envoyer" %}"/>
+			</form>
+                        {% if top_feedbacks %}
+                        <div id="top_feedbacks">
+                            <h3>{% trans "Commentaires populaires" %}</h3>
+                            <ul id="feedbacks">
+                            {% for feedback in top_feedbacks %}
+                            <li>
+                                <p class="votes">
+                                    <a href="{% url feedback.views.upvote feedback.id %}"><img src="{{ STATIC_URL }}feedback/img/up.png" height="32px" alt="Up"/></a>
+                                    {{ feedback.sco }}
+                                    <a href="{% url feedback.views.downvote feedback.id %}"><img src="{{ STATIC_URL }}feedback/img/down.png" height="32px" alt="Down"/></a>
+                                </p>
+                                <p class="feedback">
+                                    {{ feedback.feedback }}
+                                </p>
+                            </li>
+                            {% endfor %}
+                            </ul>
+                            {% comment %}
+                            <a href="{% url feedback.views.feedbacks %}">Tous les commentaires</a>
+                            {% endcomment %}
+                        </div>
+                        {% endif %}
+
+		</div>
+		<div id="feedback_openclose">
+			<a href="#" id="feedback_action"></a>
+		</div>
+	</div>
+</div>

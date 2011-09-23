@@ -4,10 +4,11 @@ var clients = new Array();
 
 io.sockets.on('connection', function (socket) {
     socket.emit('identified', { message: 'handshaking' });
-    
+
     socket.on('handshaking', function (data) {
         users.push(data.user)
         clients.push(socket)
+        console.log('wwww')
     });
 
     socket.on('disconnect', function (data){
@@ -35,7 +36,10 @@ io.sockets.on('connection', function (socket) {
     socket.on('checkin', function (data){
         var user = data.user
         var index = users.indexOf(user)
+        console.log(index)
+        console.log(user)
+        console.log('a')
         if(index != -1)
-            clients[index].emit('checkin', {'message': data.message, 'locationLat': data.locationLat, 'locationLng': data.locationLng})
+            clients[index].emit('checkin', {'gravatar_url': data.gravatar_url, 'locationLat': data.locationLat, 'locationLng': data.locationLng, 'locationName': data.locationName})
     });
 });

@@ -12,7 +12,7 @@ def create_territory(request):
             
         try:
             terrytories = Territory.objects.get(owner=up)
-            return HttpResponse(simplejson.dumps({'error': 'territory'}))
+            return HttpResponse(simplejson.dumps({'error': 'You stupid asshole, just a territory! Go and conquer something!!!'}))
         except Exception:
             area = int(float(request.POST.get('area')))/1000
             money = up.money
@@ -38,13 +38,13 @@ def create_territory(request):
                         location = Location.objects.get(lat=float(lat), lng=float(lng))
                         location.territory = territory
                         location.save()
-                        
+
                     except Exception:
                         pass
                 up.save()
-                return HttpResponse(simplejson.dumps({'nice': 'nice'}))
+                return HttpResponse(simplejson.dumps({'nice': 'Congratz! You have a territory :)'}))
             else:
-               return HttpResponse(simplejson.dumps({'error': 'money'}))
+               return HttpResponse(simplejson.dumps({'error': "Sry...you don't have enough money"}))
     return HttpResponse('Not here!')
 
 @csrf_exempt
@@ -79,6 +79,7 @@ def verify_territory(request):
 
             return HttpResponse(simplejson.dumps({'locations': json_locations}))
         else:
-            return HttpResponse(simplejson.dumps({'error': 'error'}))
+            return HttpResponse(simplejson.dumps({'error': "There aren't any locations in this territory!"}))
+
         
     return HttpResponse('Not here!')

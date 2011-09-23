@@ -19,7 +19,8 @@ def start(request):
 #    TODO: get territories
     territories = Territory.objects.all()
 
-    
+    context['locations'] = Location.objects.all()
+
     try:
         territories = territories.exclude(owner = context['userprofile'])
     except Exception:

@@ -3,16 +3,19 @@ from django.db.models.query_utils import Q
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login as auth_login
 from django.shortcuts import render_to_response
-from django.template.context import RequestContext
+from django.template.context import RequestContext, Context
 from account.models import UserProfile
 from alliance.models import Alliance
 from battle.models import Battle
 from checkin.models import Checkin
-from location.models import Location
+from location.models import Location, Loyalty
 from datetime import datetime, timedelta
 from nodejs_server.utils import encode_for_socketio
 from profile.models import Friend
 from territory.models import Territory
+import websocket
+from urllib2 import urlopen
+from django.template import loader
 
 def login(request):
     username = request.GET['username']
@@ -30,11 +33,39 @@ def getbattleresults(battle):
 
     return attackers_checkins - defender_checkins
 
-def checkin_notification(msg):
-    pass
+def handshake(host, port):
+    u = urlopen("http://%s:%d/socket.io/1/" % (host, port))
+    if u.getcode() == 200:
+        response = u.readline()
+        (sid, hbtimeout, ctimeout, supported) = response.split(":")
+        supportedlist = supported.split(",")
+        if "websocket" in supportedlist:
+            return (sid, hbtimeout, ctimeout)
+        else:
+            raise TransportException()
+    else:
+        raise InvalidResponseException()
+
+def check_loyalty(userProfile):
+    loyalties = Loyalty.objects.filter(active=True, userProfile=userProfile)
+    for loyalty in loyalties:
+        if loyalty.value < 50:
+            return False
+    return True
 
 def checkingin(request):
     if request.method == 'GET':
+
+        HOSTNAME = 'outclan.com'
+        PORT = 5555
+        sid = 0
+        try:
+            (sid, hbtimeout, ctimeout) = handshake(HOSTNAME, PORT) #handshaking according to socket.io spec.
+        except Exception as e:
+            print e
+            pass
+        ws = websocket.create_connection("ws://%s:%d/socket.io/1/websocket/%s" % (HOSTNAME, PORT, sid))
+        
         userName = request.GET['username']
         locName = request.GET['checkin']
         locLong = request.GET['lng']
@@ -69,15 +100,39 @@ def checkingin(request):
             checkin.created_at = nowdatetime
             checkin.battle = battle
             checkin.save()
+            
+            my_loyalty, created = Loyalty.objects.get_or_create(location=location, userProfile=up)
+            my_loyalty.value += 10
 
-            if nowdatetime - battle.start_time >= timedelta(minutes = 2):
-                if getbattleresults(battle) < 0:
-                    battle.winner = battle.defender
-                else:
-                    battle.winner = battle.attacker
-                
+            if battle.attacker == up:
+                enemy = battle.defender
+            else:
+                enemy = battle.attacker
+
+
+
+            enemy_loyalty, created = Loyalty.objects.get_or_create(location=location, userProfile=enemy)
+
+            print enemy.user.username
+
+            if check_loyalty(up):
+                battle.active = False
+                battle.winner = up
+
+                print location.territory
+                location.territory.owner = up
+
+                location.territory.save()
+                my_loyalty.active = False
+                enemy_loyalty.active = False
                 battle.save()
-                    
+            else:
+
+                enemy_loyalty.value -= 10
+
+            enemy_loyalty.save()
+            my_loyalty.save()
+                
         except Battle.DoesNotExist:
             try:
                 latest_checkin = Checkin.objects.filter(user=up, location=location).order_by('-created_at')[0]
@@ -120,20 +175,29 @@ def checkingin(request):
                 pass
             
             try:
-                owner = UserProfile.objects.get(territory__locations=location)
-                if owner != up:
-                    owner.exp += up.lvl * location.subscription / UserProfile.objects.filter(alliance_set__members=owner).count() / 2
-                    owner.lvl += up.lvl * up.lvl * location.subscription / 2
-                    if owner.exp >= 5 * owner.lvl * owner.lvl:
-                        owner.lvl += 1
-                    owner.save()
+                if location.territory:
+                    owner = location.territory.owner
+                    if owner:
+                        if owner != up:
+                            try:
+                                owner.exp += up.lvl * location.subscription / Alliance.objects.get(members=up).members.all().count() / 2
+                                owner.lvl += up.lvl * up.lvl * location.subscription / 2
+                                if owner.exp >= 5 * owner.lvl * owner.lvl:
+                                    owner.lvl += 1
+                                owner.save()
+                            except Alliance.DoesNotExist:
+                                pass
             except UserProfile.DoesNotExist:
                 pass
-            
+
         if friends:
-            return render_to_response('checkin-done.html',
-                                  {'friends': friends, 'location':location, 'user':up},
-                                  context_instance=RequestContext(request))
+            ws.send('2::')
+            ws.send('5:1::{"name":"handshaking", "args":[{"user":"server"}]}')
+            for friend in friends:
+                ws.send('2::')
+                ws.send('5:1::{"name":"checkin", "args":[{"user":"'+str(friend.user.username)+'", "gravatar_url":"'+str(friend.gravatar_url)+'", "locationName":"'+str(location.name)+'", "locationLat":"'+str(location.lat)+'", "locationLng": "'+str(location.lng)+'"}]}')
+            print ws.recv()
+            ws.close()
         else:
             return HttpResponse('done')
 

@@ -45,6 +45,7 @@ urlpatterns = patterns('',
     url(r'^map/$',  direct_to_template, {'template': 'map.html'}),
     url(r'^territory/create$',  'territory.views.create_territory'),
     url(r'^territory/verify$',  'territory.views.verify_territory'),
+    url(r'^location/get-locations$',  'location.views.get_locations'),
     url(r'^site_media/media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
     url(r'^feedback', include('feedback.urls')),
 )

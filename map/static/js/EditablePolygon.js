@@ -9,7 +9,6 @@
 
 			clickable: false
 		});
-
 		this.markerImage = new Gm.MarkerImage(this.handleImage);
 		this.markerImage.anchor = new Gm.Point(5, 5);
 	};
@@ -25,6 +24,7 @@
 
 	EditablePolygon.prototype.beginEdit = function () {
 		if (!this.editing) {
+            console.log('a')
 			this.editing = true;
 
 			this.focusedIndex = 0;
@@ -56,12 +56,16 @@
 
 			this.getPath().forEach(function (point) {
 				point.marker.setVisible(false);
+                console.log(point)
 			});
 		}
 	};
 
 	/// @protected Creates a marker.
 	EditablePolygon.prototype.createMarker = function (options) {
+
+        console.log(this.editing)
+
 		var marker = new Gm.Marker({
 			position: options.position,
 
@@ -74,14 +78,13 @@
 
 			map: this.map
 		});
-
 		marker.point = options.position;
-
+        
 		marker.dragEndListener = Gm.event.addListener(marker, "dragend", this.onMarkerDragEnd.bind(this, marker));
 		marker.dragStartListener = Gm.event.addListener(marker, "dragstart", this.onMarkerDragStart.bind(this));
 		marker.mouseOverListener = Gm.event.addListener(marker, "mouseover", this.onMarkerMouseOver.bind(this));
 
-		return marker;
+        return marker;
 	};
 
 	/// @protected Destroys the marker.
@@ -93,17 +96,16 @@
 		Gm.event.removeListener(marker.mouseOverListener);
 	};
 
-	/// @override Sets the path of the polygon.
-	EditablePolygon.prototype.setPath = function (path) {
-		Gm.ObservablePolygon.prototype.setPath.apply(this, arguments);
-
+	
+    /// @override Sets the path of the polygon.
+	EditablePolygon.prototype.setPaths = function (path) {
+		Gm.ObservablePolygon.prototype.setPaths.apply(this, arguments);
 		// Add the existing points
-		var path = this.getPath(), len = path.getLength(), 
+		var path = this.getPath(), len = path.getLength(),
 			me = this;
-
 		path.forEach(function (point, index) {
 			// Add the marker for the point
-			point.marker = this.createMarker({
+			point.marker = me.createMarker({
 				position: point
 			});
 		})
@@ -120,25 +122,7 @@
 			position: point
 		});
 	};
-    EditablePolygon.prototype.contains = function(y , x) {
-        var j=0;
-        var oddNodes = false;
 
-        var paths = this.getPath();
-        console.log(paths)
-        for (var i=0; i < paths.getLength(); i++) {
-            j++;
-            if (j == paths.getLength()) {j = 0;}
-                if (((paths.getAt(i).lat() < y) && (paths.getAt(j).lat() >= y)) || ((paths.getAt(j).lat() < y) && (paths.getAt(i).lat() >= y))) {
-                    if ( paths.getAt(i).lng() + (y - paths.getAt(i).lat())
-                    /  (paths.getAt(j).lat()-paths.getAt(i).lat())
-                    *  (paths.getAt(j).lng() - paths.getAt(i).lng())<x ) {
-                            oddNodes = !oddNodes
-                    }
-            }
-        }
-        return oddNodes;
-    }
 	/// @protected @override
 	EditablePolygon.prototype.onPathPointRemoved = function (index, point) {
 		Gm.ObservablePolygon.prototype.onPathPointRemoved.apply(this, arguments);
@@ -149,7 +133,7 @@
 	EditablePolygon.prototype.onMapMouseMove = function (e) {
 		if (this.focusedIndex !== null) {
 			var path = this.getPath(), len = path.getLength();
-
+            
 			if (len == 1) {
 				var points = [ path.getAt(this.focusedIndex), e.latLng ];
 
@@ -171,29 +155,29 @@
 	};
 
 	EditablePolygon.prototype.onMarkerMouseOver = function () {
-		if (this.getPath().getLength() > 2) {
+        if (this.getPath().getLength() > 2) {
 			this.focusedIndex = null;
 			this.dragPolyline.setPath([]);
 		}
 	};
 
 	EditablePolygon.prototype.onMarkerDragStart = function () {
-		if (this.getPath().getLength() > 2) {
+        if (this.getPath().getLength() > 2) {
 			this.focusedIndex = null;
 			this.dragPolyline.setPath([]);
+
 		}
 	};
 
 	EditablePolygon.prototype.onMarkerDragEnd = function (marker, e) {
 		this.getPath().setAt(marker.point.index, e.latLng);
-		
+
 		marker.point = e.latLng;
 	};
 
 	EditablePolygon.prototype.onMapClick = function (e) {
 		if (this.focusedIndex !== null) {
 			this.getPath().insertAt(this.focusedIndex, e.latLng);
-
 		}
 	};
 
@@ -203,6 +187,24 @@
 
 		Gm.ObservablePolygon.prototype.onMarginFocus.apply(this, arguments);
 	};
+    EditablePolygon.prototype.contains = function(y , x) {
+            var j=0;
+            var oddNodes = false;
 
+            var paths = this.getPath();
+            console.log(paths)
+            for (var i=0; i < paths.getLength(); i++) {
+                j++;
+                if (j == paths.getLength()) {j = 0;}
+                    if (((paths.getAt(i).lat() < y) && (paths.getAt(j).lat() >= y)) || ((paths.getAt(j).lat() < y) && (paths.getAt(i).lat() >= y))) {
+                        if ( paths.getAt(i).lng() + (y - paths.getAt(i).lat())
+                        /  (paths.getAt(j).lat()-paths.getAt(i).lat())
+                        *  (paths.getAt(j).lng() - paths.getAt(i).lng())<x ) {
+                                oddNodes = !oddNodes
+                        }
+                }
+            }
+            return oddNodes;
+    }
 	return EditablePolygon;
 })(google.maps);

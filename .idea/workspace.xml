@@ -2,7 +2,100 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce414521-cb02-4640-8fa9-df3dc02f3b8c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Capfile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/MANIFEST.in" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/PKG-INFO" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/static/feedback/img/close_icon.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/static/feedback/img/down.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/static/feedback/img/feedback.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/static/feedback/img/up.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/static/feedback/img/user.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/django_simple_feedback.egg-info/PKG-INFO" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/static/feedback/img/close_icon.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/static/feedback/img/down.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/static/feedback/img/feedback.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/static/feedback/img/up.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/static/feedback/img/user.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/pip-egg-info/django_simple_feedback.egg-info/PKG-INFO" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/setup.cfg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/static/img/ranks/rank_alliance_avatar.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/deploy.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/site_media/media/avatars/2011/09/20/deadmau5-477116.jpeg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/README.rst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/example_feedback/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/example_feedback/manage.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/example_feedback/settings.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/example_feedback/urls.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/admin.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/app_settings.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/migrations/0001_initial.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/migrations/0002_auto__add_votes__del_field_feedback_user.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/migrations/0003_auto__chg_field_votes_feedback.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/migrations/0004_auto__chg_field_votes_feedback.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/migrations/0005_auto__del_votes__add_vote.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/migrations/0006_auto__add_field_feedback_path.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/migrations/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/models.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/static/feedback/css/feedback.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/static/feedback/js/feedback.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/static/feedback/js/jquery-1.4.2.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/templates/feedback/base.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/templates/feedback/feedbacks.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/templatetags/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/templatetags/feedback_tags.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/tests.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/urls.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/views.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/django_simple_feedback.egg-info/SOURCES.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/django_simple_feedback.egg-info/dependency_links.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/django_simple_feedback.egg-info/top_level.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/example_feedback/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/example_feedback/manage.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/example_feedback/settings.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/example_feedback/urls.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/admin.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/app_settings.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/migrations/0001_initial.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/migrations/0002_auto__add_votes__del_field_feedback_user.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/migrations/0003_auto__chg_field_votes_feedback.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/migrations/0004_auto__chg_field_votes_feedback.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/migrations/0005_auto__del_votes__add_vote.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/migrations/0006_auto__add_field_feedback_path.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/migrations/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/models.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/static/feedback/css/feedback.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/static/feedback/js/feedback.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/static/feedback/js/jquery-1.4.2.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/templates/feedback/base.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/templates/feedback/feedbacks.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/templatetags/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/templatetags/feedback_tags.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/tests.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/urls.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/views.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/pip-egg-info/django_simple_feedback.egg-info/SOURCES.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/pip-egg-info/django_simple_feedback.egg-info/dependency_links.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/pip-egg-info/django_simple_feedback.egg-info/top_level.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/setup.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/foursquare/api.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/foursquare/example.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/foursquare/oauth.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/location/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/static/socket.io-client" afterPath="$PROJECT_DIR$/common/static/socket.io-client" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/external-api/templates/checkin-done.html" afterPath="$PROJECT_DIR$/external-api/templates/checkin-done.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/external-api/views.py" afterPath="$PROJECT_DIR$/external-api/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game/templates/game.html" afterPath="$PROJECT_DIR$/game/templates/game.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game/views.py" afterPath="$PROJECT_DIR$/game/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/location/models.py" afterPath="$PROJECT_DIR$/location/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/map/static/js/EditablePolygon.js" afterPath="$PROJECT_DIR$/map/static/js/EditablePolygon.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/map/static/js/ObservablePolygon.js" afterPath="$PROJECT_DIR$/map/static/js/ObservablePolygon.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/map/templates/map.html" afterPath="$PROJECT_DIR$/map/templates/map.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodejs_server/server.js" afterPath="$PROJECT_DIR$/nodejs_server/server.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/territory/views.py" afterPath="$PROJECT_DIR$/territory/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/urls.py" afterPath="$PROJECT_DIR$/urls.py" />
     </list>
     <ignored path="griddly.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,7 +166,7 @@
       <file leaf-file-name="game.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/game/templates/game.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="100" column="50" selection-start="5076" selection-end="5076" vertical-scroll-proportion="0.0">
+            <state line="100" column="50" selection-start="5091" selection-end="5091" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -91,7 +184,7 @@
       <file leaf-file-name="my_clan2.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/alliance/templates/my_clan2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="97" column="25" selection-start="4419" selection-end="4419" vertical-scroll-proportion="0.6421875">
+            <state line="78" column="26" selection-start="3623" selection-end="3623" vertical-scroll-proportion="0.15422885">
               <folding />
             </state>
           </provider>
@@ -174,6 +267,17 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Favorites">
+        <subPane subId="griddly">
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.intellij.ide.favoritesTreeView.FavoritesTreeNodeDescriptor" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -230,17 +334,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Favorites">
-        <subPane subId="griddly">
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.intellij.ide.favoritesTreeView.FavoritesTreeNodeDescriptor" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -257,17 +350,17 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="136" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1014" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1014" />
     <property name="DefaultHtmlFileTemplate" value="Html" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1014" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1014" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="136" />
-    <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="128" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="ReadonlyStatusHandler">
     <option name="SHOW_DIALOG" value="false" />
@@ -422,19 +515,19 @@
     <frame x="-4" y="-4" width="1448" height="864" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.023480663" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24823695" sideWeight="0.78867406" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24823695" sideWeight="0.6712707" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21132597" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293011" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32872927" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32872927" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -562,7 +655,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/game/templates/game.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="50" selection-start="5076" selection-end="5076" vertical-scroll-proportion="0.0">
+        <state line="100" column="50" selection-start="5091" selection-end="5091" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -584,7 +677,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/alliance/templates/my_clan2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="25" selection-start="4419" selection-end="4419" vertical-scroll-proportion="0.6421875">
+        <state line="78" column="26" selection-start="3623" selection-end="3623" vertical-scroll-proportion="0.15422885">
           <folding />
         </state>
       </provider>

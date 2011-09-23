@@ -1,35 +1,14 @@
-<script type=text/javascript src="{{ STATIC_URL }}socket.io-client/dist/socket.io.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-
-<div class="checkin_overlay clearfix" id="messageDiv">
-    <div class="checkin_overlay_marker">
-         <p class="checkin_avatar clearfix" style="background-image:url({{ user.gravatar_url }}?s=45)">
-            <img src="{{ user.gravatar_url }}?s=45" alt="avatar"/>
+<div class='checkin_overlay clearfix' id='messageDiv'>
+    <div class='checkin_overlay_marker'>
+         <p class='checkin_avatar clearfix' style='background-image:url({{ user.gravatar_url }}?s=45)'>
+            <img src='{{ user.gravatar_url }}?s=45' alt='avatar'/>
          </p>
     </div>
 
-    <div class="checkin_overlay_info">
+    <div class='checkin_overlay_info'>
         <ul>
             <li>Checked in at: {{ location.name }}</li>
             <li>45 minutes ago</li>
         </ul>
     </div>
 </div>
-
-<script type="text/javascript">
-    $(document).ready(function(){
-        var socket = io.connect('www.outclan.com', {port:5555});
-        socket.on('identified', function (data) {
-            socket.emit('handshaking', { user: 'server' });
-        });
-        var message = $('#messageDiv').html()
-        
-    {% for user in friends %}
-        var user = "{{ user.user.username }}"
-        socket.emit("checkin", {'user': user, 'message': message, 'locationLat': {{ location.lat }}, 'locationLng': {{ location.lng }}})
-    {% endfor %}
-        var user = "{{ user.user.username }}"
-        socket.emit("checkin", {'user': user, 'message': message, 'locationLat': {{ location.lat }}, 'locationLng': {{ location.lng }}})
-
-    })
-</script>

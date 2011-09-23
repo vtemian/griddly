@@ -60,6 +60,7 @@
 
 	/// @protected Creates a new margin.
 	ObservablePolygon.prototype.createMargin = function (options) {
+        
 		var margin = new google.maps.Polyline({
 			strokeOpacity: this.highlightMargins === true ? 0.5 : 0,
 			strokeColor: "green",

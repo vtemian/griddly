@@ -195,9 +195,7 @@ def checkingin(request):
             c = Context({ 'location': location , 'user':up})
             message = notification_template.render(c)
             ws.send('5:::{"name":"handshaking", "args":[{"user":"server"}]}')
-            print ws.recv()
             for friend in friends:
-                print '5:::{"name":"checkin", "args":[{"user":"'+str(friend.user.username)+'", "message":"'+message+'", "locationLat":"'+str(location.lat)+'", "locationLng": "'+str(location.lng)+'"}]}'
                 ws.send('5:::{"name":"checkin", "args":[{"user":"'+str(friend.user.username)+'", "message":"'+message+'", "locationLat":"'+str(location.lat)+'", "locationLng": "'+str(location.lng)+'"}]}')
             print ws.recv()
             

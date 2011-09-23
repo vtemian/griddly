@@ -198,7 +198,7 @@
     $(document).ready(function(){
         
         socket.on('checkin', function(data){
-            console.log('asdasd')
+            console.log(data)
             var message = "<div class='checkin_overlay clearfix' id='messageDiv'>"+
                 +"<div class='checkin_overlay_marker'>"+
                      +"<p class='checkin_avatar clearfix' style='background-image:url("+data.gravatar_url+"?s=45)'>"+

@@ -191,10 +191,11 @@ def checkingin(request):
                 pass
 
         if friends:
-            ws.send('5:::{"name":"handshaking", "args":[{"user":"server"}]}')
             notification_template = loader.get_template('checkin-done.html')
             c = Context({ 'location': location , 'user':up})
             message = notification_template.render(c)
+            ws.send('5:::{"name":"handshaking", "args":[{"user":"server"}]}')
+             print ws.recv()
             for friend in friends:
                 ws.send('5:::{"name":"checkin", "args":[{"user":"'+str(friend.user.username)+'", "message":'+message+', "locationLat":"'+str(location.lat)+'", "locationLng": "'+str(location.lng)+'"}]}')
             print ws.recv()

@@ -181,7 +181,8 @@ def checkingin(request):
                         if owner != up:
                             try:
                                 owner.exp += up.lvl * location.subscription / Alliance.objects.get(members=up).members.all().count() / 2
-                                owner.lvl += up.lvl * up.lvl * location.subscription / 2
+                                owner.lvl += upls\
+                                             .lvl * up.lvl * location.subscription / 2
                                 if owner.exp >= 5 * owner.lvl * owner.lvl:
                                     owner.lvl += 1
                                 owner.save()

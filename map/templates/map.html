@@ -198,7 +198,7 @@
     $(document).ready(function(){
         
         socket.on('checkin', function(data){
-            console.log(data)
+            console.log(data.locationName)
             var message = "<div class='checkin_overlay clearfix' id='messageDiv'>"+
                 +"<div class='checkin_overlay_marker'>"+
                      +"<p class='checkin_avatar clearfix' style='background-image:url("+data.gravatar_url+"?s=45)'>"+
@@ -207,7 +207,7 @@
                 +"</div>"+
                 +"<div class='checkin_overlay_info'>"+
                     +"<ul>"+
-                        +"<li>Checked in at: "+data.locationName+"</li>"+
+                        +"<li>Checked in at: "+trim(data.locationName)+"</li>"+
                        +"<li>45 minutes ago</li>"+
                     +"</ul>"+
                 +"</div>"+

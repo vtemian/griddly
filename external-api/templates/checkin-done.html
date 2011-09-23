@@ -15,21 +15,3 @@
         </ul>
     </div>
 </div>
-
-<script type="text/javascript">
-    $(document).ready(function(){
-        var socket = io.connect('www.outclan.com', {port:5555});
-        socket.on('identified', function (data) {
-            socket.emit('handshaking', { user: 'server' });
-        });
-        var message = $('#messageDiv').html()
-        
-    {% for user in friends %}
-        var user = "{{ user.user.username }}"
-        socket.emit("checkin", {'user': user, 'message': message, 'locationLat': {{ location.lat }}, 'locationLng': {{ location.lng }}})
-    {% endfor %}
-        var user = "{{ user.user.username }}"
-        socket.emit("checkin", {'user': user, 'message': message, 'locationLat': {{ location.lat }}, 'locationLng': {{ location.lng }}})
-
-    })
-</script>

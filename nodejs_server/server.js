@@ -4,10 +4,11 @@ var clients = new Array();
 
 io.sockets.on('connection', function (socket) {
     socket.emit('identified', { message: 'handshaking' });
-    
+
     socket.on('handshaking', function (data) {
         users.push(data.user)
         clients.push(socket)
+
     });
 
     socket.on('disconnect', function (data){

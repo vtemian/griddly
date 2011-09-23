@@ -13,6 +13,8 @@ from datetime import datetime, timedelta
 from nodejs_server.utils import encode_for_socketio
 from profile.models import Friend
 from territory.models import Territory
+import websocket
+from urllib2 import urlopen
 
 def login(request):
     username = request.GET['username']
@@ -30,8 +32,18 @@ def getbattleresults(battle):
 
     return attackers_checkins - defender_checkins
 
-def checkin_notification(msg):
-    pass
+def handshake(host, port):
+    u = urlopen("http://%s:%d/socket.io/1/" % (host, port))
+    if u.getcode() == 200:
+        response = u.readline()
+        (sid, hbtimeout, ctimeout, supported) = response.split(":")
+        supportedlist = supported.split(",")
+        if "websocket" in supportedlist:
+            return (sid, hbtimeout, ctimeout)
+        else:
+            raise TransportException()
+    else:
+        raise InvalidResponseException()
 
 def check_loyalty(userProfile):
     loyalties = Loyalty.objects.filter(active=True, userProfile=userProfile)
@@ -42,6 +54,17 @@ def check_loyalty(userProfile):
 
 def checkingin(request):
     if request.method == 'GET':
+
+        HOSTNAME = 'outclan.com'
+        PORT = 5555
+        sid = 0
+        try:
+            (sid, hbtimeout, ctimeout) = handshake(HOSTNAME, PORT) #handshaking according to socket.io spec.
+        except Exception as e:
+            print e
+            pass
+        ws = websocket.create_connection("ws://%s:%d/socket.io/1/websocket/%s" % (HOSTNAME, PORT, sid))
+        
         userName = request.GET['username']
         locName = request.GET['checkin']
         locLong = request.GET['lng']
@@ -165,11 +188,16 @@ def checkingin(request):
                                 pass
             except UserProfile.DoesNotExist:
                 pass
-            
+
         if friends:
-            return render_to_response('checkin-done.html',
-                                  {'friends': friends, 'location':location, 'user':up},
-                                  context_instance=RequestContext(request))
+            ws.send('5:::{"name":"handshaking", "args":[{"user":"server"}]}')
+            notification_template = loader.get_template('checkin-done.html')
+            c = Context({ 'location': location , 'user':up})
+            message = notification_template.render(c)
+            for friend in friends:
+                ws.send('5:::{"name":"checkin", "args":[{"user":"'+friend.user.username+'", "message":'+message+', "locationLat":"'+location.lat+'", "locationLng": "'+location.lng+'"}]}')
+            print ws.recv()
+            
         else:
             return HttpResponse('done')
 

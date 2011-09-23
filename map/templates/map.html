@@ -198,7 +198,7 @@
     $(document).ready(function(){
         
         socket.on('checkin', function(data){
-
+            console.log('asdasd')
             point = new google.maps.LatLng(data.locationLat, data.locationLng)
             
             new CheckinOverlay("<div>"+ data.message +"</div>", point, app.map, 32, 75);

@@ -3,7 +3,7 @@ from django.db.models.query_utils import Q
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login as auth_login
 from django.shortcuts import render_to_response
-from django.template.context import RequestContext
+from django.template.context import RequestContext, Context
 from account.models import UserProfile
 from alliance.models import Alliance
 from battle.models import Battle
@@ -15,6 +15,7 @@ from profile.models import Friend
 from territory.models import Territory
 import websocket
 from urllib2 import urlopen
+from django.template import loader
 
 def login(request):
     username = request.GET['username']

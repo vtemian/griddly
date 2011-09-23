@@ -38,6 +38,7 @@ io.sockets.on('connection', function (socket) {
         var index = users.indexOf(user)
         console.log(index)
         console.log(user)
+        console.log('a')
         if(index != -1)
             clients[index].emit('checkin', {'message': data.message, 'locationLat': data.locationLat, 'locationLng': data.locationLng})
     });

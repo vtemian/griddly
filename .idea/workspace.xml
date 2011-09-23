@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ce414521-cb02-4640-8fa9-df3dc02f3b8c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/websocket" afterPath="$PROJECT_DIR$/src/websocket" />
+    <list default="true" id="ce414521-cb02-4640-8fa9-df3dc02f3b8c" name="Default" comment="bara notificari sus + css [fix]">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profile/templates/profile.html" afterPath="$PROJECT_DIR$/profile/templates/profile.html" />
     </list>
     <ignored path="griddly.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,88 +29,25 @@
       <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/common/static/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2041" column="1" selection-start="34836" selection-end="34836" vertical-scroll-proportion="-18.464285">
+            <state line="680" column="26" selection-start="13985" selection-end="14010" vertical-scroll-proportion="-8.76">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="my_clan2.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/alliance/templates/my_clan2.html">
+      <file leaf-file-name="user_menu2.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/profile/templates/user_menu2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="0" selection-start="2300" selection-end="2300" vertical-scroll-proportion="-22.0">
+            <state line="12" column="70" selection-start="656" selection-end="656" vertical-scroll-proportion="13.730769">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/settings.py">
+      <file leaf-file-name="notification.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/notification/templates/notification.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="46" selection-start="2081" selection-end="2081" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="profile.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/profile/templates/profile.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="97" column="19" selection-start="4160" selection-end="4160" vertical-scroll-proportion="0.5320122">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/alliance/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="clan_stream.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/alliance/templates/clan_stream.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="21" selection-start="169" selection-end="169" vertical-scroll-proportion="-3.9130435">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="news.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/alliance/templates/news.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="33" selection-start="12" selection-end="33" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/alliance/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="43" selection-start="1349" selection-end="1349" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="clan_admin.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/alliance/static/js/clan_admin.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="24" selection-start="3052" selection-end="3052" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="my_clan.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/alliance/templates/my_clan.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="0" selection-start="2596" selection-end="2596" vertical-scroll-proportion="-21.26087">
+            <state line="28" column="25" selection-start="1779" selection-end="1779" vertical-scroll-proportion="0.7234042">
               <folding />
             </state>
           </provider>
@@ -131,22 +67,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/external-api/views.py" />
-        <option value="$PROJECT_DIR$/location/models.py" />
-        <option value="$PROJECT_DIR$/map/static/js/EditablePolygon.js" />
-        <option value="$PROJECT_DIR$/territory/views.py" />
-        <option value="$PROJECT_DIR$/map/templates/map.html" />
-        <option value="$PROJECT_DIR$/profile/templates/user_menu2.html" />
-        <option value="$PROJECT_DIR$/profile/templates/my_profile2.html" />
-        <option value="$PROJECT_DIR$/profile/views.py" />
-        <option value="$PROJECT_DIR$/profile/templates/my_profile.html" />
-        <option value="$PROJECT_DIR$/common/static/css/style.css" />
-        <option value="$PROJECT_DIR$/alliance/views.py" />
-        <option value="$PROJECT_DIR$/alliance/templates/clan_stream.html" />
-        <option value="$PROJECT_DIR$/alliance/templates/news.html" />
-        <option value="$PROJECT_DIR$/alliance/static/js/clan_admin.js" />
-        <option value="$PROJECT_DIR$/alliance/templates/my_clan2.html" />
         <option value="$PROJECT_DIR$/profile/templates/profile.html" />
+        <option value="$PROJECT_DIR$/common/static/js/script.js" />
+        <option value="$PROJECT_DIR$/map/templates/map.html" />
+        <option value="$PROJECT_DIR$/account/static/js/django-validate.js" />
+        <option value="$PROJECT_DIR$/ranks/templates/ranks.html" />
+        <option value="$PROJECT_DIR$/game/templates/game.html" />
+        <option value="$PROJECT_DIR$/game/static/js/clan.js" />
+        <option value="$PROJECT_DIR$/alliance/templates/news.html" />
+        <option value="$PROJECT_DIR$/alliance/templates/clan_stream.html" />
+        <option value="$PROJECT_DIR$/alliance/templates/my_clan2.html" />
+        <option value="$PROJECT_DIR$/common/templates/index.html" />
+        <option value="$PROJECT_DIR$/profile/views.py" />
+        <option value="$PROJECT_DIR$/game/static/js/notification.js" />
+        <option value="$PROJECT_DIR$/common/static/css/style.css" />
+        <option value="$PROJECT_DIR$/profile/templates/user_menu2.html" />
+        <option value="$PROJECT_DIR$/notification/templates/notification.html" />
       </list>
     </option>
   </component>
@@ -176,7 +112,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Favorites" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -188,10 +123,6 @@
               <option name="myItemId" value="External Libraries" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; Python 2.7.1+ (/usr/bin/python2.7) &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -199,81 +130,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; Python 2.7.1+ (/usr/bin/python2.7) &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websocket" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
               <option name="myItemId" value="griddly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; Python 2.7.1+ (/usr/bin/python2.7) &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dist-packages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="griddly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; Python 2.7.1+ (/usr/bin/python2.7) &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dist-packages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="django" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="griddly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; Python 2.7.1+ (/usr/bin/python2.7) &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dist-packages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="django" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -284,6 +141,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="territory" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -329,7 +190,57 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="notification" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="notification" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -373,58 +284,14 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+        </subPane>
+      </pane>
+      <pane id="Favorites">
+        <subPane subId="griddly">
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="griddly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="griddly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="alliance" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="griddly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="griddly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="alliance" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="griddly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="griddly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="alliance" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemId" />
+              <option name="myItemType" value="com.intellij.ide.favoritesTreeView.FavoritesTreeNodeDescriptor" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -442,21 +309,21 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="108" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="136" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1014" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1014" />
     <property name="DefaultHtmlFileTemplate" value="Html" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1014" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1014" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="136" />
-    <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="128" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="ReadonlyStatusHandler">
     <option name="SHOW_DIALOG" value="false" />
@@ -576,7 +443,7 @@
     <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
     <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
     <option name="FORCE_UPDATE" value="false" />
-    <configuration useDefault="true">$USER_HOME$/.subversion_IDEA</configuration>
+    <configuration useDefault="true">C:\Users\zmeu\AppData\Roaming\Subversion</configuration>
     <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
   </component>
   <component name="TaskManager">
@@ -587,19 +454,39 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="0" width="1442" height="901" extended-state="6" />
+    <frame x="-4" y="-4" width="1448" height="864" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.023480663" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32872927" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24876325" sideWeight="0.0" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24823695" sideWeight="0.78867406" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293011" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21132597" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293011" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -610,7 +497,7 @@
     </layout>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="true" />
     <option name="myTodoPanelSettings">
@@ -634,7 +521,7 @@
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="add clan member" />
+    <option name="LAST_COMMIT_MESSAGE" value="bara notificari sus + css [fix]" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -661,119 +548,123 @@
     <MESSAGE value="edit profile scripted" />
     <MESSAGE value="just some clan scripted" />
     <MESSAGE value="add clan member" />
+    <MESSAGE value="bara notificari sus + css" />
+    <MESSAGE value="Map Resize Fix (on refresh) + Notifications" />
+    <MESSAGE value="ranks page, alliance page, alliance page admin options + fixes." />
+    <MESSAGE value="bara notificari sus + css [fix]" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/__init__.py">
+    <entry file="file://$PROJECT_DIR$/common/utils/json_encoder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.9277778">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/territory/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="24" selection-start="1588" selection-end="1588" vertical-scroll-proportion="-11.785714">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/map/templates/map.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="23" selection-start="4077" selection-end="4077" vertical-scroll-proportion="-11.434783">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/profile/templates/user_menu2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="77" selection-start="3584" selection-end="3584" vertical-scroll-proportion="-9.130435">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/profile/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="41" selection-start="2303" selection-end="2303" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/profile/templates/my_profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="46" selection-start="1091" selection-end="1091" vertical-scroll-proportion="-10.173913">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2041" column="1" selection-start="34836" selection-end="34836" vertical-scroll-proportion="-18.464285">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alliance/models.py">
-      <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alliance/templates/clan_stream.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="21" selection-start="169" selection-end="169" vertical-scroll-proportion="-3.9130435">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alliance/static/js/clan_admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="24" selection-start="3052" selection-end="3052" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alliance/templates/news.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="33" selection-start="12" selection-end="33" vertical-scroll-proportion="-0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alliance/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="43" selection-start="1349" selection-end="1349" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alliance/templates/my_clan.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="0" selection-start="2596" selection-end="2596" vertical-scroll-proportion="-21.26087">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alliance/templates/my_clan2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="0" selection-start="2300" selection-end="2300" vertical-scroll-proportion="-22.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="46" selection-start="2081" selection-end="2081" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/profile/templates/profile.html">
+    <entry file="file://$PROJECT_DIR$/territory/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="19" selection-start="4160" selection-end="4160" vertical-scroll-proportion="0.5320122">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game/templates/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="13" selection-start="2978" selection-end="2978" vertical-scroll-proportion="0.9820717">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game/templates/game.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notification/templates/friend_request.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="155" column="33" selection-start="6910" selection-end="6910" vertical-scroll-proportion="0.7192716">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notification/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notification/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game/static/js/notification.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="47" selection-start="1418" selection-end="1418" vertical-scroll-proportion="0.48065478">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="20" selection-start="2227" selection-end="2227" vertical-scroll-proportion="0.28419453">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="680" column="26" selection-start="13985" selection-end="14010" vertical-scroll-proportion="-8.76">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile/templates/user_menu2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="70" selection-start="656" selection-end="656" vertical-scroll-proportion="13.730769">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notification/templates/notification.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="25" selection-start="1779" selection-end="1779" vertical-scroll-proportion="0.7234042">
           <folding />
         </state>
       </provider>

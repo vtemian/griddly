@@ -57,6 +57,16 @@
             {% endif %}
         </div>
 
+         <div id="territory_widget">
+
+             <ul id="territory_widget_tabs" class="clearfix"><li data-id="1">Territory 1</li><li data-id="1">Territory 2</li><li data-id="1">Territory 3</li></ul>
+            {% for territory in my_territory %}
+                {% include 'territory_widget.html' %}
+            {% endfor %}
+         </div>
+
+
+
         <div id="sidebar_left">
             <div class="sidebar_inner">
                 <div id="sidebar_left_handle"><img src="{{ STATIC_URL }}img/map_sidebar/settings_sidebar_icon.png" /></div>

@@ -32,7 +32,7 @@ def start(request):
 #    context['my_territory'] = Territory.objects.get(owner = context['userprofile'])
 
     try:
-        context['my_territory'] = Territory.objects.get(owner = context['userprofile'])
+        context['my_territory'] = Territory.objects.filter(owner = context['userprofile'])
     except Exception:
         pass
     try:

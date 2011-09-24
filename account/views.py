@@ -4,6 +4,7 @@ from django.contrib.auth.models import User, check_password
 from django.contrib.auth import authenticate, login as auth_login
 from django.utils import simplejson
 from account.form import UserRegister, UserLogin
+from django.views.decorators.csrf import csrf_exempt
 
 from account.models import UserProfile
 

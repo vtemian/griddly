@@ -5,8 +5,6 @@ from django.views.generic.simple import direct_to_template
 
 urlpatterns = patterns('',
     url(r'^$', 'common.views.base'),
-    url("", include("django_socketio.urls")),
-    url(r'^socketio/$', include('django_socketio.urls')),
     url(r'^user/login/', 'account.views.login'),
     url(r'^logout/?$',  'django.contrib.auth.views.logout_then_login'),
     url(r'^user/register/$',  'account.views.register'),

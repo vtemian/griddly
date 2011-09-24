@@ -1,5 +1,8 @@
 {% extends 'index.html' %}
-
+{% block html_declare %}
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+{% endblock %}
+{% load socialauth_tags %}
 
 {% block extrahead %}
     <script type="text/javascript" src="{{ STATIC_URL }}js/django-validate.js"></script>
@@ -87,8 +90,20 @@
 
                 <p id="easy_way">the easy way</p>
 
-                <button id="facebook_button">sign up with facebook</button>
-
+               <div id="fb-root"></div>
+                  <script src="http://connect.facebook.net/en_US/all.js">
+                  </script>
+                  <script>
+                     FB.init({ 
+                        appId:'165186856899090', cookie:true,
+                        status:true, xfbml:true
+                     });
+                  </script>
+                     <fb:registration
+                        fields="[{'name':'name'}, {'name':'email'},
+                        {'name':'favorite_car','description':'What is your favorite car?',
+                        'type':'text'}]" redirect-uri="http://www.outclan.com/">
+                </fb:registration>
                 <div id="or"></div>
 
                 <button id="google_button">sign up with google</button>

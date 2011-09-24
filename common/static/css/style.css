@@ -1160,6 +1160,29 @@ background-image: -moz-linear-gradient(
         margin-left:-7px;
     }
 
+#territory_widget_create_panel{
+    position:absolute;
+    top:-65px;
+    left:0;
+    width:180px;
+    height:30px;
+    background:#f3f3f3;
+    box-shadow:1px 0px 10px #666;
+
+    border-radius:8px;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+
+}
+
+.territory_widget_create_panel_button{
+    padding:4px 10px 4px 10px;
+    border: 0px;
+    margin-left:5px;
+    margin-right:-5px;
+    margin-top:3px;
+}
+
 .territory_widget_venues{
     position:absolute;
     left:0px;

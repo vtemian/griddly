@@ -1,7 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+import json
 import urllib
-from build.django.django.core.serializers import json
+
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User)

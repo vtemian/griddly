@@ -2,100 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce414521-cb02-4640-8fa9-df3dc02f3b8c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Capfile" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/MANIFEST.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/PKG-INFO" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/static/feedback/img/close_icon.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/static/feedback/img/down.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/static/feedback/img/feedback.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/static/feedback/img/up.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/static/feedback/img/user.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/django_simple_feedback.egg-info/PKG-INFO" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/static/feedback/img/close_icon.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/static/feedback/img/down.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/static/feedback/img/feedback.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/static/feedback/img/up.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/static/feedback/img/user.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/pip-egg-info/django_simple_feedback.egg-info/PKG-INFO" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/setup.cfg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/static/img/ranks/rank_alliance_avatar.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/deploy.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/site_media/media/avatars/2011/09/20/deadmau5-477116.jpeg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/README.rst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/example_feedback/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/example_feedback/manage.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/example_feedback/settings.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/example_feedback/urls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/admin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/app_settings.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/migrations/0001_initial.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/migrations/0002_auto__add_votes__del_field_feedback_user.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/migrations/0003_auto__chg_field_votes_feedback.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/migrations/0004_auto__chg_field_votes_feedback.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/migrations/0005_auto__del_votes__add_vote.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/migrations/0006_auto__add_field_feedback_path.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/migrations/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/models.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/static/feedback/css/feedback.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/static/feedback/js/feedback.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/static/feedback/js/jquery-1.4.2.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/templates/feedback/base.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/templates/feedback/feedbacks.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/templatetags/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/templatetags/feedback_tags.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/tests.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/urls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/build/lib.linux-i686-2.7/feedback/views.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/django_simple_feedback.egg-info/SOURCES.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/django_simple_feedback.egg-info/dependency_links.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/django_simple_feedback.egg-info/top_level.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/example_feedback/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/example_feedback/manage.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/example_feedback/settings.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/example_feedback/urls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/admin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/app_settings.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/migrations/0001_initial.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/migrations/0002_auto__add_votes__del_field_feedback_user.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/migrations/0003_auto__chg_field_votes_feedback.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/migrations/0004_auto__chg_field_votes_feedback.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/migrations/0005_auto__del_votes__add_vote.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/migrations/0006_auto__add_field_feedback_path.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/migrations/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/models.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/static/feedback/css/feedback.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/static/feedback/js/feedback.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/static/feedback/js/jquery-1.4.2.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/templates/feedback/base.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/templates/feedback/feedbacks.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/templatetags/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/templatetags/feedback_tags.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/tests.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/urls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/feedback/views.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/pip-egg-info/django_simple_feedback.egg-info/SOURCES.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/pip-egg-info/django_simple_feedback.egg-info/dependency_links.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/pip-egg-info/django_simple_feedback.egg-info/top_level.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/django-simple-feedback/setup.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/foursquare/api.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/foursquare/example.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/foursquare/oauth.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/location/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/static/socket.io-client" afterPath="$PROJECT_DIR$/common/static/socket.io-client" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/external-api/templates/checkin-done.html" afterPath="$PROJECT_DIR$/external-api/templates/checkin-done.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/external-api/views.py" afterPath="$PROJECT_DIR$/external-api/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game/templates/game.html" afterPath="$PROJECT_DIR$/game/templates/game.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game/views.py" afterPath="$PROJECT_DIR$/game/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/location/models.py" afterPath="$PROJECT_DIR$/location/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/map/static/js/EditablePolygon.js" afterPath="$PROJECT_DIR$/map/static/js/EditablePolygon.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/map/static/js/ObservablePolygon.js" afterPath="$PROJECT_DIR$/map/static/js/ObservablePolygon.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/map/templates/map.html" afterPath="$PROJECT_DIR$/map/templates/map.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodejs_server/server.js" afterPath="$PROJECT_DIR$/nodejs_server/server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/territory/views.py" afterPath="$PROJECT_DIR$/territory/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/urls.py" afterPath="$PROJECT_DIR$/urls.py" />
     </list>
     <ignored path="griddly.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -117,98 +24,7 @@
     <favorites_list name="griddly" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="clan.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/game/static/js/clan.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="notification.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/game/static/js/notification.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="31" selection-start="1301" selection-end="1303" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="widgets.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/game/static/js/widgets.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="streams.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/game/static/js/streams.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="my_clan.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/alliance/templates/my_clan.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="game.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/game/templates/game.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="100" column="50" selection-start="5091" selection-end="5091" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/static/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="254" column="23" selection-start="7860" selection-end="7860" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="my_clan2.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/alliance/templates/my_clan2.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="26" selection-start="3623" selection-end="3623" vertical-scroll-proportion="0.15422885">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="news.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/alliance/templates/news.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="clan_stream.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/alliance/templates/clan_stream.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -222,11 +38,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/common/static/js/script.js" />
-        <option value="$PROJECT_DIR$/map/templates/map.html" />
-        <option value="$PROJECT_DIR$/account/static/js/django-validate.js" />
-        <option value="$PROJECT_DIR$/ranks/templates/ranks.html" />
-        <option value="$PROJECT_DIR$/game/static/js/clan.js" />
         <option value="$PROJECT_DIR$/alliance/templates/news.html" />
         <option value="$PROJECT_DIR$/alliance/templates/clan_stream.html" />
         <option value="$PROJECT_DIR$/alliance/templates/my_clan2.html" />
@@ -236,8 +47,13 @@
         <option value="$PROJECT_DIR$/profile/templates/user_menu2.html" />
         <option value="$PROJECT_DIR$/notification/templates/notification.html" />
         <option value="$PROJECT_DIR$/alliance/static/js/clan_admin.js" />
-        <option value="$PROJECT_DIR$/game/templates/game.html" />
         <option value="$PROJECT_DIR$/common/static/css/style.css" />
+        <option value="$PROJECT_DIR$/game/static/js/widgets.js" />
+        <option value="$PROJECT_DIR$/game/views.py" />
+        <option value="$PROJECT_DIR$/territory/templates.html" />
+        <option value="$PROJECT_DIR$/game/templates/game.html" />
+        <option value="$PROJECT_DIR$/territory/templates/territory_widget.html" />
+        <option value="$PROJECT_DIR$/territory/views.py" />
       </list>
     </option>
   </component>
@@ -267,7 +83,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Favorites">
         <subPane subId="griddly">
           <PATH>
@@ -278,6 +93,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -289,6 +105,124 @@
               <option name="myItemId" value="External Libraries" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; Python 2.7.1 (C:/Python27/python.exe) &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="site-packages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; Python 2.7.1 (C:/Python27/python.exe) &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="site-packages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="django" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; Python 2.7.1 (C:/Python27/python.exe) &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="site-packages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="django" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; Python 2.7.1 (C:/Python27/python.exe) &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="site-packages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="django" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="simplejson" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; Python 2.7.1 (C:/Python27/python.exe) &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; Python 2.7.1 (C:/Python27/python.exe) &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -310,7 +244,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="alliance" />
+              <option name="myItemId" value="territory" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -324,11 +258,173 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="alliance" />
+              <option name="myItemId" value="territory" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ranks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ranks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="griddly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -350,17 +446,17 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="136" />
-    <property name="DefaultHtmlFileTemplate" value="Html" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1014" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1014" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1014" />
+    <property name="DefaultHtmlFileTemplate" value="Html" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="136" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="128" />
     <property name="GoToClass.includeJavaFiles" value="false" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="128" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="ReadonlyStatusHandler">
     <option name="SHOW_DIALOG" value="false" />
@@ -513,21 +609,21 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1448" height="864" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.023480663" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24823695" sideWeight="0.6712707" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24823695" sideWeight="0.78867406" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21132597" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32872927" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21132597" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32872927" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32872927" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -596,73 +692,9 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/notification/views.py">
+    <entry file="file://$PROJECT_DIR$/alliance/templates/clan_stream.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="20" selection-start="2227" selection-end="2227" vertical-scroll-proportion="0.28419453" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/profile/templates/user_menu2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="70" selection-start="656" selection-end="656" vertical-scroll-proportion="13.730769" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notification/templates/notification.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="25" selection-start="1779" selection-end="1779" vertical-scroll-proportion="-18.307692" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alliance/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alliance/static/js/clan_admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="25" selection-start="233" selection-end="233" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/game/static/js/clan.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/game/static/js/notification.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="31" selection-start="1301" selection-end="1303" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/game/static/js/widgets.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/game/static/js/streams.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alliance/templates/my_clan.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/game/templates/game.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="50" selection-start="5091" selection-end="5091" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="254" column="23" selection-start="7860" selection-end="7860" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/alliance/templates/news.html">
@@ -670,14 +702,96 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/alliance/templates/clan_stream.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/alliance/templates/my_clan2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="26" selection-start="3623" selection-end="3623" vertical-scroll-proportion="0.15422885">
+        <state line="78" column="26" selection-start="3623" selection-end="3623" vertical-scroll-proportion="-0.65384614">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile/templates/user_menu2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="8" selection-start="3949" selection-end="4164" vertical-scroll-proportion="0.40416667">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/static/img/map_widget/graph_dummy.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/static/img/map_widget/money.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ranks/templates/ranks.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="0" selection-start="1880" selection-end="1880" vertical-scroll-proportion="-10.461538">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/static/js/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="957" column="16" selection-start="18577" selection-end="18577" vertical-scroll-proportion="0.08">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="8" selection-start="1055" selection-end="1055" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="38" selection-start="960" selection-end="960" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/territory/templates/territory_widget.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="12" selection-start="1799" selection-end="1799" vertical-scroll-proportion="-5.8846154">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/django/utils/simplejson/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="98" column="0" selection-start="4" selection-end="3098" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/territory/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="36" selection-start="3098" selection-end="3098" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game/static/js/widgets.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="0" selection-start="1320" selection-end="1320" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game/templates/game.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="112" selection-start="1959" selection-end="1970" vertical-scroll-proportion="0.48125">
           <folding />
         </state>
       </provider>

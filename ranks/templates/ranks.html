@@ -17,7 +17,7 @@
                  {% for user in users %}
 
             	<li class="clearfix">
-                	<div class="ranks_list_rank"><img src="{{ STATIC_URL }}img/ranks/crown.png" alt="Crown" /><br/>#1</div>
+                	<div class="ranks_list_rank"><img src="{{ STATIC_URL }}img/ranks/crown.png" alt="Crown" /><br/></div>
                     <div class="ranks_list_alliance_info" {% if user == userprofile %}style="border: 1px solid #acc7c4;" {% endif %}>
                     	<p class="small_avatar ranks_list_alliance_info_avatar clearfix" style="background-image: url('{{ user.gravatar_url }}?s=59')">
                        <img src="{{ user.gravatar_url }}?s=59" alt="Avatar" />

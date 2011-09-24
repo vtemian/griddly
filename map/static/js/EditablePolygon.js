@@ -24,7 +24,6 @@
 
 	EditablePolygon.prototype.beginEdit = function () {
 		if (!this.editing) {
-            console.log('a')
 			this.editing = true;
 
 			this.focusedIndex = 0;
@@ -56,15 +55,12 @@
 
 			this.getPath().forEach(function (point) {
 				point.marker.setVisible(false);
-                console.log(point)
 			});
 		}
 	};
 
 	/// @protected Creates a marker.
 	EditablePolygon.prototype.createMarker = function (options) {
-
-        console.log(this.editing)
 
 		var marker = new Gm.Marker({
 			position: options.position,
@@ -192,7 +188,6 @@
             var oddNodes = false;
 
             var paths = this.getPath();
-            console.log(paths)
             for (var i=0; i < paths.getLength(); i++) {
                 j++;
                 if (j == paths.getLength()) {j = 0;}

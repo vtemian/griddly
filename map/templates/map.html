@@ -76,7 +76,7 @@
                 });
                     var war = '';
                     {% if not war  %}
-                        war = "<span id='warRequest' data-username='{{ territory.owner.user.username }}''>War Request</span>";
+                        war = "<span id='warRequest' data-username='{{ territory.owner.user.username }}' data-id='{{ territory.id }}'>War Request</span>";
                     {% endif %}
                     
                     $div = "<div style='background:red; display:none;' id='territoryOverlay' class='{{ territory.owner.user.username }}'>" +
@@ -98,23 +98,24 @@
                 this.place.setMap(this.map);
             {% endfor %}
 
-            {% if my_territory  %}
-                var path = new google.maps.MVCArray();
+            {% if my_territory %}
+                {% for territory in my_territory %}
+                    var path = new google.maps.MVCArray();
+                    {% for point in territory.points.all %}
+                        path.push(new google.maps.LatLng({{ point.lat }}, {{ point.lng }}));
+                    {% endfor %}
+                    this.place = new google.maps.EditablePolygon({
+                        strokeColor: "orange",
+                        strokeWeight: 2,
+                        fillColor: "yellow",
 
-                {% for point in my_territory.points.all %}
-                    path.push(new google.maps.LatLng({{ point.lat }}, {{ point.lng }}));
+                        handleImage: "{{ STATIC_URL }}img/handle.png",
+
+                    });
+                    this.place.setMap(this.map);
+                    this.place.setPaths(path)
                 {% endfor %}
-                this.place = new google.maps.EditablePolygon({
-                    strokeColor: "orange",
-                    strokeWeight: 2,
-                    fillColor: "yellow",
 
-                    handleImage: "{{ STATIC_URL }}img/handle.png",
-
-                });
-                this.place.setMap(this.map);
-                this.place.setPaths(path)
-                this.place.beginEdit()
             {% else %}
                 this.place = new google.maps.EditablePolygon({
                     strokeColor: "orange",
@@ -175,21 +176,6 @@
                 })
 
             });
-        
-            $("#get-path-btn").click(function () {
-                var points = new Array();
-                var firstPoint = null;
-                var path = me.place.getPath().getArray().map(function (p) {
-                    points.push(p)
-                    return p.lat() + ',' + p.lng();
-                }).join("; ");
-                
-                if(false){
-
-                }
-            });
-
-            
         }
     };
 

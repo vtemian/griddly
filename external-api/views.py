@@ -106,7 +106,7 @@ def checkingin(request):
                 else:
                     enemy = battle.attacker
 
-                terrytory = location.territory
+                terrytory = battle.territory
 
                 if terrytory.owner == up or terrytory.owner == enemy:
                     my_loyalty, created = Loyalty.objects.get_or_create(location=location, userProfile=up)
@@ -122,6 +122,7 @@ def checkingin(request):
 
                         print location.territory
                         location.territory.owner = up
+                        
 
                         location.territory.save()
                         my_loyalty.active = False

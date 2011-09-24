@@ -101,38 +101,39 @@ def checkingin(request):
             checkin.battle = battle
             checkin.save()
             
-            my_loyalty, created = Loyalty.objects.get_or_create(location=location, userProfile=up)
-            my_loyalty.value += 10
-
             if battle.attacker == up:
                 enemy = battle.defender
             else:
                 enemy = battle.attacker
 
+            terrytory = location.terrytory
 
+            if terrytory.owner == up or terrytory.owner == enemy:
+                my_loyalty, created = Loyalty.objects.get_or_create(location=location, userProfile=up)
+                my_loyalty.value += 10
 
-            enemy_loyalty, created = Loyalty.objects.get_or_create(location=location, userProfile=enemy)
+                enemy_loyalty, created = Loyalty.objects.get_or_create(location=location, userProfile=enemy)
 
-            print enemy.user.username
+                print enemy.user.username
 
-            if check_loyalty(up):
-                battle.active = False
-                battle.winner = up
+                if check_loyalty(up):
+                    battle.active = False
+                    battle.winner = up
 
-                print location.territory
-                location.territory.owner = up
+                    print location.territory
+                    location.territory.owner = up
 
-                location.territory.save()
-                my_loyalty.active = False
-                enemy_loyalty.active = False
-                battle.save()
-            else:
+                    location.territory.save()
+                    my_loyalty.active = False
+                    enemy_loyalty.active = False
+                    battle.save()
+                else:
 
-                enemy_loyalty.value -= 10
+                    enemy_loyalty.value -= 10
 
-            enemy_loyalty.save()
-            my_loyalty.save()
-                
+                enemy_loyalty.save()
+                my_loyalty.save()
+                    
         except Battle.DoesNotExist:
             try:
                 latest_checkin = Checkin.objects.filter(user=up, location=location).order_by('-created_at')[0]

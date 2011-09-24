@@ -49,7 +49,7 @@ def handshake(host, port):
 def check_loyalty(userProfile):
     loyalties = Loyalty.objects.filter(active=True, userProfile=userProfile)
     for loyalty in loyalties:
-        if loyalty.value < 50:
+        if loyalty.value < 50 and loyalty.location.territory.owner == userProfile:
             return False
     return True
 

@@ -100,40 +100,41 @@ def checkingin(request):
             checkin.created_at = nowdatetime
             checkin.battle = battle
             checkin.save()
-            
-            if battle.attacker == up:
-                enemy = battle.defender
-            else:
-                enemy = battle.attacker
-
-            terrytory = location.territory
-
-            if terrytory.owner == up or terrytory.owner == enemy:
-                my_loyalty, created = Loyalty.objects.get_or_create(location=location, userProfile=up)
-                my_loyalty.value += 10
-
-                enemy_loyalty, created = Loyalty.objects.get_or_create(location=location, userProfile=enemy)
-
-                print enemy.user.username
-
-                if check_loyalty(up):
-                    battle.active = False
-                    battle.winner = up
-
-                    print location.territory
-                    location.territory.owner = up
-
-                    location.territory.save()
-                    my_loyalty.active = False
-                    enemy_loyalty.active = False
-                    battle.save()
+            try:
+                if battle.attacker == up:
+                    enemy = battle.defender
                 else:
+                    enemy = battle.attacker
 
-                    enemy_loyalty.value -= 10
+                terrytory = location.territory
 
-                enemy_loyalty.save()
-                my_loyalty.save()
-                    
+                if terrytory.owner == up or terrytory.owner == enemy:
+                    my_loyalty, created = Loyalty.objects.get_or_create(location=location, userProfile=up)
+                    my_loyalty.value += 10
+
+                    enemy_loyalty, created = Loyalty.objects.get_or_create(location=location, userProfile=enemy)
+
+                    print enemy.user.username
+
+                    if check_loyalty(up):
+                        battle.active = False
+                        battle.winner = up
+
+                        print location.territory
+                        location.territory.owner = up
+
+                        location.territory.save()
+                        my_loyalty.active = False
+                        enemy_loyalty.active = False
+                        battle.save()
+                    else:
+
+                        enemy_loyalty.value -= 10
+
+                    enemy_loyalty.save()
+                    my_loyalty.save()
+            except Exception:
+                pass
         except Battle.DoesNotExist:
             try:
                 latest_checkin = Checkin.objects.filter(user=up, location=location).order_by('-created_at')[0]

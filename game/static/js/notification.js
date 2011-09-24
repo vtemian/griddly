@@ -1,6 +1,7 @@
 $(document).ready(function(){
     $('#accept-friend-request').live("click", function(){
-        var id = $('#noteid', $(this).parent()).val()
+        var id =  $(this).data("note");
+        console.log(id)
         $.post('/profile/friendrequest/', {'id': id, 'type': 'accept'}, function(data){
             console.log('nice')
             //TODO: make succes/fail notification on the client-side
@@ -8,7 +9,7 @@ $(document).ready(function(){
     });
     
     $('#decline-friend-request').click(function(){
-        var id = $('#noteid', $(this).parent()).val()
+        var id =  $(this).data("note");
         $.post('/profile/friendrequest/', {'id': id, 'type': 'decline'}, function(data){
             console.log('nice')
             //TODO: make succes/fail notification on the client-side
@@ -16,7 +17,7 @@ $(document).ready(function(){
     });
 
     $('#accept-clan-request').click(function(){
-        var id = $('#noteid', $(this).parent()).val()
+        var id =  $(this).data("note");
         $.post('/alliance/process_request/', {'id': id, 'type': 'accept'}, function(data){
             console.log('nice')
             //TODO: make succes/fail notification on the client-side
@@ -24,7 +25,7 @@ $(document).ready(function(){
     });
 
     $('#decline-clan-request').click(function(){
-        var id = $('#noteid', $(this).parent()).val()
+        var id =  $(this).data("note");
         $.post('/alliance/process_request/', {'id': id, 'type': 'decline'}, function(data){
             console.log('nice')
             //TODO: make succes/fail notification on the client-side
@@ -34,7 +35,7 @@ $(document).ready(function(){
     $('#notification').live('mouseover', function(){
 
             if ($(this).hasClass('unseen')){
-                var id = $('input[type=hidden]', $(this)).val()
+                var id =  $(this).data("note");
                 $(this).removeClass('unseen')
 
                  var notifications_number = parseInt( $('#notifications_nr').html(), 10) - 1

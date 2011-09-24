@@ -4,7 +4,7 @@ $(document).ready(function(){
             opacity:80,
             overlayCss: {backgroundColor:"#5b5b5b"},
             minHeight:400,
-            minWidth: 600,
+            minWidth: 300
         });
         put_users(users, $('#new-recipient'))
         setAutoComplete("new-recipient", "recipients-results", "/profile/get_users?user=");

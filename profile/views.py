@@ -153,7 +153,7 @@ def un_friend(request, profile_id):
         if exists:
             recipient = UserProfile.objects.get(pk=profile_id)
             unfriend(recipient=recipient, sender=user)
-            Notification(message=request.user.username+" delete you from his friend list", sender=user,recipient=recipient, type="Unfriend", finished=True).save()
+            Notification(message=" unfriend you", sender=user,recipient=recipient, type="Unfriend", finished=True).save()
             return HttpResponse(simplejson.dumps({'message': 'The request has been submited'}))
     else:
         redirect('/profile/' + profile_id)

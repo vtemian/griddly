@@ -98,12 +98,7 @@
                 $('#create-clan').click(function(){
                     if ( {{ userprofile.lvl }} >= {{ request.environ.CLAN_LVL|default:"1" }} ){
                         if({{ userprofile.money }} >= {{ request.environ.CLAN_MONEY|default:"10" }}){
-                            $('#make-clan').modal({
-                                opacity:90,
-                                overlayCss: {backgroundColor:"#eee"},
-                                minHeight:400,
-                                minWidth: 600,
-                            });
+                            $('#make-clan').modal();
                             put_users(users, $('#new-recipient'))
                             setAutoComplete("new-recipient", "recipients-results", "/profile/get_users?user=");
                         }else{

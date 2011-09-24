@@ -1,7 +1,7 @@
 {% if notification.seen%}
-    <li class="clearfix"  id="notification">
+    <li class="clearfix"  id="notification" data-note="{{ notification.id }}">
 {% else %}
-    <li class="clearfix unseen"  id="notification">
+    <li class="clearfix unseen"  id="notification" data-note="{{ notification.id }}">
 {% endif %}
 
     <div class="notifications_sender">
@@ -11,22 +11,23 @@
 
     <div class="notifications_info">
         <h5 class="notifications_header">{{ notification.sender.user.username }}</h5>
-        <h6 class="notifications_info_text">{{ notification.message }}
-        <input type="hidden" value="{{ notification.id }}" id="noteid">
-        {% if not notification.finished %}
+        <h6 class="notifications_info_text">{{ notification.message }}</h6>
+    </div>
+     {% if not notification.finished %}
             {% if notification.type == "Friend Request" %}
-                    <button class="notification_accept_button" id="accept-friend-request"></button>
-                    <button class="notification_decline_button" id="decline-friend-request"></button>
+                 <div class="notifications_buttons">
+                    <button class="notification_accept_button" id="accept-friend-request" data-note="{{ notification.id }}"></button>
+                    <button class="notification_decline_button" id="decline-friend-request" data-note="{{ notification.id }}"></button>
+                 </div>
             {% else %}
                 {% if notification.type == "Clan" %}
-                        <button class="notification_accept_button" id="accept-clan-request"></button>
-                        <button class="notification_decline_button" id="decline-clan-request"></button>
+                        <button class="notification_accept_button" id="accept-clan-request" data-note="{{ notification.id }}"></button>
+                        <button class="notification_decline_button" id="decline-clan-request" data-note="{{ notification.id }}"></button>
                 {% else %}{% if notification.type == "Message" %}
-                    <button id="reply-btn" data-sender="{{ notification.sender.user.username }}">Reply</button>
+                   <div class="notifications_buttons">
+                    <button class="notification_reply_button" id="reply-btn" data-sender="{{ notification.sender.user.username }}">Reply</button>
+                   </div>
                 {% endif %}{% endif %}
             {% endif %}
         {% endif %}
-        </h6>
-    </div>
-
 </li>

@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+import urllib
+from build.django.django.core.serializers import json
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
@@ -24,3 +26,10 @@ class UserProfile(models.Model):
 
     widget_top = models.CharField(max_length=30, default="0")
     widget_left = models.CharField(max_length=30, default="0")
+
+    facebook_id = models.BigIntegerField(null=True)
+    access_token = models.CharField(max_length=150)
+
+    def get_facebook_profile(self):
+        fb_profile = urllib.urlopen('https://graph.facebook.com/me?access_token=%s' % self.access_token)
+        return json.load(fb_profile)

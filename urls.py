@@ -47,6 +47,7 @@ urlpatterns = patterns('',
     url(r'^site_media/media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
     url(r'^feedback', include('feedback.urls')),
     url(r'^facebook/login$', 'facebook.views.login'),
+    url(r'^facebook/registration', 'facebook.views.facebook_setup'),
     url(r'^facebook/authentication_callback$', 'facebook.views.authentication_callback'),
 )
 

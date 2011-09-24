@@ -99,6 +99,12 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
+AUTHENTICATION_BACKENDS = ('facebook.backend.FacebookBackend', 'django.contrib.auth.backends.ModelBackend')
+AUTH_PROFILE_MODULE = 'facebook.FacebookProfile'
+FACEBOOK_APP_ID = '165186856899090'
+FACEBOOK_APP_SECRET = 'cce7d92718bc6358211eeffba1ac2529'
+FACEBOOK_SCOPE = 'email,publish_stream'
+
 ROOT_URLCONF = 'urls'
 TEMPLATE_DIRS = ('/home/wok/projects/griddly/templates',)
 LOGIN_REDIRECT_URL = '/'
@@ -130,6 +136,7 @@ INSTALLED_APPS = (
     'notification',
     'map',
     'foursquare',
+    'facebook',
 
 )
 

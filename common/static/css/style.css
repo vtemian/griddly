@@ -357,10 +357,10 @@ header{
 }
 
 #menu li{
-	height:30px;
+	height:23px;
 	float:left;
 	padding:10px;
-	padding-top:9px;
+	padding-top:15px;
 	border-left:1px solid #e5e4e4;
 	border-right:1px solid #f4f4f4;
 }

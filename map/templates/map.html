@@ -182,7 +182,7 @@
     $(app.launch.bind(app));
 
     $(document).ready(function(){
-        
+        $('#map').css('position', 'obsolute');
         socket.on('checkin', function(data){
             var message = "<div class='checkin_overlay clearfix' id='messageDiv'>\
                 <div class='checkin_overlay_marker'>\

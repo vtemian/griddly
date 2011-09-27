@@ -1,34 +1,39 @@
 $(document).ready(function(){
     $('#accept-friend-request').live("click", function(){
         var id =  $(this).data("note");
-        console.log(id)
+        var $parent = $(this).parent();
         $.post('/profile/friendrequest/', {'id': id, 'type': 'accept'}, function(data){
             console.log('nice')
-            //TODO: make succes/fail notification on the client-side
+            $('#notifications_bar').html("Friendship accepted!").slideDown(200).delay(1000).slideUp(200);
+            $parent.remove();
         });
     });
     
     $('#decline-friend-request').click(function(){
         var id =  $(this).data("note");
+        var $parent = $(this).parent();
         $.post('/profile/friendrequest/', {'id': id, 'type': 'decline'}, function(data){
             console.log('nice')
-            //TODO: make succes/fail notification on the client-side
+            $('#notifications_bar').html("Friendship rejected!").slideDown(200).delay(1000).slideUp(200);
+            $parent.remove();
         });
     });
 
     $('#accept-clan-request').click(function(){
         var id =  $(this).data("note");
+        var $parent = $(this).parent();
         $.post('/alliance/process_request/', {'id': id, 'type': 'accept'}, function(data){
-            console.log('nice')
-            //TODO: make succes/fail notification on the client-side
+            $('#notifications_bar').html("Clan request accepted!").slideDown(200).delay(1000).slideUp(200);
+            $parent.remove();
         });
     });
 
     $('#decline-clan-request').click(function(){
         var id =  $(this).data("note");
+        var $parent = $(this).parent();
         $.post('/alliance/process_request/', {'id': id, 'type': 'decline'}, function(data){
-            console.log('nice')
-            //TODO: make succes/fail notification on the client-side
+            $('#notifications_bar').html("Clan request refected!").slideDown(200).delay(1000).slideUp(200);
+            $parent.remove();
         });
     });
 
@@ -43,8 +48,8 @@ $(document).ready(function(){
 
                  $('#notifications_nr').html(notifications_number)
                  $individual_notification = $(this).parents('.notifications_body').prev()
-                 console.log($individual_notification)
-                 notifications_number = parseInt($individual_notification.html(), 10) - 1
+
+                notifications_number = parseInt($individual_notification.html(), 10) - 1
                  if (notifications_number == 0){
                      $individual_notification.css('display', 'none')
                  }else{
@@ -84,5 +89,4 @@ $(document).ready(function(){
         }
     });
 
-    
 });

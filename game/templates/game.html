@@ -23,10 +23,6 @@
 
 {% block content %}
     <div id="map_settings">
-
-    <div id="map_settings_buttons_wrapper" class="clearfix">
- 
-     
     <div id="map_holder">
         {% include 'map.html' %}
         <script type="text/javascript">
@@ -119,7 +115,6 @@
     </div>
 
 
-    </div>
     <div id="replyModalForm" style="display:none">
         <form id="replyForm" action="{% url profile.views.send_message %}" >
             <div id="recipients" style="width: 300px">

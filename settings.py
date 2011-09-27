@@ -135,8 +135,10 @@ INSTALLED_APPS = (
     'ranks',
     'notification',
     'map',
+    'mobile',
     'foursquare',
     'facebook',
+
 
 )
 

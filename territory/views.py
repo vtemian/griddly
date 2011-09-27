@@ -1,8 +1,13 @@
 from django.utils import simplejson
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
+from django.template import loader
+from django.template.context import RequestContext, Context
+from battle.models import Battle
+from checkin.models import Checkin
 from territory.models import *
 from location.models import *
+from django.views.decorators.csrf import csrf_exempt
 
 @csrf_exempt
 def create_territory(request):
@@ -83,3 +88,43 @@ def verify_territory(request):
 
         
     return HttpResponse('Not here!')
+
+def load_territory(request):
+    if request.method == 'GET':
+        id = request.GET.get('id')
+        territory = Territory.objects.get(pk=id)
+        checkins = Checkin.objects.filter(location__territory = territory).order_by('-created_at')[:5]
+        locations = Location.objects.filter(territory=territory)
+        notification_template = loader.get_template('territory_widget.html')
+        context = {}
+        context['territory'] = territory
+        context['checkins'] = checkins
+        context['locations'] = locations
+
+        try:
+            battle = Battle.objects.get(defender = territory.owner, active=True)
+            context['battle'] = battle
+        except Exception:
+            pass
+        
+        c = Context(context)
+        message = notification_template.render(c)
+        return HttpResponse(message)
+    return HttpResponse('Not good enough')
+
+@csrf_exempt
+def upgrade(request):
+    if request.method == 'POST':
+        id = request.POST.get('id')
+
+        territory = Territory.objects.get(pk=id)
+        up = UserProfile.objects.get(user=request.user)
+
+        if up.money >= territory.lvl * 1000:
+            territory.lvl = territory.lvl + 1
+            territory.save()
+            up.money = up.money - territory.lvl * 1000
+            up.save()
+            return HttpResponse(simplejson.dumps({'message': "You've just upgrade your territory"}))
+        return HttpResponse(simplejson.dumps({'message': 'You need ' +str(territory.lvl * 1000) + ' outcoins to upgrade your territory!'}))
+    return HttpResponse(simplejson.dumps({'message': "Just a system error! Don't panic...."}))

@@ -18,3 +18,5 @@ class Territory(models.Model):
     points = models.ManyToManyField(Points, null=True)
 
     owner = models.ForeignKey(UserProfile)
+
+    lvl = models.IntegerField(default=1)

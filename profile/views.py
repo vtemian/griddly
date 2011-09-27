@@ -123,6 +123,16 @@ def widget_lvl(request):
     return HttpResponse('Not here!')
 
 @csrf_exempt
+def widget_territory(request):
+    if request.method == 'POST':
+        profile = UserProfile.objects.get(user=request.user)
+        profile.territory_widget_left = request.POST.get('left')
+        profile.territory_widget_top = request.POST.get('top')
+        profile.save()
+        return HttpResponse('ok')
+    return HttpResponse('Not here!')
+
+@csrf_exempt
 def stream_clan(request):
     if request.method == 'POST':
         profile = UserProfile.objects.get(user=request.user)

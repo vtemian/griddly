@@ -744,7 +744,7 @@ header{
 }
 
 /* ******************************
-   Map Widget
+   Map Stats Widget
    ****************************** */
 
 #widget{
@@ -757,7 +757,7 @@ header{
 	width:250px;
 
 	top:50px;
-	left:50px;
+	right:10px;
 
 	border-radius:8px;
 	-moz-border-radius:8px;
@@ -894,15 +894,22 @@ background-image: -moz-linear-gradient(
 
 #widget_items{
 	border-top:1px solid #fff;
-	height:40px;
+	height:30px;
 	width:100%;
+    text-align: center;
+    padding-top: 10px;
+}
+#widget_items>a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #4d4e50;
 }
 
 /* ******************************
-   WAR Widget
+   Territory Widget
    ****************************** */
 
-#war_widget{
+#territory_widget{
 	position:absolute;
 	z-index:200;
 
@@ -911,21 +918,20 @@ background-image: -moz-linear-gradient(
 
 	width:250px;
 
-	top:190px;
-	left:50px;
+	top:20%;
+	right:10px;
 
 	border-radius:8px;
 	-moz-border-radius:8px;
 	-webkit-border-radius:8px;
 
-	padding-top:5px;
 	padding-bottom:5px;
 	opacity:0.9;
 	cursor:move;
 }
 
-#war_widget_header{
-	height:25px;
+#territory_widget_tabs{
+    list-style:none;
 	width:100%;
 	border-bottom:1px solid #dedede;
 
@@ -941,101 +947,310 @@ background-image: -moz-linear-gradient(
     rgb(235,235,235) 45%,
     rgb(243,243,243) 74%
 );
+
+   margin:0px;
+
+    border-radius-top-left:8px;
+	    -moz-border-radius-topleft:8px;
+	    -webkit-border-top-left-radius:8px;
+
+    border-radius-top-right:8px;
+	    -moz-border-radius-topright:8px;
+	    -webkit-border-top-right-radius:8px;
+
 }
 
-	#war_widget_info{
-	float:left;
-	font-size:17px;
-	font-weight:bold;
-	text-shadow:1px 1px 0px #fff;
-	margin-top:2px;
-	margin-left:10px;
+#territory_widget_tabs li{
+    float:left;
+    padding:3px;
+    width:30%;
+    text-align:center;
+    cursor:pointer;
+    border-right: 1px solid #dcded9;
+}
+
+    #territory_widget_tabs li:first-child{
+        border-radius-top-left:8px;
+	    -moz-border-radius-topleft:8px;
+	    -webkit-border-top-left-radius:8px;
+    }
+
+    #territory_widget_tabs li:last-child{
+        border-radius-top-right:8px;
+	    -moz-border-radius-topright:8px;
+	    -webkit-border-top-right-radius:8px;
+
+        border-right: 0px;
+        width:32%;
+    }
+
+#territory_widget_tabs li:hover{
+    background-color:#d9d9d9;
+}
+
+.active_territory{
+    background-color:#d9d9d9;
+}
+
+#territory_widget_atack{
+    position:relative;
+    background:#f4cac5;
+    height:40px;
+    width:230;
+    padding:10px;
+}
+
+    #show_venues {
+        float:left;
+        text-decoration: none;
+        font-weight: bold;
+        color: #4d4e50;
+        background:#ececec;
+        padding:10px 15px 10px 15px;
+        margin-top:2px;
+        border-radius:4px;
+        -moz-border-radius:4px;
+        -webkit-border-radius:4px;
+
+    }
+
+     .territory_widget_atacker_info{
+         float:right;
+     }
+
+     .territory_widget_atacker_info>p{
+       float:left;
+       font-size:14px;
+       font-weight:bold;
+    }
+
+     .territory_widget_atack_avatar{
+        float:left;
+        width:30px;
+        height:30px;
+        margin:0px;
+        margin-left:5px;
+    }
 
 
+
+#territory_widget_stats{
+    width:100%;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+
+    #territory_widget_stats>ul{
+        float:left;
+        list-style:none;
+        margin:0px;
+        margin-top:4px;
+        padding-left:5px;
+        width:70%;
+    }
+
+      #territory_widget_stats>ul li{
+        margin-top:5px;
+        font-size:14px;
+        font-weight:bold;
+      }
+
+       #territory_widget_stats>ul li:first-child{
+        margin-top:0px;
+      }
+
+
+	#territory_widget_level_box{
+		float:left;
+		width:55px;
+		margin-top:3px;
+		margin-left:5px;
 	}
 
-	#war_widget_bar{
-	width:100%;
-	border-top:1px solid #fff;
-	border-bottom:1px solid #dedede;
+	#territory_widget_level_box_top{
+		background:#e6e6e6;
+		padding:2px;
+		font-size:18px;
+		font-weight:bold;
+		text-shadow:1px 1px 0px #fff;
+		text-align:center;
 
-
-	background:#f6f6f6;
-}
-
-	#war_widget_battle_history{
-	border-top:1px solid #fff;
-	width:100%;
+		-moz-border-radius-topleft:5px;
+		-moz-border-radius-topright:5px;
+		-webkit-border-top-left-radius:5px;
+		-webkit-border-top-right-radius:5px;
 	}
-/* ************ Map Battle Bar ************ */
+	#territory_widget_level_box_bottom{
+		background:#d2d2d2;
+		padding:2px;
+		font-size:11px;
+		font-weight:bold;
+		text-shadow:1px 0px 0px #fff;
+		text-align:center;
 
-@charset "utf-8";
-/* CSS Document */
+		-moz-border-radius-bottomleft:5px;
+		-moz-border-radius-bottomright:5px;
+		-webkit-border-bottom-left-radius:5px;
+		-webkit-border-bottom-right-radius:5px;
+	}
 
-#battle_bar_holder{
-float:left;
-width:170px;
-height:30px;
-position:relative;
+    .territory_widget_checkins_button{
+
+        background:#e7e7e7;
+        padding:5px 15px 5px 15px;
+        border-radius:5px;
+        -moz-border-radius:5px;
+        -webkit-border-radius:5px;
+        width:130px;
+        margin: 0px auto;
+        margin-bottom:-20px;
+
+    
+    }
+
+     .territory_widget_checkins_button>a{
+        text-decoration: none;
+        font-weight: bold;
+        color: #4d4e50;
+     }
+
+    #territory_widget_checkins{
+        list-style:none;
+        display:none;
+    }
+
+    #territory_widget_checkins>li{
+    
+        padding-top:4px;
+        padding-bottom:4px;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #dedede;
+    }
+
+        #territory_widget_checkins>li:first-child{
+            font-size:14px;
+            font-weight:bold;
+            text-shadow:1px 1px 0px #fff;
+            padding-bottom:6px;
+            text-align:center;
+            border-top: 0px;
+            border-bottom:1px solid #dedede;
+         }
+
+        #territory_widget_checkins>li:last-child{
+            border-bottom: 0px;
+        }
+
+    .territory_widget_stats_avatar{
+        width:30px;
+        height:30px;
+        margin:0px;
+        margin-left:5px;
+        float:left;
+    }
+
+        #territory_widget_checkins ul{
+            list-style: none;
+            width:60%;
+            float:left;
+            margin:0px;
+            margin-left:5px;
+        }
+
+         #territory_widget_checkins ul li:first-child{
+            font-size:12px;
+            font-weight:bold;
+            margin:0px;
+         }
+
+         #territory_widget_checkins ul li:last-child{
+            font-size:11px;
+            margin:0px;
+         }
+
+    .territory_widget_checkins_profit{
+        float:left;
+        font-size:13px;
+        font-weight: bold;
+        margin-top:4px;
+        margin-left:-7px;
+    }
+
+#territory_widget_create_panel{
+    position:absolute;
+    top:-65px;
+    left:0;
+    width:180px;
+    height:30px;
+    background:#f3f3f3;
+    box-shadow:1px 0px 10px #666;
+
+    border-radius:8px;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+
 }
 
-#battle_bar {
-width:170px;
-height:30px;
-border-radius:6px;
-background-color:#CCC;
-border:1px solid #999;
+.territory_widget_create_panel_button{
+    padding:4px 10px 4px 10px;
+    border: 0px;
+    margin-left:5px;
+    margin-right:-5px;
+    margin-top:3px;
 }
 
-#battle_bar_progress{
-width:160px;
-height:30px;
-margin:0px auto;
-position:relative;
-overflow:hidden;
+.territory_widget_venues{
+    position:absolute;
+    left:0px;
+    top:0px;
+
+    width:250px;
+    display:none;
+
+    margin-left:-252px;
+    border: 1px solid #ccc;
+   
+
+    background:#f3f3f3;
 }
 
-#team1{
-position:absolute;
-height:25px;
-width:80px;
-top:5px;
-left:0px;
-background-color:#e88888;
-
+.territory_widget_venues>ul{
+    list-style:none;
+    width:248px;
 }
 
-#team1_popup{
-position:absolute;
-height:50px;
-width:50px;
-top:40px;
-left:5px;
-border-radius:6px;
-background-color:#e88888;
-display:none;
+.territory_widget_venues>ul li{
+    padding-top:10px;
+    padding-bottom:10px;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #dedede;
 }
 
-#team2{
-position:absolute;
-height:25px;
-width:80px;
-top:5px;
-right:0px;
-background-color:#85b1d3;
+    .territory_widget_venues>ul li:first-child{
+    border-top:0px;
+    }
 
-}
 
-#team2_popup{
-position:absolute;
-height:50px;
-width:50px;
-top:40px;
-right:5px;
-border-radius:6px;
-background-color:#85b1d3;
-display:none;
-}
+    .territory_widget_venues>ul li:last-child{
+    border-bottom:0px;
+    }
+
+        .territory_widget_venues_venue{
+            float:left;
+            margin-left:10px;
+            font-weight:bold;
+            text-shadow:1px 1px 0px #fff;
+
+        }
+
+        .territory_widget_venues_venue_loyalty{
+            float:right;
+            margin-right:10px;
+           
+        }
+
+
+
 
 /* ******************************
    Map Checkin Overlay
@@ -1163,6 +1378,8 @@ display:none;
 	border:1px solid #d2d2d2;
 	border-right:0px;
 
+        display:none; /* ======NU UITA========== */
+
 
 }
 
@@ -1182,6 +1399,8 @@ display:none;
 		border-right:0px;
 
 		cursor:pointer;
+
+            display:none; /* ======NU UITA========== */
 	}
 
 		#sidebar_right_handle>img{

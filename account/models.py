@@ -25,8 +25,11 @@ class UserProfile(models.Model):
     clan_stream = models.CharField(max_length=30, default="none")
     friends_stream = models.BooleanField(max_length=30, default=True)
 
-    widget_top = models.CharField(max_length=30, default="0")
-    widget_left = models.CharField(max_length=30, default="0")
+    widget_top = models.CharField(max_length=30, default="10")
+    widget_left = models.CharField(max_length=30, default="70")
+
+    territory_widget_top = models.CharField(max_length=30, default="210")
+    territory_widget_left = models.CharField(max_length=30, default="70")
 
     facebook_id = models.BigIntegerField(null=True)
     access_token = models.CharField(max_length=150)

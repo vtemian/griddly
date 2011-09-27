@@ -22,7 +22,6 @@
 {% endblock %}
 
 {% block content %}
-    <a href="/external-api/checkin/?username={{ user.username }}&checkin=foo&lng=21.22364552785102&lat=45.746460327062685&zone=Timisoara">Checkin HERE!!!!</a>
     <div id="map_settings">
 
     <div id="map_settings_buttons_wrapper" class="clearfix">
@@ -34,6 +33,7 @@
             $(document).ready(function(){
                 $('#widget').css({'left': '{{ userprofile.widget_left }}px', "top": '{{ userprofile.widget_top }}px'});
                 $('map').css('overflow', 'visible')
+                $('#territory_widget').css({'left': '{{ userprofile.territory_widget_left }}px', "top": '{{ userprofile.territory_widget_top }}px'});
             });
         </script>
         <div id="widget">
@@ -53,43 +53,28 @@
 
             </div>
             {% if not my_alliance %}
-                <div id="widget_items"><a href="#" id="create-clan">Create Clan (the stupid way)</a></div>
+                <div id="widget_items"><a href="#" id="create-clan">Create Clan</a></div>
             {% endif %}
         </div>
 
-        <div id="sidebar_left">
-            <div class="sidebar_inner">
-                <div id="sidebar_left_handle"><img src="{{ STATIC_URL }}img/map_sidebar/settings_sidebar_icon.png" /></div>
-                <div id="tools">
-                    <input type="button" value="Begin edit" id="begin-edit-btn" />
-                    <input type="button" value="End edit" id="end-edit-btn" />
-                    <input type="button" value="Get path" id="get-path-btn" />
-                </div>
-            </div>
-        </div>
-        <div id="sidebar_right">
-            <div class="sidebar_inner">
-                <div id="sidebar_right_handle"><img src="{{ STATIC_URL }}img/map_sidebar/widgets_sidebar_icon.png" /></div>
-                <span id="add-streams">+
-                    <div id="choices" style="display:none">
-                        {% if my_alliance and userprofile.clan_stream != 'news' %}
-                            <label id="clan-stream-choice">Clan Stream</label>
-                        {% endif %}
-                    </div>
-                </span>
-                <div id="stream">
-                    {% if userprofile.clan_stream == 'news' %}
-                            {% with news as clan_stream %}
-                                {% include 'clan_stream.html' %}
-                            {% endwith %}
-                    {% endif %}
-                </div>
+         <div id="territory_widget">
+             <div id="territory_widget_create_panel">
+                 <button class="territory_widget_create_panel_button" id="begin-edit-btn">Define</button>
+                 <button class="territory_widget_create_panel_button" id="end-edit-btn">Create</button>
+                 <button class="territory_widget_create_panel_button">Drop</button>
+             </div>
+                
+             <ul id="territory_widget_tabs" class="clearfix">
+                {% for territory in my_territory %}
+                 <li id="territoryID" data-id="{{ territory.id }}">Territory</li>
+                {% endfor %}
+             </ul>
 
-            </div>
+           <div id="territory_loader">
+                No territory yet
+           </div>
 
-        </div>
-
-
+         </div>
     </div>
     
     {% if not my_alliance %}

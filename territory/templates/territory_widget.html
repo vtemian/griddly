@@ -1,0 +1,57 @@
+<div class="territory_widget_territory">
+    <a id="show_venues" href="#">Venues</a>
+    {% if battle %}
+        <div id="territory_widget_atack" class="clearfix">
+            <div class="territory_widget_atacker_info clearfix">
+
+                    <p>Under atack by </p>
+
+                    <p class="small_avatar territory_widget_atack_avatar clearfix" style="background-image: url({{ attacker.gravatar_url }}?s=30)">
+                    <a href="/profile/{{ attacker.user.id }}"><img src="{{ STATIC_URL }}img/user/default.png" alt="avatar"/></a>
+                    </p>
+            </div>
+        </div>
+    {% endif %}
+            <div class="territory_widget_venues">
+                <ul>
+                    {% for venue in locations %}
+                        <li class="clearfix">
+                            <div class="territory_widget_venues_venue">{{ venue.name }}</div>
+                                {% if battle %}
+                                    <div class="territory_widget_venues_venue_loyalty">
+                                        {{ venue.loyalty_set }}
+                                    </div>
+                                {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+    <div id="territory_widget_stats" class="clearfix">
+        <ul><li>Level: {{ territory.lvl }}</li><li>Venues: {{ locations.count }}</li></ul>
+        <div id="territory_widget_level_box" data-id="{{ territory.id }}" >
+            <div id="territory_widget_level_box_top" >+1</div>
+            <div id="territory_widget_level_box_bottom" >upgrade</div>
+        </div>
+    </div>
+
+    <ul id="territory_widget_checkins" class="clearfix">
+
+        <li>Territory Stats</li>
+        {% for checkin in checkins %}
+             <li class="clearfix">
+               <p class="small_avatar territory_widget_stats_avatar clearfix" style="background-image: url({{ checkin.user.gravatar_url }}?s=30)">
+                    <a href="/profile/{{ checkin.user.user.id }}"><img src="{{ STATIC_URL }}img/user/default.png" alt="avatar"/></a>
+               </p>
+
+               <ul><li>@ {{ checkin.location.name }}</li><li>{{ checkin.created_at }}</li></ul>
+
+               <div class="territory_widget_checkins_profit"></div>
+            </li>
+        {% endfor %}
+
+    </ul>
+
+    <div id="show_checkins" class="territory_widget_checkins_button"><a href="#">Show Territory Stats</a></div>
+
+ </div>

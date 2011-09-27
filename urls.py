@@ -18,6 +18,7 @@ urlpatterns = patterns('',
     url(r'^stream/clan$',  'alliance.views.get_stream'),
     url(r'^profile/stream/clan$',  'profile.views.stream_clan'),
     url(r'^profile/widget-lvl$',  'profile.views.widget_lvl'),
+    url(r'^profile/widget-territory$',  'profile.views.widget_territory'),
     url(r'^profile/dismiss-clan$',  'profile.views.dismiss_clan'),
     url(r'^profile/get_users/$',  'profile.views.get_users'),
     url(r'^profile/sendmessage/$',  'profile.views.send_message'),
@@ -46,8 +47,11 @@ urlpatterns = patterns('',
     url(r'^location/get-locations$',  'location.views.get_locations'),
     url(r'^site_media/media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
     url(r'^feedback', include('feedback.urls')),
+    url(r'^territory/load', 'territory.views.load_territory'),
+    url(r'^territory/upgrade', 'territory.views.upgrade'),
     url(r'^facebook/login$', 'facebook.views.login'),
     url(r'^facebook/authentication_callback$', 'facebook.views.authentication_callback'),
+
 )
 
 urlpatterns += staticfiles_urlpatterns()

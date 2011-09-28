@@ -24,7 +24,7 @@ $(document).ready(function(){
            var obj = jQuery.parseJSON(data);
            socket.emit('notification', obj)
         });
-        $(this).after('<li><button id="another-request">Friend Requested</button></li>')
+        $(this).after('<li><button id="another-request" class="profile_button">Friend Requested</button></li>')
         $(this).remove()
     });
     

@@ -4,7 +4,7 @@ from account.models import UserProfile
 from profile.views import user_menu
 
 def ranks(request):
-    users = UserProfile.objects.all().order_by('-lvl', '-user__username')
+    users = UserProfile.objects.all().order_by('-lvl', '-money', 'user__username')
     context = user_menu(request)
     context['users'] = users
     return render_to_response('ranks.html',

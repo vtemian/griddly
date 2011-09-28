@@ -33,11 +33,8 @@ $(document).ready(function(){
 
         // Show dropped position.
         var stop_position = $(this).position();
-        console.log(stop_position.top)
         $.post('/profile/widget-lvl', {'top': stop_position.top, 'left': stop_position.left}, function(data){
-            if(data == 'ok'){
-                console.log('The position has been saved ;)')
-            }else{
+            if(data != 'ok'){
                 console.log(data)
             }
         })
@@ -95,11 +92,8 @@ $(document).ready(function(){
 
         // Show dropped position.
         var stop_position = $(this).position();
-        console.log(stop_position.top)
         $.post('/profile/widget-territory', {'top': stop_position.top, 'left': stop_position.left}, function(data){
-            if(data == 'ok'){
-                console.log('The position has been saved ;)')
-            }else{
+            if(data != 'ok'){
                 console.log(data)
             }
         })
@@ -107,7 +101,6 @@ $(document).ready(function(){
 	, containment: "#map_holder", scroll: false});
 
     $('#territory_widget_level_box').live('click', function(){
-        console.log('click')
         var id = $(this).data('id');
         $.post('/territory/upgrade', {'id': id}, function(data){
             var obj = $.parseJSON(data)

@@ -1180,11 +1180,10 @@ background-image: -moz-linear-gradient(
     position:absolute;
     top:-65px;
     left:0;
-    width:180px;
     height:30px;
     background:#f3f3f3;
     box-shadow:1px 0px 10px #666;
-
+    width: 195px;
     border-radius:8px;
 	-moz-border-radius:8px;
 	-webkit-border-radius:8px;

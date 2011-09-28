@@ -19,20 +19,22 @@ $(document).ready(function(){
 
     });
 
-    $('#add-friend').click(function(){
+    $('#add-friend').live('click', function(){
         $.post(window.location.pathname+'/add_friend/', function(data){
            var obj = jQuery.parseJSON(data);
            socket.emit('notification', obj)
         });
-        $(this).after('<li><button id="another-request" class="profile_button">Friend Requested</button></li>')
-        $(this).remove()
+        $(this).after('<li><button id="another-request" class="profile_button">Friend Requested</button></li>');
+        $(this).remove();
     });
     
-    $('#un-friend').click(function(){
+    $('#un-friend').live('click', function(){
+        var $this = $(this);
         $.post(window.location.pathname+'/un_friend/', function(){
-           alert("You've just unfriened him!")
+            $('#notifications_bar').html("You've just unfriened him!").slideDown(200).delay(1000).slideUp(200);
         });
-        //TODO: make realtime changes
+        $this.after('<li><button id="another-request" class="profile_button">Friend Requested</button></li>');
+        $this.remove();
     });
 
     $('#reply-btn').click(function(){

@@ -1,6 +1,5 @@
 function get_territory(id, $div){
     $div.load('/territory/load/?id='+id, function(data){
-        console.log(data)
     });
 };
 

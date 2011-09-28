@@ -34,16 +34,6 @@
  
     <script type="text/javascript" src="{{ STATIC_URL }}feedback/js/feedback.js"></script>
 
-    <script type="text/javascript">
-        var _bugHerdAPIKey = '9730b6f1-0f73-469d-b3fd-d4f29cc005bb';
-        (function (d, t) {
-          var bh = d.createElement(t), s = d.getElementsByTagName(t)[0];
-          bh.type = 'text/javascript';
-          bh.src = "//www.bugherd.com/bugherd.js?s=" + (new Date()).getTime();
-          s.parentNode.insertBefore(bh, s);
-        })(document, 'script');
-    </script>
-
     {% block extrahead %}
     {% endblock %}
 

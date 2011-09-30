@@ -6,8 +6,8 @@
                 
                     <p>Under atack by </p>
 
-                    <p class="small_avatar territory_widget_atack_avatar clearfix" style="background-image: url({{ attacker.gravatar_url }}?s=30)">
-                    <a href="/profile/{{ attacker.user.id }}"><img src="{{ STATIC_URL }}img/user/default.png" alt="avatar"/></a>
+                    <p class="small_avatar territory_widget_atack_avatar clearfix" style="background-image: url({{ battle.attacker.gravatar_url }}?s=30)">
+                    <a href="/profile/{{ battle.attacker.user.id }}"><img src="{{ battle.attacker.gravatar_url }}?s=30" alt="avatar"/></a>
                     </p>
             </div>
         </div>

@@ -113,6 +113,16 @@ $(document).ready(function(){
     var id = $('#territoryID').first().data('id')
     get_territory(id, $('#territory_loader'));
     $('#territoryID').live('click', function(){
+        if($(this).data('id') != $('#territory_widget_territory').data('id')){
+            get_territory($(this).data('id'), $('#territory_loader'));
+        }
+        var lat = $(this).data('pointlat');
+        var lng = $(this).data('pointlng');
+
+        point = new google.maps.LatLng(lat, lng)
+
+        app.map.setCenter(point)
+        console.log(point, app.map, lat, lng)
     });
 
 });

@@ -229,9 +229,10 @@
             var obj = $.parseJSON(data);
             var locations = obj.locations
             $.each(locations, function(index, value){
+                console.log(value)
                 var marker = new google.maps.Marker({
                     position: new google.maps.LatLng(value.lat, value.lng),
-                    title:""
+                    title:value.name
                 });
                 marker.setMap(app.map)
             })

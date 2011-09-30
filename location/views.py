@@ -6,5 +6,5 @@ def get_locations(request):
     locations = Location.objects.all()
     locations_json = []
     for location in locations:
-        locations_json.append({'lat': location.lat, 'lng': location.lng})
+        locations_json.append({'lat': location.lat, 'lng': location.lng, 'name': location.name})
     return HttpResponse(simplejson.dumps({'locations': locations_json}))

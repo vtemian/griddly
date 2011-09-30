@@ -21,7 +21,7 @@
                             <div class="territory_widget_venues_venue">{{ venue.name }}</div>
                                 {% if battle %}
                                     <div class="territory_widget_venues_venue_loyalty">
-                                        {{ venue.loyalty_set }}
+                                        {{ venue.loyalty_set.all.0 }}
                                     </div>
                                 {% endif %}
                         </li>

@@ -1,5 +1,5 @@
 <div class="territory_widget_territory" data-id="{{ territory.id }}">
-    <a id="show_venues" href="#">Venues</a>
+    
     {% if battle %}
         <div id="territory_widget_atack" class="clearfix">
             <div class="territory_widget_atacker_info clearfix">
@@ -11,6 +11,8 @@
                     </p>
             </div>
         </div>
+    {% else %}
+        <a id="show_venues" href="#">Venues</a>
     {% endif %}
             <div class="territory_widget_venues">
                 <ul>

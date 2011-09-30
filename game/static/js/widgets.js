@@ -112,4 +112,7 @@ $(document).ready(function(){
 
     var id = $('#territoryID').first().data('id')
     get_territory(id, $('#territory_loader'));
+    $('#territoryID').live('click', function(){
+    });
+
 });

@@ -164,6 +164,9 @@
                                 if(obj.nice != undefined){
                                     $('#notifications_bar').html(obj.nice).slideDown(200).delay(1000).slideUp(200);
                                     me.place.endEdit()
+                                    get_territory(obj.id, $('#territory_loader'));
+                                    $('#territory_widget_tabs').append('<li id="territoryID" data-id="'+obj.id+'"><form action="/territory/name" id="territoryName"><input type="text" name="name" id="territoryName" placeholder="Put a name" /><input type="hidden" name="id" id="territoryId" value="'+obj.id+'"></form></li>')
+                                    $('#territory_widget_create_panel').remove();
                                 }else{
                                     $('#notifications_bar').html(obj.error).slideDown(200).delay(1000).slideUp(200);
                                 }
@@ -171,7 +174,6 @@
                         }
                     }else{
                         $('#notifications_bar').html(obj.error).slideDown(200).delay(1000).slideUp(200);
-                        //TODO: nnotification fail
                     }
                 })
 
@@ -183,6 +185,24 @@
 
     $(document).ready(function(){
         $('#map').css('position', 'obsolute');
+        
+        $('#territoryName').live('submit', function(){
+            var $this = $(this);
+            validate($(this), function(data){
+                var  $li = $this.parent();
+                var name = $('#territoryName', $this).val();
+
+                var $html = name + '<span id="editName">Edit</span>';
+                $this.parent().data('name', name);
+                $this.parent().html($html);
+            });
+            return false;
+        });
+        $('#editName').live('click', function(){
+            var $li = '<form action="/territory/name" id="territoryName"><input type="text" name="name" id="territoryName" placeholder="'+$(this).parent().data('name')+'" /><input type="hidden" name="id" id="territoryId" value="'+$(this).parent().data('id')+'"></form></li>';
+            $(this).parent().html($li);
+
+        })
         socket.on('checkin', function(data){
             var message = "<div class='checkin_overlay clearfix' id='messageDiv'>\
                 <div class='checkin_overlay_marker'>\

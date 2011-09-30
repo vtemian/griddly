@@ -9,8 +9,11 @@ function validate($form, callback){
         if(date.ok != undefined){
             document.location = date.ok
         }else{
+            console.log('a', date)
+
             $('#general', $form).empty()
             $.each(date, function(index, value){
+                console.log(value)
                 $('#general', $form).append('<label class="error">'+ value +'</label><br>')
             });
         }

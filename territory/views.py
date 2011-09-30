@@ -5,6 +5,7 @@ from django.template import loader
 from django.template.context import RequestContext, Context
 from battle.models import Battle
 from checkin.models import Checkin
+from territory.forms import ChangeName
 from territory.models import *
 from location.models import *
 from django.views.decorators.csrf import csrf_exempt
@@ -47,7 +48,7 @@ def create_territory(request):
                     except Exception:
                         pass
                 up.save()
-                return HttpResponse(simplejson.dumps({'nice': 'Congratz! You have a territory :)'}))
+                return HttpResponse(simplejson.dumps({'nice': 'Congratz! You have a territory :)', 'id': territory.id}))
             else:
                return HttpResponse(simplejson.dumps({'error': "Sry...you don't have enough money"}))
     return HttpResponse('Not here!')
@@ -128,3 +129,13 @@ def upgrade(request):
             return HttpResponse(simplejson.dumps({'message': "You've just upgrade your territory"}))
         return HttpResponse(simplejson.dumps({'message': 'You need ' +str(territory.lvl * 1000) + ' outcoins to upgrade your territory!'}))
     return HttpResponse(simplejson.dumps({'message': "Just a system error! Don't panic...."}))
+
+@csrf_exempt
+def change_name(request):
+    if request.method == 'POST':
+        terid = request.POST.get('id')
+        territory = Territory.objects.get(pk=terid)
+        form = ChangeName(request.POST, instance=territory)
+        form.save()
+        return HttpResponse(simplejson.dumps({'message': 'The name has been change!'}))
+    return HttpResponse('Not here!')

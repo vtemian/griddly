@@ -13,7 +13,7 @@ $(document).ready(function(){
         return false;
     });
     
-    $('input[type=text]', 'form[type=placeholder]').blur(function(){
+    $('input[type=text]', 'form[type=placeholder]').live("blur" ,function(){
         if($(this).val()!='')
             $(this).parents('form:first').submit()
 

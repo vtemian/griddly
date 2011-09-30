@@ -10,11 +10,10 @@ class Points(models.Model):
 class Territory(models.Model):
     defense = models.IntegerField(max_length=6, null=True)
 
-    capital = models.OneToOneField(Location, related_name='capital_territory', null=True)
-    
+    name = models.CharField(max_length=50, null=True)
     price = models.IntegerField(max_length=6)
     area = models.IntegerField(max_length=6)
-
+    
     points = models.ManyToManyField(Points, null=True)
 
     owner = models.ForeignKey(UserProfile)

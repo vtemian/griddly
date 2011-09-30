@@ -53,21 +53,24 @@
         </div>
 
          <div id="territory_widget">
+            {% if not my_territory  %}
              <div id="territory_widget_create_panel">
                  <button class="territory_widget_create_panel_button" id="begin-edit-btn">Define</button>
                  <button class="territory_widget_create_panel_button" id="end-edit-btn">Create</button>
                  <button class="territory_widget_create_panel_button">Drop</button>
              </div>
-                
-             <ul id="territory_widget_tabs" class="clearfix">
-                {% for territory in my_territory %}
-                 <li id="territoryID" data-id="{{ territory.id }}">Territory</li>
-                {% endfor %}
-             </ul>
+             {% endif %}
+                 <ul id="territory_widget_tabs" class="clearfix">
+                    {% for territory in my_territory %}
 
-           <div id="territory_loader">
-                No territory yet
-           </div>
+                     <li id="territoryID" data-id="{{ territory.id }}" data-name="{{ territory.name }}" data-point="{{ territory.points.all.0 }}">{{ territory.name }}<span id='editName'>edit</span></li>
+
+                    {% endfor %}
+                 </ul>
+
+                   <div id="territory_loader">
+                        No territory yet
+                   </div>
 
          </div>
     </div>

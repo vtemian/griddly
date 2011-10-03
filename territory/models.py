@@ -20,4 +20,4 @@ class Territory(models.Model):
 
     lvl = models.IntegerField(default=1)
 
-    color = models.CharField(max_length=50, default="ffe019")
+    color = models.CharField(max_length=50, default="#ffe019")

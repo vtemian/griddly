@@ -48,7 +48,7 @@ def create_territory(request):
                     except Exception:
                         pass
                 up.save()
-                return HttpResponse(simplejson.dumps({'nice': 'Congratz! You have a territory :)', 'id': territory.id}))
+                return HttpResponse(simplejson.dumps({'nice': 'Congratz! You have a territory :)', 'id': territory.id, 'lng': territory.points.all()[0].lng, 'lat':territory.points.all()[0].lat}))
             else:
                return HttpResponse(simplejson.dumps({'error': "Sry...you don't have enough money"}))
     return HttpResponse('Not here!')

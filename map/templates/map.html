@@ -154,6 +154,7 @@
                 var venues = ""
                 $.post('{% url territory.views.verify_territory %}', {'path': path }, function(data){
                     var obj = jQuery.parseJSON(data)
+                    var marker = null;
                     if(obj.error == undefined){
                         var locations = obj.locations
                         $.each(locations, function(index, value){
@@ -161,7 +162,7 @@
                             if(me.place.contains(value.lat, value.lng)){
                                 ok = true;
                                 venues += value.lat + ','+value.lng + ';'
-                                var marker = new google.maps.Marker({
+                                marker = new google.maps.Marker({
                                     position: new google.maps.LatLng(value.lat, value.lng),
                                     title:""
                                 });
@@ -176,8 +177,9 @@
                                     $('#notifications_bar').html(obj.nice).slideDown(200).delay(1000).slideUp(200);
                                     me.place.endEdit()
                                     get_territory(obj.id, $('#territory_loader'));
-                                    $('#territory_widget_tabs').append('<li id="territoryID" data-id="'+obj.id+'"><form action="/territory/name" id="territoryName"><input type="text" name="name" id="territoryName" placeholder="Put a name" /><input type="hidden" name="id" id="territoryId" value="'+obj.id+'"></form></li>')
+                                    $('#territory_widget_tabs').append('<li id="territoryID" data-id="'+obj.id+'" data-name="Name" data-pointlng="'+obj.lng+'" data-pointlat="'+obj.lat+'"><form action="/territory/name" id="territoryName"><input type="text" name="name" id="territoryName" placeholder="Put a name" /><input type="hidden" name="id" id="territoryId" value="'+obj.id+'"></form></li>')
                                     $('#territory_widget_create_panel').remove();
+                                    app.territoryArray[obj.id] = me.place;
                                 }else{
                                     $('#notifications_bar').html(obj.error).slideDown(200).delay(1000).slideUp(200);
                                 }

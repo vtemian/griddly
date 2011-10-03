@@ -58,7 +58,8 @@
             map = this.map
             this.initializeMap();
             var points = new Array();
-
+            this.territoryArray = new Array();
+        
             {% for territory in territories %}
                 var path = new google.maps.MVCArray();
 
@@ -68,9 +69,9 @@
 
                 this.place = new google.maps.ObservablePolygon({
                     paths: path,
-                    strokeColor: "yellow",
+                    strokeColor: "{{ territory.color }}",
                     strokeWeight: 2,
-                    fillColor: "blue",
+                    fillColor: "{{ territory.color }}",
 
                     handleImage: "{{ STATIC_URL }}img/handle.png"
                 });
@@ -78,15 +79,23 @@
                     {% if not war  %}
                         war = "<span id='warRequest' data-username='{{ territory.owner.user.username }}' data-id='{{ territory.id }}'>War Request</span>";
                     {% endif %}
-                    
-                    $div = "<div style='background:red; display:none;' id='territoryOverlay' class='{{ territory.owner.user.username }}'>" +
-                             war
+
+                    var id = "{{ territory.id }}";
+                   
+                    var name = '<br><span id="territoryName">{{ territory.name }}</span>';
+                    var owner = '<br><span id="territoryOwnerName">{{ territory.owner.user.username }}</span>';
+                    var avatar = '<br><span id="territoryOwnerImg"><img src={{ territory.owner.gravatar_url }}?s=50 title="{{ territory.owneruser.username }}"></span>'
+
+                    $div = "<div style='background:red; display:none;' id='"+id+"' class='{{ territory.owner.user.username }}'>" +
+                             war + name + avatar + owner 
                             +"</div>";
+
+                        
 
                     $('#map').after($div)
 
                     google.maps.event.addListener(this.place, 'click', function(e) {
-                        $('.{{ territory.owner.user.username }}').modal({
+                        $('#{{ territory.id }}').modal({
                             opacity:80,
                             overlayCss: {backgroundColor:"#5b5b5b"},
                             minHeight:400,
@@ -105,15 +114,17 @@
                         path.push(new google.maps.LatLng({{ point.lat }}, {{ point.lng }}));
                     {% endfor %}
                     this.place = new google.maps.EditablePolygon({
-                        strokeColor: "orange",
+                        strokeColor: "{{ territory.color }}",
                         strokeWeight: 2,
-                        fillColor: "yellow",
-
+                        fillColor: "{{ territory.color }}",
                         handleImage: "{{ STATIC_URL }}img/handle.png",
 
                     });
+                    var id = {{ territory.id }};
                     this.place.setMap(this.map);
                     this.place.setPaths(path)
+                    this.territoryArray[id] = this.place;
+                    console.log(this.territoryArray[id])
                 {% endfor %}
 
             {% else %}

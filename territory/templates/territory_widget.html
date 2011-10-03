@@ -1,4 +1,31 @@
 <div class="territory_widget_territory" data-id="{{ territory.id }}">
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#colorSelector').css('backgroundColor', '{{ territory.color }}');
+           $('#colorSelector').ColorPicker({
+                    color: '{{ territory.color }}',
+                    onShow: function (colpkr) {
+                        $(colpkr).fadeIn(500);
+                        return false;
+                    },
+                    onHide: function (colpkr) {
+                        $(colpkr).fadeOut(500);
+                        return false;
+                    },
+                    onChange: function (hsb, hex, rgb) {
+                        $('#colorSelector').css('backgroundColor', '#' + hex);
+                        console.log(app.territoryArray[{{ territory.id }}]);
+                        app.territoryArray[{{ territory.id }}].fillColor = '#' + hex;
+                        app.territoryArray[{{ territory.id }}].strokeColor = '#' + hex;
+                        app.territoryArray[{{ territory.id }}].setMap(app.map);
+                        $.post('/territory/color', {'color': '#' + hex, 'id': {{ territory.id }}}, function(data){
+                            
+                        })
+                    }
+           });
+
+        });
+    </script>
     {% if battle %}
         <div id="territory_widget_atack" class="clearfix">
             <div class="territory_widget_atacker_info clearfix">
@@ -29,6 +56,7 @@
             </div>
 
     <div id="territory_widget_stats" class="clearfix">
+        <label>Color:</label><div id="colorSelector" style="width:20px; height: 20px; float:right;"></div>
         <ul><li>Level: {{ territory.lvl }}</li><li>Venues: {{ locations.count }}</li></ul>
         <div id="territory_widget_level_box" data-id="{{ territory.id }}" >
             <div id="territory_widget_level_box_top" >+1</div>

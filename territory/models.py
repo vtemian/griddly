@@ -19,3 +19,5 @@ class Territory(models.Model):
     owner = models.ForeignKey(UserProfile)
 
     lvl = models.IntegerField(default=1)
+
+    color = models.CharField(max_length=50, default="ffe019")

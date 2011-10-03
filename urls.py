@@ -50,6 +50,7 @@ urlpatterns = patterns('',
     url(r'^territory/load', 'territory.views.load_territory'),
     url(r'^territory/upgrade', 'territory.views.upgrade'),
     url(r'^territory/name', 'territory.views.change_name'),
+    url(r'^territory/color', 'territory.views.change_color'),
     url(r'^facebook/login$', 'facebook.views.login'),
     url(r'^facebook/authentication_callback$', 'facebook.views.authentication_callback'),
 

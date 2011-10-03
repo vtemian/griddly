@@ -5,3 +5,7 @@ class ChangeName(ModelForm):
     class Meta:
          model = Territory
          fields = ('name',)
+class ChangeColor(ModelForm):
+    class Meta:
+         model = Territory
+         fields = ('color',)

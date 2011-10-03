@@ -5,7 +5,7 @@ from django.template import loader
 from django.template.context import RequestContext, Context
 from battle.models import Battle
 from checkin.models import Checkin
-from territory.forms import ChangeName
+from territory.forms import ChangeName, ChangeColor
 from territory.models import *
 from location.models import *
 from django.views.decorators.csrf import csrf_exempt
@@ -138,4 +138,14 @@ def change_name(request):
         form = ChangeName(request.POST, instance=territory)
         form.save()
         return HttpResponse(simplejson.dumps({'message': 'The name has been change!'}))
+    return HttpResponse('Not here!')
+
+@csrf_exempt
+def change_color(request):
+    if request.method == 'POST':
+        terid = request.POST.get('id')
+        territory = Territory.objects.get(pk=terid)
+        form = ChangeColor(request.POST, instance=territory)
+        form.save()
+        return HttpResponse(simplejson.dumps({'message': 'The color has been change!'}))
     return HttpResponse('Not here!')

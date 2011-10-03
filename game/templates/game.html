@@ -5,8 +5,11 @@
     <script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}js/EditablePolygon.js"></script>
     
     <link rel="stylesheet" href="http://fromvega.com/code/autocomplete/autocomplete.css" type="text/css">
+    <link rel="stylesheet" media="screen" type="text/css" href="{{ STATIC_URL }}colorpicker/css/colorpicker.css" />
+    
     <script src="http://fromvega.com/code/autocomplete/dimensions.js" type="text/javascript"></script>
     <script src="http://fromvega.com/code/autocomplete/autocomplete.js" type="text/javascript"></script>
+    
     <script type=text/javascript src="{{ STATIC_URL }}js/notification.js"></script>
     <script type=text/javascript src="{{ STATIC_URL }}js/profile.js"></script>
     <script type=text/javascript src="{{ STATIC_URL }}js/widgets.js"></script>
@@ -16,6 +19,7 @@
     <script type=text/javascript src="{{ STATIC_URL }}js/clan_admin.js"></script>
     <script type=text/javascript src="{{ STATIC_URL }}js/autocomplete_user.js"></script>
     <script type=text/javascript src="{{ STATIC_URL }}js/venue.js"></script>
+    <script type=text/javascript src="{{ STATIC_URL }}colorpicker/js/colorpicker.js"></script>
 
 {% endblock %}
 {% block header %}
@@ -27,6 +31,7 @@
         {% include 'map.html' %}
         <script type="text/javascript">
             $(document).ready(function(){
+                
                 $('#widget').css({'left': '{{ userprofile.widget_left }}px', "top": '{{ userprofile.widget_top }}px'});
                 $('map').css('overflow', 'visible')
                 $('#territory_widget').css({'left': '{{ userprofile.territory_widget_left }}px', "top": '{{ userprofile.territory_widget_top }}px'});
@@ -54,17 +59,19 @@
         </div>
 
          <div id="territory_widget">
+            
             {% if not my_territory  %}
              <div id="territory_widget_create_panel">
                  <button class="territory_widget_create_panel_button" id="begin-edit-btn">Define</button>
                  <button class="territory_widget_create_panel_button" id="end-edit-btn">Create</button>
                  <button class="territory_widget_create_panel_button">Drop</button>
              </div>
+
              {% endif %}
                  <ul id="territory_widget_tabs" class="clearfix">
                     {% for territory in my_territory %}
 
-                     <li id="territoryID" data-id="{{ territory.id }}" data-name="{{ territory.name }}" data-pointLat="{{ territory.points.all.0.lat }}" data-pointLng="{{ territory.points.all.0.lng }}">{{ territory.name }}<span id='editName'>edit</span></li>
+                        <li id="territoryID" data-id="{{ territory.id }}" data-name="{{ territory.name }}" data-pointLat="{{ territory.points.all.0.lat }}" data-pointLng="{{ territory.points.all.0.lng }}">{{ territory.name }}<span id='editName'>edit</span></li>
 
                     {% endfor %}
                  </ul>

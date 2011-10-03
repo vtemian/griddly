@@ -1,5 +1,4 @@
 <div class="territory_widget_territory" data-id="{{ territory.id }}">
-    
     {% if battle %}
         <div id="territory_widget_atack" class="clearfix">
             <div class="territory_widget_atacker_info clearfix">
@@ -18,7 +17,7 @@
                 <ul>
                     {% for venue in locations %}
                         <li class="clearfix">
-                            <div class="territory_widget_venues_venue">{{ venue.name }}</div>
+                            <div class="territory_widget_venues_venue" id="territoryVenue" data-lat="{{ venue.lat }}" data-lng="{{ venue.lng }}">{{ venue.name }}</div>
                                 {% if battle %}
                                     <div class="territory_widget_venues_venue_loyalty">
                                         {{ venue.loyalty_set.all.0 }}

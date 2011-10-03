@@ -26,7 +26,6 @@
 
                     <div id="profile_avatar"><img src="{{ userprofileid.gravatar_url }}?s=100" /></div>
 
-
                         {% if userprofileid != userprofile %}
                             <ul id="profile_buttons" class="clearfix">
                                 {% if userprofile not in friends.all and not friend_request%}
@@ -45,11 +44,10 @@
                         <ul id="friend_list">
                     	    <li>Friend List</li>
                             {% for friend in friends.all %}
-                                <li><img src="{{ friend.gravatar_url }}?s=40" alt="avatar" /></li>
+                                <li><img src="{{ friend.gravatar_url }}?s=40" alt="avatar" title="{{ friend.user.username }}"/></li>
                             {% endfor %}
                         </ul>
             
-
             </div>
 
             <div id="profile_content">

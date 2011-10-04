@@ -8,6 +8,7 @@ from django.template.context import RequestContext, Context
 from django.utils import simplejson
 from django.views.decorators.csrf import csrf_exempt
 from account.models import UserProfile
+from checkin.models import Checkin
 from notification.models import Notification
 from notification.views import accept_friend, un_friend as unfriend
 from profile.forms import UserChangePassword, UserChangeEmail, UserChangeFirstName, UserChangeLastName, UserChangePersonalInfo
@@ -31,7 +32,9 @@ def user_menu(request):
     render_context['friend_notification'] = notification.filter(Q(type="Friend Request")|Q(type="Unfriend"))
     render_context['message_notification'] = notification.filter(type="Message")
     render_context['clan_notification'] = notification.filter(type="Clan")
-    
+    render_context['checkins'] = Checkin.objects.filter(user=user)
+    render_context['location_checkin'] = render_context['checkins'].values('location').annotate(count=Count('location'))
+    print render_context['location_checkin']
 
     try:
         alliance = Alliance.objects.get(members=user)

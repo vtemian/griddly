@@ -10,7 +10,7 @@ class Points(models.Model):
 class Territory(models.Model):
     defense = models.IntegerField(max_length=6, null=True)
 
-    name = models.CharField(max_length=50, null=True)
+    name = models.CharField(max_length=50, default="My territory")
     price = models.IntegerField(max_length=6)
     area = models.IntegerField(max_length=6)
     

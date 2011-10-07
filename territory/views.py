@@ -124,7 +124,7 @@ def upgrade(request):
         if up.money >= territory.lvl * 1000:
             territory.lvl = territory.lvl + 1
             territory.save()
-            up.money = up.money - territory.lvl * 1000
+            up.money = up.money - (territory.lvl-1) * 1000
             up.save()
             return HttpResponse(simplejson.dumps({'message': "You've just upgrade your territory"}))
         return HttpResponse(simplejson.dumps({'message': 'You need ' +str(territory.lvl * 1000) + ' outcoins to upgrade your territory!'}))

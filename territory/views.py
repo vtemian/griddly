@@ -20,9 +20,9 @@ def create_territory(request):
             terrytories = Territory.objects.get(owner=up)
             return HttpResponse(simplejson.dumps({'error': 'You stupid asshole, just a territory! Go and conquer something!!!'}))
         except Exception:
-            area = int(float(request.POST.get('area')))/1000
+            area = int(float(request.POST.get('area')))/10
             money = up.money
-            if area/1000 <= money:
+            if area <= money:
                 territory = Territory.objects.create(price=0, area=0, owner=up)
                 path =  request.POST.get('path')
                 print path
@@ -32,7 +32,7 @@ def create_territory(request):
                     lng = point.split(',')[1]
                     geoPoint = Points.objects.create(lat=lat, lng=lng)
                     territory.points.add(geoPoint)
-                up.money = money - area/1000
+                up.money = money - area
                 loc =  request.POST.get('locations')
                 points = loc.split(';')
 

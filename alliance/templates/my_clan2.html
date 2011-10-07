@@ -67,6 +67,15 @@
                         <button class="admin_buttons" id="create-news">add news</button> <button class="admin_buttons" id="upload-avatar">upl. avatar</button>
 
                     </div>
+                         {% if rank == '1' %}
+                            <form action="{% url alliance.views.upload_avatar %}" id="avatar-form" method="POST" enctype="multipart/form-data">
+                                <table>
+                                    {{ avatar_form.as_table }}
+                                </table>
+                                <button>Submit</button>
+                            </form>
+
+                        {% endif %}
                     {% endif %}
 
                      <div id="modal-news" style="display:none">

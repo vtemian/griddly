@@ -33,6 +33,7 @@ class AllianceNews(models.Model):
     alliance = models.ForeignKey(Alliance)
     profile = models.ForeignKey(UserProfile)
 
+    title = models.CharField(max_length=50)
     created_at = models.DateField(default=datetime.now())
     text = models.TextField(null=True)
     type = models.CharField(max_length=30, default="simple")

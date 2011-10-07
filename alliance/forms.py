@@ -19,7 +19,7 @@ class UploadAvatar(ModelForm):
 class NewsCreate(ModelForm):
     class Meta:
         model = AllianceNews
-        fields = ('text', )
+        fields = ('text', 'title')
 
 class ClanChangeName(ModelForm):
     class Meta:

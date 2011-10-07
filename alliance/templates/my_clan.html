@@ -27,6 +27,8 @@
     {% endif %}
     <div id="modal-news" style="display:none">
         <form action="{% url alliance.views.create_news %}" id="news-form">
+            <label>Title</label>
+            <input type="text" name="title" placeholder="Put a title here!">
             <label>Text</label>
             <textarea id="text" name="text"></textarea>
             <button>Submit</button>

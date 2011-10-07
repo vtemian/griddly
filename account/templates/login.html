@@ -6,6 +6,7 @@
     <script type="text/javascript" src="{{ STATIC_URL }}js/django-validate.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/login.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/register.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/frontpage.js"></script>
 {% endblock %}
 {% block feedback %}
 {% endblock %}
@@ -31,7 +32,7 @@
             </div>
 
             <div id="tour">
-            <div id="tour_info"><h2>Still having doubts?</h2> <a href="#">Take the tour <img src="{{ STATIC_URL }}img/tour/route.png" alt="route" /></a></div>
+            <div id="tour_info"><h2>Still having doubts?</h2> <a href="#" id="mustFixIt">Take the tour <img src="{{ STATIC_URL }}img/tour/route.png" alt="route" /></a></div>
 
                 <div id="tour_icons">
 
@@ -149,8 +150,8 @@
 
                     </li>
                     <li><a href="{{ STATIC_URL }}android/outclan.apk"><img src="{{ STATIC_URL }}img/mobile_app/android.png" alt="Outclan Android Application Download" /></a></li>
-                    <li><img src="{{ STATIC_URL }}img/mobile_app/apple_iphone.png" alt="Outclan Apple Iphone Application Download" /></li>
-                    <li><img src="{{ STATIC_URL }}img/mobile_app/blackberry.png" alt="Outclan Blackberry Application Download" /></li>
+                    <li><a href="#" id="mustFixIt"> <img src="{{ STATIC_URL }}img/mobile_app/apple_iphone.png" alt="Outclan Apple Iphone Application Download" /></a></li>
+                    <li><a href="#" id="mustFixIt"> <img src="{{ STATIC_URL }}img/mobile_app/blackberry.png" alt="Outclan Blackberry Application Download"/></a></li>
                 </ul>
 
             </div>

@@ -44,7 +44,7 @@
                         <ul id="friend_list">
                     	    <li>Friend List</li>
                             {% for friend in friends.all %}
-                                <li><img src="{{ friend.gravatar_url }}?s=40" alt="avatar" title="{{ friend.user.username }}"/></li>
+                                <li><a href="/profile/{{ friend.id }}"><img src="{{ friend.gravatar_url }}?s=40" alt="avatar" title="{{ friend.user.username }}"/></a></li>
                             {% endfor %}
                         </ul>
             

@@ -24,13 +24,13 @@
                     	<li>Members</li>
                            {% for member in clan_members %}
                       
-                        <li>
+                        <li><a href="/profile/{{ member.id }}">
                             <div class="alliance_member_avatar"><img src="{{ member.gravatar_url }}?s=34"/></div>
                             <ul class="alliance_member_name_joindate clearfix">
                                <li><div class="alliance_member_username">{{ member.user.username }}</div></li>
                                <li><div class="alliance_member_joindate">joined 09.09.2011</div></li>
                             </ul>
-                            <div class="alliance_member_level">{{ member.lvl }}</div>
+                            <div class="alliance_member_level">{{ member.lvl }}</div></a
                         </li>
 
                        

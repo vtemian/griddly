@@ -64,18 +64,16 @@
 
                     	<p>You're the admin of this clan. You can post news, change the avatar or add and remove members.</p>
 
-                        <button class="admin_buttons" id="create-news">add news</button> <button class="admin_buttons" id="upload-avatar">upl. avatar</button>
-
+                        <button class="admin_buttons" id="create-news">add news</button>
+                        <form action="{% url alliance.views.upload_avatar %}" id="avatar-form" method="POST" enctype="multipart/form-data">
+                            <table>
+                                {{ avatar_form.as_table }}
+                            </table>
+                            <button class="admin_buttons" id="upload-avatar">upload</button>
+                        </form>
                     </div>
-                         {% if rank == '1' %}
-                            <form action="{% url alliance.views.upload_avatar %}" id="avatar-form" method="POST" enctype="multipart/form-data">
-                                <table>
-                                    {{ avatar_form.as_table }}
-                                </table>
-                                <button>Submit</button>
-                            </form>
 
-                        {% endif %}
+
                     {% endif %}
 
                      <div id="modal-news" style="display:none">

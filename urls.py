@@ -53,7 +53,7 @@ urlpatterns = patterns('',
     url(r'^territory/color', 'territory.views.change_color'),
     url(r'^facebook/login$', 'facebook.views.login'),
     url(r'^facebook/authentication_callback$', 'facebook.views.authentication_callback'),
-
+    url(r'^sentry/', include('sentry.web.urls')),
 )
 
 urlpatterns += staticfiles_urlpatterns()

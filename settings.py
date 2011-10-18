@@ -1,7 +1,7 @@
 import os
 
 DEBUG = True
-TEMPLATE_DEBUG = DEBUG
+TEMPLATE_DEBUG = True
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -97,6 +97,12 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfResponseMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+
+)
+
+MIDDLEWARE_CLASSES = MIDDLEWARE_CLASSES + (
+    'raven.contrib.django.middleware.SentryResponseErrorIdMiddleware',
+    'raven.contrib.django.middleware.Sentry404CatchMiddleware',
 )
 
 AUTHENTICATION_BACKENDS = ('facebook.backend.FacebookBackend', 'django.contrib.auth.backends.ModelBackend')
@@ -116,10 +122,10 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+
+    'sentry',
+    'raven.contrib.django',
+
     'feedback',
     'alliance',
     'account',
@@ -150,22 +156,49 @@ INSTALLED_APPS = (
 
 SOCKETIO_HOST = '10.0.0.60'
 SOCKETIO_PORT = '9000'
-
-
+SENTRY_CLIENT = 'raven.contrib.django.DjangoClient'
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': False,
+    'disable_existing_loggers': True,
+    'root': {
+        'level': 'WARNING',
+        'handlers': ['sentry'],
+    },
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+    },
     'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'class': 'django.utils.log.AdminEmailHandler'
+        'sentry': {
+            'level': 'DEBUG',
+            'class': 'raven.contrib.django.logging.SentryHandler',
+            'formatter': 'verbose'
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
         }
     },
     'loggers': {
-        'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
-            'propagate': True,
+        'sentry.errors': {
+            'level': 'DEBUG',
+            'handlers': ['console'],
+            'propagate': False,
         },
-    }
+    },
 }
+
+import logging
+from raven.contrib.django.logging import SentryHandler
+print 'a'
+logger = logging.getLogger()
+# ensure we havent already registered the handler
+if SentryHandler not in map(type, logger.handlers):
+    logger.addHandler(SentryHandler())
+
+    # Add StreamHandler to sentry's default so you can catch missed exceptions
+    logger = logging.getLogger('sentry.errors')
+    logger.propagate = False
+    logger.addHandler(logging.StreamHandler())

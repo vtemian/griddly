@@ -34,7 +34,3 @@ def login(request):
         return HttpResponse(simplejson.dumps({'not': 'Incorect username or password'}))
     else:
         return HttpResponse(simplejson.dumps(form.errors))
-
-
-
-

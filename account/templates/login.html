@@ -68,9 +68,11 @@
                                     <li><input type="text" id="username" name="username" class="input"/></li>
                                     <li><label for="password" class="label">password:</label></li>
                                     <li><input type="password" id="password" name="password" class="input" /></li>
+                                    <li><a id="reset-a">Reset password</a></li>
                                     <li><input type="submit" value="login" class="submit" /></li>
 
                             </form>
+                            
 
                         </ul>
 
@@ -157,18 +159,12 @@
             </div>
 
         </div>
-    <div id="login-div" style="display:none">
-        <form action="{% url account.views.login %}" method="POST" id="login-form">{% csrf_token %}
-            <div id="general" class="error"></div>
-            <ul id="login_list">
-                <li><label for="username">Username</label></li>
-                <li><input type="text" id="username" name="username"/></li>
-                <li><label for="password">Password</label></li>
-                <li><input type="password" id="password" name="password"/></li>
-                <li><button id="modal_login_button">Login</button></li>
-                <li>or</li>
-                <li>Login with Facebook / Google</li>
-            </ul>
+    <div id="reset-password" style="display:none">
+        <form action="{% url common.views.reset_password_instance %}" method="POST" id="reset-form">{% csrf_token %}
+            <label for="email-reset">Reset email</label>
+            <input type="email" name="email" id="email-reset"/>
+            <button id="send-reset" class="button">Submit</button>
+            <input type="reset" name="reset" value="Reset">
         </form>
     </div>
 {% endblock %}

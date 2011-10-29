@@ -31,3 +31,15 @@ class UserLogin(forms.Form):
         password = self.cleaned_data.get('password')
         user = authenticate(username=username, password=password)
         return user
+
+class ResetPassword(forms.Form):
+    newpassword = forms.CharField(max_length=30)
+    retypepassword = forms.CharField(max_length=30)
+
+    def clean(self):
+        data = self.cleaned_data
+        newpassword = data.get('newpassword')
+        retypepassword = data.get('retypepassword')
+        if newpassword != retypepassword:
+            raise forms.ValidationError('Passwords must be the same!')
+        return data

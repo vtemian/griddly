@@ -3,10 +3,10 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User, check_password
 from django.contrib.auth import authenticate, login as auth_login
 from django.utils import simplejson
-from account.form import UserRegister, UserLogin
+from account.form import UserRegister, UserLogin, ResetPassword
 from django.views.decorators.csrf import csrf_exempt
 
-from account.models import UserProfile
+from account.models import UserProfile, PasswordReset
 
 def register(request):
     if request.method == "POST":
@@ -34,3 +34,23 @@ def login(request):
         return HttpResponse(simplejson.dumps({'not': 'Incorect username or password'}))
     else:
         return HttpResponse(simplejson.dumps(form.errors))
+
+def change_password(request):
+    if request.method == 'POST':
+        form = ResetPassword(request.POST)
+        if form.is_valid():
+            try:
+                token = request.POST.get('token')
+                password = request.POST.get('newpassword')
+                email = PasswordReset.objects.get(token=token).email
+                user = User.objects.get(email=email)
+                user.set_password(password)
+                user.save()
+                return HttpResponse(simplejson.dumps({'message':'The password had been change!'}))
+            except Exception:
+                return HttpResponse(simplejson.dumps({'error':'Something went wrong...'}))
+        else:
+            return HttpResponse(simplejson.dumps(form.errors))
+    return HttpResponse('Junky!')
+
+        

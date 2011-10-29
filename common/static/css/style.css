@@ -1860,6 +1860,11 @@ footer{
 	text-shadow:1px 1px 0px #7c7c7c;
 }
 
+#login_form a{
+    color:#fff;
+    font-weight:bold;
+    cursor: pointer;
+}
 /* *************Register**************  */
 
 #login_register{

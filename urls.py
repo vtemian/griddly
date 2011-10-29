@@ -5,6 +5,8 @@ from django.views.generic.simple import direct_to_template
 
 urlpatterns = patterns('',
     url(r'^$', 'common.views.base'),
+    url(r'^reset/$', 'common.views.reset_password_instance'),
+    url(r'^password/(?P<token>.*)/$', 'common.views.reset_password'),
     url(r'^user/login/', 'account.views.login'),
     url(r'^logout/?$',  'django.contrib.auth.views.logout_then_login'),
     url(r'^user/register/$',  'account.views.register'),
@@ -15,6 +17,7 @@ urlpatterns = patterns('',
     url(r'^user/change_personal_info/$',  'profile.views.personal_info_change'),
     url(r'^user/check/$',  'profile.views.check_user'),
     url(r'^profile/$',  'profile.views.myprofile'),
+    url(r'^account/change-password$',  'account.views.change_password'),
     url(r'^stream/clan$',  'alliance.views.get_stream'),
     url(r'^profile/stream/clan$',  'profile.views.stream_clan'),
     url(r'^profile/widget-lvl$',  'profile.views.widget_lvl'),
@@ -55,5 +58,7 @@ urlpatterns = patterns('',
     url(r'^facebook/authentication_callback$', 'facebook.views.authentication_callback'),
     url(r'^sentry/', include('sentry.web.urls')),
 )
+
+handler404 = 'common.views.base'
 
 urlpatterns += staticfiles_urlpatterns()

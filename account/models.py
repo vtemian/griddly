@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.db import models
 from django.contrib.auth.models import User
 import json
@@ -37,3 +38,9 @@ class UserProfile(models.Model):
     def get_facebook_profile(self):
         fb_profile = urllib.urlopen('https://graph.facebook.com/me?access_token=%s' % self.access_token)
         return json.load(fb_profile)
+
+class PasswordReset(models.Model):
+    email = models.EmailField(max_length=50)
+    token = models.CharField(max_length=50)
+    created_at = models.DateTimeField(default=datetime.now)
+    done = models.BooleanField(default=False)

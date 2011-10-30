@@ -24,6 +24,7 @@ def reset_password_instance(request):
     if request.method == 'POST':
         fromEmail = "staff@outclan.com"
         toEmail = request.POST.get('email')
+        
         try:
             reset_instance = PasswordReset.objects.get(email=toEmail, done=False)
             return HttpResponse(simplejson.dumps({'message':"There is a request. Please check again!"}))

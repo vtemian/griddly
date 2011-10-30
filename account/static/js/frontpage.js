@@ -24,6 +24,9 @@ $(document).ready(function(){
     $('#donation').click(function(){
         popupWindow = window.open(
                       'https://www.123contactform.com/contact-form-itincubator-231789.html','popUpWindow','height=700,width=800,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes')
-           
+    });
+    $('#contactus-a').click(function(){
+        popupWindow = window.open(
+                              'http://www.123contactform.com/contact-form-arghy-223936.html','popUpWindow','height=700,width=800,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes')
     })
 })

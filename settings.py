@@ -144,8 +144,6 @@ INSTALLED_APPS = (
     'mobile',
     'foursquare',
     'facebook',
-
-
 )
 
 # A sample logging configuration. The only tangible logging
@@ -192,7 +190,6 @@ LOGGING = {
 
 import logging
 from raven.contrib.django.logging import SentryHandler
-print 'a'
 logger = logging.getLogger()
 # ensure we havent already registered the handler
 if SentryHandler not in map(type, logger.handlers):

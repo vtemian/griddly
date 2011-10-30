@@ -56,38 +56,38 @@ def create_territory(request):
 @csrf_exempt
 def verify_territory(request):
     if request.method == 'POST':
-        
-        path =  request.POST.get('path')
-        points = path.split(';')
-        minx = 999.00
-        maxx = -999.00
-        miny = 999.00
-        maxy = -999.00
+        try:
+            path =  request.POST.get('path')
+            points = path.split(';')
+            minx = 999.00
+            maxx = -999.00
+            miny = 999.00
+            maxy = -999.00
 
-        for point in points:
-            lat = float(point.split(',')[0])
-            lng = float(point.split(',')[1])
-            if lat < minx:
-                minx = lat
-            if lat > maxx:
-                maxx = lat
-            if lng < miny:
-                miny = lng
-            if lng >maxy:
-                maxy = lng
+            for point in points:
+                lat = float(point.split(',')[0])
+                lng = float(point.split(',')[1])
+                if lat < minx:
+                    minx = lat
+                if lat > maxx:
+                    maxx = lat
+                if lng < miny:
+                    miny = lng
+                if lng >maxy:
+                    maxy = lng
 
-        locations = Location.objects.filter(lat__range=(minx, maxx), lng__range=(miny, maxy))
+            locations = Location.objects.filter(lat__range=(minx, maxx), lng__range=(miny, maxy))
 
-        if locations:
-            json_locations = []
-            for location in locations:
-                json_locations.append(simplejson.dumps({'lat': location.lat, 'lng': location.lng}))
+            if locations:
+                json_locations = []
+                for location in locations:
+                    json_locations.append(simplejson.dumps({'lat': location.lat, 'lng': location.lng}))
 
-            return HttpResponse(simplejson.dumps({'locations': json_locations}))
-        else:
-            return HttpResponse(simplejson.dumps({'error': "There aren't any locations in this territory!"}))
-
-        
+                return HttpResponse(simplejson.dumps({'locations': json_locations}))
+            else:
+                return HttpResponse(simplejson.dumps({'error': "There aren't any locations in this territory!"}))
+        except Exception:
+             return HttpResponse(simplejson.dumps({'error': "There was an error when we tried to verify your territory!"}))
     return HttpResponse('Not here!')
 
 def load_territory(request):

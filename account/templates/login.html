@@ -11,6 +11,14 @@
 {% block feedback %}
 {% endblock %}
 {% block content %}
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=165186856899090";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
     <div id="main_holder" class="clearfix">
 
         	<div id="content">
@@ -30,22 +38,22 @@
             <div id="animations_map">
 
             </div>
-
+            
             <div id="tour">
-            <div id="tour_info"><h2>Still having doubts?</h2> <a href="#" id="mustFixIt">Take the tour <img src="{{ STATIC_URL }}img/tour/route.png" alt="route" /></a></div>
+                <div id="tour_info"><h2>Still having doubts?</h2> <a href="#" id="mustFixIt">Take the tour <img src="{{ STATIC_URL }}img/tour/route.png" alt="route" /></a></div>
 
-                <div id="tour_icons">
+                    <div id="tour_icons">
 
-                	<div id="phone"></div>
-                    <div id="compass"></div>
-                    <div id="coin"></div>
-                    <div id="checkin"></div>
-                    <div id="dollar"></div>
+                        <div id="phone"></div>
+                        <div id="compass"></div>
+                        <div id="coin"></div>
+                        <div id="checkin"></div>
+                        <div id="dollar"></div>
 
+                    </div>
+    
                 </div>
-
-            </div>
-
+                <div class="fb-like" data-href="http://www.facebook.com/pages/Outclancom/170262259722670" data-send="true" data-width="450" data-show-faces="true"></div>
             </div>
 
             <div id="connect">
@@ -154,7 +162,9 @@
                     <li><a href="{{ STATIC_URL }}android/outclan.apk"><img src="{{ STATIC_URL }}img/mobile_app/android.png" alt="Outclan Android Application Download" /></a></li>
                     <li><a href="#" id="mustFixIt"> <img src="{{ STATIC_URL }}img/mobile_app/apple_iphone.png" alt="Outclan Apple Iphone Application Download" /></a></li>
                     <li><a href="#" id="mustFixIt"> <img src="{{ STATIC_URL }}img/mobile_app/blackberry.png" alt="Outclan Blackberry Application Download"/></a></li>
+                    
                 </ul>
+
 
             </div>
 

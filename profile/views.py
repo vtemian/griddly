@@ -15,7 +15,9 @@ from profile.forms import UserChangePassword, UserChangeEmail, UserChangeFirstNa
 from profile.models import Friend
 from django.db.models import Q
 from alliance.models import *
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def user_menu(request):
     render_context = {}
     user = UserProfile.objects.get(user=request.user)
@@ -46,12 +48,13 @@ def user_menu(request):
 
     return render_context
 
+@login_required
 def myprofile(request):
     user = UserProfile.objects.get(user=request.user)
     return render_to_response('my_profile.html',
                               user_menu(request),
                               context_instance=RequestContext(request))
-
+@login_required
 def profiles(request, profile_id):
     try:
         user = UserProfile.objects.get(pk=profile_id)
@@ -73,6 +76,7 @@ def profiles(request, profile_id):
     except Exception:
         redirect('/ranks')
 
+        
 def get_users(request):
     if request.method == 'GET':
         username = request.GET.get('user')

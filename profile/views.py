@@ -17,7 +17,7 @@ from django.db.models import Q
 from alliance.models import *
 from django.contrib.auth.decorators import login_required
 
-@login_required
+@login_required(login_url='/user/login/')
 def user_menu(request):
     render_context = {}
     user = UserProfile.objects.get(user=request.user)
@@ -48,13 +48,13 @@ def user_menu(request):
 
     return render_context
 
-@login_required
+@login_required(login_url='/user/login/')
 def myprofile(request):
     user = UserProfile.objects.get(user=request.user)
     return render_to_response('my_profile.html',
                               user_menu(request),
                               context_instance=RequestContext(request))
-@login_required
+@login_required(login_url='/user/login/')
 def profiles(request, profile_id):
     try:
         user = UserProfile.objects.get(pk=profile_id)

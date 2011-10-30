@@ -4,7 +4,7 @@ from account.models import UserProfile
 from profile.views import user_menu
 from django.contrib.auth.decorators import login_required
 
-@login_required
+@login_required(login_url='/user/login/')
 def ranks(request):
     users = UserProfile.objects.all().order_by('-lvl', '-money', 'user__username')
     context = user_menu(request)

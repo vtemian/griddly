@@ -18,4 +18,7 @@ $(document).ready(function(){
         });
         return false;
     });
+    $('#FAQ-a').click(function(){
+       $('#qanda').modal();
+    });
 })

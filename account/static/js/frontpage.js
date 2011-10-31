@@ -18,4 +18,10 @@ $(document).ready(function(){
         });
         return false;
     });
-})
+    $('#tour-a').click(function(){
+        $('#tour-flash').modal({
+            minHeight:100,
+	        minWidth: 400
+        });
+    });
+});

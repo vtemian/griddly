@@ -70,7 +70,7 @@ MIDDLEWARE_CLASSES = MIDDLEWARE_CLASSES + (
     'raven.contrib.django.middleware.Sentry404CatchMiddleware',
 )
 
-AUTHENTICATION_BACKENDS = ('facebook.backend.FacebookBackend', 'django.contrib.auth.backends.ModelBackend', 'griddly.account.backends.auth.GoogleBackend')
+AUTHENTICATION_BACKENDS = ('facebook.backend.FacebookBackend', 'django.contrib.auth.backends.ModelBackend', 'account.backends.auth.GoogleBackend')
 #FB LOGIN
 AUTH_PROFILE_MODULE = 'facebook.FacebookProfile'
 FACEBOOK_APP_ID = '165186856899090'

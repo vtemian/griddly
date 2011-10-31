@@ -1,6 +1,6 @@
 import os
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = True
 
 ADMINS = (
@@ -70,11 +70,14 @@ MIDDLEWARE_CLASSES = MIDDLEWARE_CLASSES + (
     'raven.contrib.django.middleware.Sentry404CatchMiddleware',
 )
 
-AUTHENTICATION_BACKENDS = ('facebook.backend.FacebookBackend', 'django.contrib.auth.backends.ModelBackend')
+AUTHENTICATION_BACKENDS = ('facebook.backend.FacebookBackend', 'django.contrib.auth.backends.ModelBackend', 'griddly.account.backends.auth.GoogleBackend')
+#FB LOGIN
 AUTH_PROFILE_MODULE = 'facebook.FacebookProfile'
 FACEBOOK_APP_ID = '165186856899090'
 FACEBOOK_APP_SECRET = 'cce7d92718bc6358211eeffba1ac2529'
 FACEBOOK_SCOPE = 'email,publish_stream'
+#GOOGLE LOGIN
+OPENID_SSO_SERVER_URL = 'https://www.google.com/accounts/o8/id'
 
 ROOT_URLCONF = 'urls'
 TEMPLATE_DIRS = ('/home/wok/projects/griddly/templates',)
@@ -87,6 +90,8 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'django_openid_auth',
 
     'sentry',
     'raven.contrib.django',

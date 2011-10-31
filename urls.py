@@ -57,6 +57,9 @@ urlpatterns = patterns('',
     url(r'^facebook/login$', 'facebook.views.login'),
     url(r'^facebook/authentication_callback$', 'facebook.views.authentication_callback'),
     url(r'^sentry/', include('sentry.web.urls')),
+    url(r'^login/google$', 'django_openid_auth.views.login_begin', name='openid-login'),
+    url(r'^login-complete/google$', 'django_openid_auth.views.login_complete', name='openid-complete'),
+
 )
 
 handler404 = 'common.views.base'

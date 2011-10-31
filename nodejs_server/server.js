@@ -1,14 +1,7 @@
-var io = require('socket.io');
+var io = require('socket.io').listen(5555);
 var users = new Array();
 var clients = new Array();
-var http = require('http');
 
-var server = http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('42');
-});
-server.listen(5555);
-io = io.listen(server);
 io.sockets.on('connection', function (socket) {
     socket.emit('identified', { message: 'handshaking' });
 

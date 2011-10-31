@@ -52,7 +52,6 @@ $(document).ready(function(){
             var news = data.news
             $.each(data.users, function(index, user){
                 socket.emit('news-stream', {'recipient': user, 'news':news})
-                console.log('as')
             })
         })
 

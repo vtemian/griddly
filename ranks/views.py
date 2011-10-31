@@ -18,6 +18,6 @@ def ranks(request):
 def get_ranks(request, limit):
     users = UserProfile.objects.all().order_by('-lvl', '-money', 'user__username')[int(limit)-10:int(limit)]
     notification_template = loader.get_template('user_ranks.html')
-    c = Context({ 'users': users })
+    c = Context({ 'users': users , 'limit': limit})
     message = notification_template.render(c)
     return HttpResponse(message)

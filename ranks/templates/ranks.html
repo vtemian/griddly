@@ -2,40 +2,15 @@
 {% block extrahead %}
     <script type="text/javascript" src="{{ STATIC_URL }}js/django-validate.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/profile.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/get-ranks.js"></script>
 {% endblock %}
 {% block header %}
     {% include 'user_menu2.html' %}
 {% endblock %}
 
 {% block content %}
-    <script type="text/javascript">
-    var limit = 10;
-    var increment = 10;
-    function get_ranks(limit){
-        $.get('/get-ranks/'+limit, function(data){
-            $('#ranks_list').append(data);
-        });
-    }
-    $(window).scroll(function(){
-        if  ($(window).scrollTop() == $(document).height() - $(window).height()){
-           get_ranks(limit);
-            limit += increment;
-        }
-    });
-
-    $(document).ready(function(){
-        get_ranks(limit);
-        limit += increment;
-    });
-</script>
     <div id="ranks_holder" class="clearfix">
-
-        	<ul id="ranks_list">
-
-             
-
-            </ul>
-
-     	</div>
+        <ul id="ranks_list"></ul>
+    </div>
     
 {% endblock %}

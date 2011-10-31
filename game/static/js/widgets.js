@@ -8,7 +8,7 @@ $(document).ready(function(){
     /* Widget */
 
 	/* Widget opacity */
-
+    
 	$('#widget').mouseenter(function(){
 		$(this).animate({opacity:1},100);
 		});

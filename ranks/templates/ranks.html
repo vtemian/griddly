@@ -2,44 +2,37 @@
 {% block extrahead %}
     <script type="text/javascript" src="{{ STATIC_URL }}js/django-validate.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/profile.js"></script>
-
 {% endblock %}
 {% block header %}
     {% include 'user_menu2.html' %}
 {% endblock %}
 
 {% block content %}
+    <script type="text/javascript">
+    var limit = 10;
+    var increment = 10;
+    function get_ranks(limit){
+        $.get('/get-ranks/'+limit, function(data){
+            $('#ranks_list').append(data);
+        });
+    }
+    $(window).scroll(function(){
+        if  ($(window).scrollTop() == $(document).height() - $(window).height()){
+           get_ranks(limit);
+            limit += increment;
+        }
+    });
 
+    $(document).ready(function(){
+        get_ranks(limit);
+        limit += increment;
+    });
+</script>
     <div id="ranks_holder" class="clearfix">
 
         	<ul id="ranks_list">
 
-                 {% for user in users %}
-
-            	<li class="clearfix">
-                	<div class="ranks_list_rank"><img src="{{ STATIC_URL }}img/ranks/crown.png" alt="Crown" /><br/>{{ forloop.counter }}</div>
-                    <div class="ranks_list_alliance_info" {% if user == userprofile %}style="border: 1px solid #acc7c4;" {% endif %}>
-                    	<p class="small_avatar ranks_list_alliance_info_avatar clearfix" style="background-image: url('{{ user.gravatar_url }}?s=65')">
-                       <img src="{{ user.gravatar_url }}?s=65" alt="Avatar" />
-                        </p>
-                        <ul class="ranks_list_alliance_stats">
-                        	<li>{{ user.user.username }}</li>
-                        	<li>
-                            	<ul class="clearfix">
-                                    <li><b>Level:</b>{{ user.lvl }}</li>
-                                    {% if user.territory %}
-                                    <li><b>Territory:</b>{{ user.territory.area }}km<sup>2</sup></li>
-                                    {% endif %}
-                                    <li><b>Money:</b> $ {{ user.money }}</li>
-                                    <li><b>Achievement Points:</b> {{ user.achieve_points }}</li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <a href="/profile/{{ user.id }}">View Profile</a>
-                    </div>
-                </li>
-
-                 {% endfor %}
+             
 
             </ul>
 

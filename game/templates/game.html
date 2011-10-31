@@ -19,10 +19,7 @@
     <script type=text/javascript src="{{ STATIC_URL }}js/clan_admin.js"></script>
     <script type=text/javascript src="{{ STATIC_URL }}js/autocomplete_user.js"></script>
     <script type=text/javascript src="{{ STATIC_URL }}js/venue.js"></script>
-    <script type=text/javascript src="{{ STATIC_URL }}js/mylibs/dist/jquery.jqplot.min.js"></script>
-    <script type=text/javascript src="{{ STATIC_URL }}js/mylibs/dist/jquery.jqplot.min.css"></script>
-    <script type=text/javascript src="{{ STATIC_URL }}js/mylibs/dist/plugins/jqplot.canvasTextRenderer.min.js"></script>
-    <script type=text/javascript src="{{ STATIC_URL }}js/mylibs/dist/plugins/jqplot.canvasAxisLabelRenderer.min.js"></script>
+    <script type=text/javascript src="{{ STATIC_URL }}js/libs/highcharts/highcharts.js"></script>
     <script type=text/javascript src="{{ STATIC_URL }}colorpicker/js/colorpicker.js"></script>
 
 {% endblock %}
@@ -39,7 +36,6 @@
                 $('#widget').css({'left': '{{ userprofile.widget_left }}px', "top": '{{ userprofile.widget_top }}px'});
                 $('#map').css('overflow', 'visible')
                 $('#territory_widget').css({'left': '{{ userprofile.territory_widget_left }}px', "top": '{{ userprofile.territory_widget_top }}px'});
-                var plot1 = $.jqplot ('activity', [[3,7,9,1,4,6,8,2,5]]);
 
             });
         </script>
@@ -52,7 +48,7 @@
                 <div id="widget_level_stats">
 
                     <div id="widget_level_checkins">
-                        <div id="widget_level_checkins_graph"><div id="activity"></div></div>
+                        <div id="widget_level_checkins_graph" style="width: 100%; height: 25px"></div>
                         <div id="widget_level_checkins_graph_info">checkins last 7 days</div>
                     </div>
                     <div id="widget_level_checkins_stats"><ul><li>{{ checkins.count }} <img src="{{ STATIC_URL }}img/map_widget/checkins.png" /></li><li>{{ location_checkin.count }} <img src="{{ STATIC_URL }}img/map_widget/places.png" /></li></ul></div>

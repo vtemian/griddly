@@ -59,6 +59,7 @@ urlpatterns = patterns('',
     url(r'^sentry/', include('sentry.web.urls')),
     url(r'^google/login$', 'django_openid_auth.views.login_begin', name='openid-login'),
     url(r'^login-complete/google$', 'django_openid_auth.views.login_complete', name='openid-complete'),
+    url(r'^mu-95f975c2-b4b3a524-2bd24a2d-36d223f6.txt$', 'tests.views.blitz'),
 
 )
 

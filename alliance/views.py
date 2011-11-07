@@ -117,7 +117,7 @@ def upload_avatar(request):
     return HttpResponse('Not here!')
 
 def save_file(filename, data):
-        file = open(os.path.join('/home/wok/', filename), 'w')
+        file = open(os.path.join('/home/static/', filename), 'w')
         file.write(data)
         file.close()
         return filename

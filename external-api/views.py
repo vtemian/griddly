@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login as auth_login
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext, Context
 from account.models import UserProfile
-from alliance.models import Alliance
+from alliance.models import Alliance, AllianceMembership
 from battle.models import Battle
 from checkin.models import Checkin
 from location.models import Location, Loyalty
@@ -162,7 +162,7 @@ def checkingin(request):
             if up.exp >= 5 * up.lvl * up.lvl:
                 up.lvl += 1
             up.save()
-            
+
             try:
                 alliance = Alliance.objects.get(members=up)
                 users = alliance.members.all()
@@ -174,6 +174,16 @@ def checkingin(request):
                     if user.exp >= 5 * user.lvl * user.lvl:
                         user.lvl += 1
                     user.save()
+
+                membership = AllianceMembership.objects.get(alliance=alliance)
+                membership.reputation += up.lvl
+                membership.save()
+
+                alliance.exp += up.lvl
+                if alliance.exp > (alliance.lvl*alliance.lvl)*10:
+                    alliance.lvl += 1
+                alliance.save()
+                
             except Alliance.DoesNotExist:
                 pass
             

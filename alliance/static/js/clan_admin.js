@@ -1,3 +1,4 @@
+var delete_token = 0;
 $(document).ready(function(){
     $('#add-member').click(function(){
         $('#send-invites').modal({
@@ -11,8 +12,9 @@ $(document).ready(function(){
     });
 
     $('#requests').submit(function(){
-        var username = $('#username').html()
-        var name = $('#clan-name').html()
+        var k = 0;
+        var username = $('#username').html();
+        var name = $('#clan-name').html();
         $.each(users, function(index, user){
            if(user != username){
                 $.post('/alliance/request/', {'user':user, 'name':name}, function(data){
@@ -20,20 +22,60 @@ $(document).ready(function(){
                     if (obj.finished != 'not')
                         socket.emit('notification', obj);
                     else
-                        console.log('There is an unterminated request, dude ;)')
-                    //TODO: send this piece of shit to the client
-                })
-                console.log('Clan request submited')
-               //TODO: request submited notification in client-side
+                       $('#notifications_bar').html('There is an unterminated request').slideDown(200).delay(1000).slideUp(200);
+                });
+
            }else{
-               console.log("Dude, you can't submit a clan request to yourself!")
-               //TODO: error in page notitication
+                $('#notifications_bar').html("Dude, you can't submit a clan request to yourself!").slideDown(200).delay(1000).slideUp(200);
+                k++;
            }
+
         });
+        if(!k && users.length != 1){
+                $('#notifications_bar').html('Clan request submited').slideDown(200).delay(1000).slideUp(200);
+        }
         $.modal.close();
         return false;
     });
-    
+
+    $('#member-li', '#member_list').click(function(){
+        console.log('a')
+        if(delete_token){
+            var username = $(this).data('username');
+            var $li = $(this);
+            $.post('clan/del-member', {'username': username}, function(data){
+                data = $.parseJSON(data);
+                if(data.error != undefined){
+                    $('#notifications_bar').html(''+data.error+'').slideDown(200).delay(1000).slideUp(200);
+                }else{
+                    $('#notifications_bar').html(""+data.message+"").slideDown(200).delay(1000).slideUp(200);
+                    $li.remove();
+                }
+            });
+            return false;
+        }
+    });
+
+    $('#remove-members-btn').click(function(){
+        delete_token = !delete_token;
+        if(delete_token){
+            $('#notifications_bar').html("You can now delete members!").slideDown(200).delay(1000).slideUp(200);
+            $.each($('#member-li', '#member_list'), function(index, value){
+               $(value).css({
+                   'border': 'solid',
+                   'borderWidth': '2px',
+                   'borderColor': "#e55853"
+               });
+            });
+        }else{
+            $.each($('#member-li'), function(index, value){
+               $(value).css({
+                   'border': 'none'
+               });
+            });
+        }
+    });
+
     $('#avatar-form').live('submit', function(){
         //TODO: ajax file upload
     });
@@ -43,7 +85,7 @@ $(document).ready(function(){
             opacity:80,
             overlayCss: {backgroundColor:"#5b5b5b"},
             minHeight:400,
-            minWidth: 600,
+            minWidth: 600
         });
     });
 
@@ -53,7 +95,7 @@ $(document).ready(function(){
             $.each(data.users, function(index, user){
                 socket.emit('news-stream', {'recipient': user, 'news':news})
             })
-        })
+        });
 
         $.modal.close()
         return false;
@@ -78,10 +120,10 @@ $(document).ready(function(){
 
     $('#like.ok').live("click", function(){
         vote("like", $(this), $(this).next())
-    })
+    });
     $('#unlike.ok').live("click", function(){
         vote("unlike", $(this), $(this).prev())
-    })
+    });
 
     //check if u can vote
     $.each($('.alliance_content_news'), function(index, element){
@@ -122,4 +164,4 @@ $(document).ready(function(){
         });}
 
     });
-})
+});

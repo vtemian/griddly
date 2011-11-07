@@ -20,8 +20,28 @@ $(document).ready(function(){
     });
     $('#tour-a').click(function(){
         $('#tour-flash').modal({
-            minHeight:100,
-	        minWidth: 400
+            onOpen: function (dialog) {
+                var sm = this;
+
+                dialog.overlay.fadeIn('fast', function () {
+                    dialog.data.hide();
+                    dialog.container.fadeIn('fast', function () {
+                        dialog.data.slideDown('fast');
+                    });
+                });
+                dialog.container.animate({height: 403, width: 550}, 500, function () {
+                    sm.setPosition();
+                });
+            },
+            onClose: function (dialog) {
+                dialog.data.fadeOut('fast', function () {
+                    dialog.container.hide('fast', function () {
+                        dialog.overlay.slideUp('fast', function () {
+                            $.modal.close();
+                        });
+                    });
+                });
+            }
         });
     });
 });

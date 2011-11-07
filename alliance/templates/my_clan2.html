@@ -1,14 +1,14 @@
 {% extends 'index.html' %}
 {% block extrahead %}
     <link rel="stylesheet" href="http://fromvega.com/code/autocomplete/autocomplete.css" type="text/css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/droparea.css" type="text/css">
     <script src="http://fromvega.com/code/autocomplete/dimensions.js" type="text/javascript"></script>
     <script src="http://fromvega.com/code/autocomplete/autocomplete.js" type="text/javascript"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/django-validate.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/profile.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/clan_admin.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/autocomplete_user.js"></script>
-
-
+    <script type="text/javascript" src="{{ STATIC_URL }}js/libs/droparea.js"></script>
 {% endblock %}
 {% block header %}
     {% include 'user_menu2.html' %}
@@ -18,29 +18,29 @@
     <div id="alliance_holder" class="clearfix">
 
         	<div id="alliance_left_sidebar">
-
+                {% if rank == '1' %}
+                   <div id="alliance_left_sidebar_admin_add_remove">
+                    		<button class="admin_buttons" id="add-member">add member</button> <button class="admin_buttons" id="remove-members-btn">remove member</button>
+                   	</div>
+                {% endif %}
                    <ul id="member_list">
                     	<li>Members</li>
-                           {% for member in clan_members %}
+                           {% for membership in clan_members %}
                       
-                        <li><a href="/profile/{{ member.id }}">
-                            <div class="alliance_member_avatar"><img src="{{ member.gravatar_url }}?s=34"/></div>
+                        <li {% if forloop.counter != 1 %}id="member-li" data-username="{{ membership.profile.user.username }}{% endif %}"><a href="/profile/{{ membership.profile.id }}">
+                            <div class="alliance_member_avatar"><img src="{{ membership.profile.gravatar_url }}?s=34"/></div>
                             <ul class="alliance_member_name_joindate clearfix">
-                               <li><div class="alliance_member_username">{{ member.user.username }}</div></li>
-                               <li><div class="alliance_member_joindate">joined 09.09.2011</div></li>
+                               <li><div class="alliance_member_username">{{ membership.profile.user.username }}</div></li>
+                               <li><div class="alliance_member_joindate">{{ membership.join_date }}</div></li>
                             </ul>
-                            <div class="alliance_member_level">{{ member.lvl }}</div></a
+                            <div class="alliance_member_level">{{ membership.profile.lvl }}</div></a
                         </li>
 
                        
                             {% endfor %}
                    </ul>
 
-                {% if rank == '1' %}
-                   <div id="alliance_left_sidebar_admin_add_remove">
-                    		<button class="admin_buttons">add member</button> <button class="admin_buttons">remove member</button>
-                   	</div>
-                {% endif %}
+
 
                     <div id="send-invites" style="display: none">
                         <form id="requests">
@@ -48,6 +48,7 @@
                                 <label>members</label>
                                 <input type="text" id="new-recipient" autocomplete="off" />
                             </div>
+                            <div id="recipients-results"></div>
                             <button id="submit-btn">Submit</button>
                         </form>
                     </div>
@@ -61,16 +62,8 @@
             <div id="alliance_right_sidebar">
                     {% if rank == '1' %}
                     <div id="alliance_right_sidebar_admin">
-
                     	<p>You're the admin of this clan. You can post news, change the avatar or add and remove members.</p>
-
                         <button class="admin_buttons" id="create-news">add news</button>
-                        <form action="{% url alliance.views.upload_avatar %}" id="avatar-form" method="POST" enctype="multipart/form-data">
-                            <table>
-                                {{ avatar_form.as_table }}
-                            </table>
-                            <button class="admin_buttons" id="upload-avatar">upload</button>
-                        </form>
                     </div>
 
 
@@ -87,29 +80,33 @@
                     </div>
 
                 	<div id="alliance_right_sidebar_avatar">
-                    	{% if my_alliance.avatar %}
-                            <img src="{{ my_alliance.avatar.url }}" width="150px" height="150px">
+                        {% if rank == '1' %}
+                                <div id="upload-instruction">
+                                    drop an image
+                                </div>
+                                <script type="text/javascript">
+                                    $(document).ready(function(){
+                                        $('.droparea').droparea({'post' : '/clan/avatar'});
+                                    });
+                                </script>
                         {% endif %}
+                        <div class="droparea spot" data-width="460" data-height="345" data-type="jpg" data-crop="true" data-quality="60" data-folder="sample" data-something="stupid">
+                            {% if my_alliance.avatar %}
+                                <img src="{{ my_alliance.avatar.url }}" width="150px" height="150px">
+                            {% endif %}
+                        </div>
 
                     </div>
 
                     <ul id="alliance_right_sidebar_info">
-                    	<li>{{ my_alliance.name }}</li>
-                        <li>Founder: Whitemonk</li>
-                        <li>Members: 450</li>
-                        <li>Alliance Level: 37</li>
-                        <li>Battles Won:</li>
-                        <li>Battles Lost:</li>
-                        <li>Alliance Level: 37</li>
+                    	<li id="clan-name">{{ my_alliance.name }}</li>
+                        <li><a href="/profile/{{ boss.id }}">Founder: {{ boss.user.username }}</a></li>
+                        <li>Members: {{ clan_members.count }}</li>
+                        <li>Alliance Level: {{ my_alliance.lvl }}</li>
+                        <li>Next level: {{ exp }}%</li>
                         <li>Battles Won:</li>
                         <li>Battles Lost:</li>
                     </ul>
-
-
-
-
             </div>
-
         </div>
-
 {% endblock %}

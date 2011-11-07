@@ -1,3 +1,4 @@
+import os
 from django.http import HttpResponse
 from django.utils import simplejson
 from alliance.forms import ClanCreate, UploadAvatar, NewsCreate, ClanChangeName
@@ -17,10 +18,16 @@ def my_clan(request):
     
     my_clan = context['my_alliance']
 
-    context['clan_members'] = my_clan.members.all()
+    context['clan_members'] = AllianceMembership.objects.filter(alliance=my_clan)
     context['avatar_form'] = UploadAvatar()
     context['clan_stream'] = AllianceNews.objects.filter(alliance=Alliance.objects.get(members=context['userprofile']))
+    context['boss'] = context['clan_members'].get(rank=1).profile
     context['rank'] = context['userprofile'].alliancemembership_set.all()[0].rank
+    
+    last_lvl_exp = (my_clan.lvl-1)*(my_clan.lvl-1)*10
+    exp_needed = ((my_clan.lvl*my_clan.lvl)*10)- last_lvl_exp
+
+    context['exp'] = ((my_clan.exp-last_lvl_exp)*100)/exp_needed
     
     return render_to_response('my_clan2.html',
                               context,
@@ -65,13 +72,24 @@ def process_request(request):
     if request.method == 'POST':
         type = request.POST.get('type')
         notification = Notification.objects.get(pk=request.POST.get('id'))
-        notification.finished = True
-        notification.save()
-        if type == 'accept':
-            clan = Alliance.objects.get(members=notification.sender)
-            up = UserProfile.objects.get(user=request.user)
-            AllianceMembership(alliance=clan, profile=up, rank="2").save()
-        return HttpResponse('ok')
+        if not notification.finished:
+            notification.finished = True
+            notification.save()
+            if type == 'accept':
+                clan = Alliance.objects.get(members=notification.sender)
+                up = UserProfile.objects.get(user=request.user)
+                try:
+                    membership = AllianceMembership.objects.get(profile=up, alliance=clan)
+                    return HttpResponse(simplejson.dumps({"error": "You are in this clan!"}))
+                except Exception:
+                    try:
+                        membership = AllianceMembership.objects.get(profile=up)
+                        membership.delete()
+                    except Exception:
+                        AllianceMembership(alliance=clan, profile=up, rank="2").save()
+                        return HttpResponse(simplejson.dumps({"message": "Clan request accepted!"}))
+        else:
+            return HttpResponse(simplejson.dumps({"error": "This request is finished"}))
     return HttpResponse('Not here!')
 
 @csrf_exempt
@@ -87,14 +105,22 @@ def get_stream(request):
 @csrf_exempt
 def upload_avatar(request):
     if request.method == 'POST':
-        form = UploadAvatar(request.POST, request.FILES, instance=Alliance.objects.get(members=UserProfile.objects.get(user=request.user)))
-        print request.FILES
+        alliance = Alliance.objects.get(members=UserProfile.objects.get(user=request.user))
+        form = UploadAvatar(request.POST, request.FILES, instance=alliance)
         if form.is_valid():
             form.save()
-            return redirect('/clan')
+            img_path = '<img src="'+alliance.avatar.url+'" alt="image" width="140px" height="140px"/>'
+            return HttpResponse(simplejson.dumps({'img': img_path}))
         else:
+            print form.errors
             return HttpResponse(simplejson.dumps(form.errors))
     return HttpResponse('Not here!')
+
+def save_file(filename, data):
+        file = open(os.path.join('/home/wok/', filename), 'w')
+        file.write(data)
+        file.close()
+        return filename
 
 @csrf_exempt
 def create_news(request):
@@ -171,16 +197,14 @@ def del_member(request):
         print request.POST.get('username')
         try:
             deleted_member = UserProfile.objects.get(user__username=request.POST.get('username'))
-
             clan = Alliance.objects.get(members=profile)
             AllianceMembership.objects.get(alliance=clan, profile=deleted_member).delete()
-
-            return HttpResponse('ok')
+            return HttpResponse(simplejson.dumps({'message': "The user have been succesfuly removed from your clan!"}))
         
         except AllianceMembership.DoesNotExist:
-            return HttpResponse('failed-member')
+            return HttpResponse(simplejson.dumps({'error': 'The user is not in this clan any more!'}))
         except UserProfile.DoesNotExist:
-            return HttpResponse('failed-member')
+            return HttpResponse(simplejson.dumps({'error': "The user doesn't exists anymore!"}))
         
     return HttpResponse('Not here!')
 

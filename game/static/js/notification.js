@@ -8,8 +8,8 @@ $(document).ready(function(){
             $parent.remove();
         });
     });
-    
-    $('#decline-friend-request').click(function(){
+
+    $('#decline-friend-request').live('click', function(){
         var id =  $(this).data("note");
         var $parent = $(this).parent();
         $.post('/profile/friendrequest/', {'id': id, 'type': 'decline'}, function(data){
@@ -19,20 +19,29 @@ $(document).ready(function(){
         });
     });
 
-    $('#accept-clan-request').click(function(){
+    $('#accept-clan-request').live('click', function(){
         var id =  $(this).data("note");
         var $parent = $(this).parent();
         $.post('/alliance/process_request/', {'id': id, 'type': 'accept'}, function(data){
-            $('#notifications_bar').html("Clan request accepted!").slideDown(200).delay(1000).slideUp(200);
+            data = $.parseJSON(data);
+            console.log(data)
+            if(data.error != undefined){
+                $('#notifications_bar').html(data.error).slideDown(200).delay(1000).slideUp(200);
+            }else{
+                $('#notifications_bar').html(data.message).slideDown(200).delay(1000).slideUp(200, function(){
+                    window.location = '/clan';
+                });
+            }
             $parent.remove();
         });
     });
 
-    $('#decline-clan-request').click(function(){
+    $('#decline-clan-request').live('click', function(){
         var id =  $(this).data("note");
         var $parent = $(this).parent();
         $.post('/alliance/process_request/', {'id': id, 'type': 'decline'}, function(data){
-            $('#notifications_bar').html("Clan request refected!").slideDown(200).delay(1000).slideUp(200);
+            data = $.parseJSON(data);
+            $('#notifications_bar').html(data.message).slideDown(200).delay(1000).slideUp(200);
             $parent.remove();
         });
     });
@@ -57,9 +66,7 @@ $(document).ready(function(){
                  }
 
                 $.post('/notification/seen/'+id, function(data){
-                    console.log('nice')
-                    //TODO: send fail/sucesfull notification to frontend
-                })
+                });
             }
     })
 
@@ -67,14 +74,14 @@ $(document).ready(function(){
         var notifications_number = parseInt( $('#notifications_nr').html(), 10) + 1
         $('#notifications_nr').html(notifications_number)
         if (data.type == 'friend'){
-            
+
             $('.notifications_items', '#friend_requests').prepend(data.notification)
             notifications_number = parseInt( $('.individual_notifications_bubble', '#friend_requests').html(), 10) + 1
             $('.individual_notifications_bubble', '#friend_requests').html(notifications_number)
             $('.individual_notifications_bubble', '#friend_requests').css('display', 'block')
 
         }else if(data.type == 'message'){
-            
+
             $('.notifications_items', '#messages').prepend(data.notification)
             notifications_number = parseInt( $('.individual_notifications_bubble', '#messages').html(), 10) + 1
             console.log($('.individual_notifications_bubble', '#messages').html())

@@ -1444,6 +1444,10 @@ footer{
 	padding-left:7px;
 	padding-right:7px;
 	cursor:pointer;
+}#footer_menu li>a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #4d4e50;
 }
 
 #footer_menu li:hover{
@@ -1479,8 +1483,9 @@ footer{
 }
 
 #feedback_footer >a{
-	text-decoration:none;
-	color:#4d4e50;
+	text-decoration: none;
+    font-weight: bold;
+    color: #4d4e50;
 }
 
 #feedback_footer >a:hover{
@@ -1545,6 +1550,10 @@ footer{
 	margin-right:10px;
 	display:inline;
 	float:left;
+}#about>h4>a{
+	text-decoration: none;
+    font-weight: bold;
+    color: #88b2e3;
 }
 
 #about_text{
@@ -2315,6 +2324,13 @@ footer{
 	float:right;
 	background-color:#f9f9f9;
 	border-left:1px solid #fff;
+}
+
+#recipients-results{
+    z-index: 1000;
+    position: absolute;
+    left: 1px;
+    right: 2px;
 }
 
 /* ******************************

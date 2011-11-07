@@ -7,12 +7,18 @@ class Alliance(models.Model):
     name = models.CharField(max_length=30)
     members = models.ManyToManyField(UserProfile, null=True, through="alliance.AllianceMembership")
 
+    lvl = models.IntegerField(default=1, max_length=50)
+    exp = models.IntegerField(default=0, max_length=100)
+
     avatar = models.ImageField(upload_to='avatars/%Y/%m/%d', null=True)
 
 class AllianceMembership(models.Model):
     alliance = models.ForeignKey(Alliance)
     profile = models.ForeignKey(UserProfile)
 
+    reputation = models.IntegerField(default=1)
+    
+    join_date = models.DateTimeField(default=datetime.now())
     rank = models.CharField(max_length=30)
     
 class Vote(models.Model):
@@ -40,4 +46,3 @@ class AllianceNews(models.Model):
 
     like = models.ManyToManyField(Like)
     unlike = models.ManyToManyField(Unlike)
-

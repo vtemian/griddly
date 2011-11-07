@@ -92,7 +92,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     'django_openid_auth',
-
+    'south',
+    
     'sentry',
     'raven.contrib.django',
 

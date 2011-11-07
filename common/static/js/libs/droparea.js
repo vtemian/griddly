@@ -52,7 +52,6 @@
             xhr.addEventListener("load", function (e) {
                 var r = jQuery.parseJSON(e.target.responseText);
                 s.complete(r);
-                console.log(r);
                 area.find('img').remove();
                 area.data('value','gicva')
                 .append(r.img);

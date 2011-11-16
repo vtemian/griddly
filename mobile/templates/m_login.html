@@ -1,0 +1,64 @@
+{% extends "m_base.html" %}
+{% block extrahead %}
+    <script src="{{ STATIC_URL }}js/django-validate.js"></script>
+    <script src="{{ STATIC_URL }}js/m_login.js"></script>
+{% endblock %}
+{% block content %}
+    <p>Welcome to the next level of fun and social networking</p>
+    <div class="ui-grid-a">
+        <div class="ui-block-a"><button type="submit" onclick="window.location='/facebook/login'" data-theme="b">Facebook</button></div>
+        <div class="ui-block-b"><button type="submit" onclick="window.location='/google/login'" data-theme="c">Google</button></div>
+    </div>
+    <p>
+        <a href="#login" data-role="button" data-theme="c" class="ui-btn ui-btn-corner-all ui-shadow ui-btn-up-c">
+            <span class="ui-btn-inner ui-btn-corner-all" aria-hidden="true">
+                <span class="ui-btn-text">Login</span>
+            </span>
+        </a>
+        <a href="#register" data-role="button" data-theme="c" class="ui-btn ui-btn-corner-all ui-shadow ui-btn-up-c">
+            <span class="ui-btn-inner ui-btn-corner-all" aria-hidden="true">
+                <span class="ui-btn-text">Register</span>
+            </span>
+        </a>
+    </p>
+{% endblock %}
+{% block extrapages %}
+    <div data-role="page" data-theme="c" data-content-theme="c" id="register">
+        {% include 'm_header.html' %}
+        <div data-role="content">
+            <form action="/user/register/" method="POST" id="register-form" data-ajax="false">
+                <div id="general"></div>
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" id="username" value="" placeholder="Username"/>
+                </div>
+                <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" id="password" value="" placeholder="Password"/>
+                </div>
+                <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="password">Email:</label>
+                        <input type="Email" name="email" id="email" value="" placeholder="Email"/>
+                </div>
+                <button type="submit" data-theme="c">Register</button>
+            </form>
+        </div>
+    </div>
+    <div data-role="page" data-theme="c" data-content-theme="c" id="login">
+        {% include 'm_header.html' %}
+        <div data-role="content">
+            <form action="/user/login/" method="POST" id="login-form" data-ajax="false">
+                <div id="general"></div>
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" id="username" value="" placeholder="Username"/>
+                </div>
+                <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" id="password" value="" placeholder="Password"/>
+                </div>
+                <button type="submit" data-theme="c">Login</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

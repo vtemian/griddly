@@ -1,0 +1,17 @@
+<div data-role="header" class="ui-bar-c" >
+    <h1><img src="{{ STATIC_URL }}img/logo.png"></h1>
+    <a href="/"  data-icon="notext" data-direction="reverse" class="ui-btn-left jqm-home ui-btn ui-btn-icon-notext ui-btn-corner-all ui-shadow ui-btn-up-f" title="Home" data-theme="c" style="top:15px;left:20px;">
+        <span class="ui-btn-inner ui-btn-corner-all" aria-hidden="true">
+            <span class="ui-btn-text">Home</span>
+            <span class="ui-icon ui-icon-home ui-icon-shadow"></span>
+        </span>
+    </a>
+    {% if user.is_authenticated %}
+        <a id="alogout" data-ajax="false" data-icon="arrow-l" class="ui-btn-right ui-btn ui-btn-icon-left ui-btn-corner-all ui-shadow ui-btn-up-c" href="/logout/" data-theme="c" style="top:10px;right:20px;">
+            <span class="ui-btn-inner ui-btn-corner-all">
+                <span class="ui-btn-text">Logout</span>
+                <span class="ui-icon ui-icon-arrow-l ui-icon-shadow"></span>
+            </span>
+        </a>
+    {% endif %}
+</div>

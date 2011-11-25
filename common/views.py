@@ -26,10 +26,10 @@ mobile_uas = [
 	'qwap','sage','sams','sany','sch-','sec-','send','seri','sgh-','shar',
 	'sie-','siem','smal','smar','sony','sph-','symb','t-mo','teli','tim-',
 	'tosh','tsm-','upg1','upsi','vk-v','voda','wap-','wapa','wapi','wapp',
-	'wapr','webc','winw','winw','xda','xda-', 'ipad'
+	'wapr','webc','winw','winw','xda','xda-', 'ipad','android'
 	]
 
-mobile_ua_hints = [ 'SymbianOS', 'Opera Mini', 'iPhone' ]
+mobile_ua_hints = [ 'SymbianOS', 'Opera Mini', 'iPhone', 'Android', 'iPad', 'webOS' ]
 
 
 def mobileBrowser(request):
@@ -37,7 +37,6 @@ def mobileBrowser(request):
 
     mobile_browser = False
     ua = request.META['HTTP_USER_AGENT'].lower()[0:4]
-
     if (ua in mobile_uas):
         mobile_browser = True
     else:

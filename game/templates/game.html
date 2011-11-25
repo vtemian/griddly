@@ -73,7 +73,7 @@
                  <ul id="territory_widget_tabs" class="clearfix">
                     {% for territory in my_territory %}
 
-                        <li id="territoryID" data-id="{{ territory.id }}" data-name="{{ territory.name }}" data-pointLat="{{ territory.points.all.0.lat }}" data-pointLng="{{ territory.points.all.0.lng }}">{{ territory.name }}<span id='editName'>edit</span></li>
+                        <li id="territoryID" data-id="{{ territory.id }}" data-name="{{ territory.name }}" data-pointLat="{{ territory.points.all.0.lat }}" data-pointLng="{{ territory.points.all.0.lng }}">{{ territory.name }}<span id='editName'><img src="{{ STATIC_URL }}img/buttons/button_edit.png"></span></li>
 
                     {% endfor %}
                  </ul>

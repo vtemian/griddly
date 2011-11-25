@@ -904,7 +904,11 @@ background-image: -moz-linear-gradient(
     font-weight: bold;
     color: #4d4e50;
 }
-
+#editName>img{
+    width: 10px;
+    margin-top: -4px;
+    margin-left: 2px;
+}
 /* ******************************
    Territory Widget
    ****************************** */

@@ -81,13 +81,21 @@
                     {% endif %}
 
                     var id = "{{ territory.id }}";
-                   
+
+                    var profile = '<div id="profile_left_sidebar">\
+                        <div id="profile_avatar"><img src={{ territory.owner.gravatar_url }}?s=100 title="{{ territory.owneruser.username }}"></div>\
+                                <ul id="profile_buttons" class="clearfix">\
+                                        <li><button id="add-friend" class="profile_button">Add Friend</button></li>\
+                                        <li><button id="add-alliance" class="profile_button">Alliance</button></li>\
+                                    <li><button id="private-message" class="profile_button">Private Message</button></li>\
+                                </ul>\
+                        </div>\
+                    </div>';
                     var name = '<br><span id="territoryName">{{ territory.name }}</span>';
                     var owner = '<br><span id="territoryOwnerName">{{ territory.owner.user.username }}</span>';
-                    var avatar = '<br><span id="territoryOwnerImg"><img src={{ territory.owner.gravatar_url }}?s=50 title="{{ territory.owneruser.username }}"></span>'
-
-                    $div = "<div style='background:red; display:none;' id='"+id+"' class='{{ territory.owner.user.username }}'>" +
-                             war + name + avatar + owner 
+                    
+                    $div = "<div style='display:none;' id='"+id+"' class='{{ territory.owner.user.username }} territoryStats'>" +
+                             war + name + profile + owner
                             +"</div>";
 
                         

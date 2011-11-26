@@ -1253,7 +1253,31 @@ background-image: -moz-linear-gradient(
         }
 
 .territoryStats{
-    
+
+}
+
+#territoryOwnerName{
+    text-align: center;
+    font-weight: bold;
+}
+#territoryOwnerName>span{
+    font-size: 12px;
+    font-weight: normal;
+}
+#territoryName{
+    height: 24px;
+    padding-top: 3px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: #ECECEC;
+}
+#territoryOwnerProfile{
+    width: 241px;
+    float: left;
+    padding: 5px;
+    background-color: #F9F9F9;
+    border-right: 1px solid white;
 }
 
 

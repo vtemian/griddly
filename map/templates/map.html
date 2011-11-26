@@ -91,12 +91,22 @@
                                         <li><button id="add-alliance" class="profile_button">Alliance</button></li>\
                                     <li><button id="private-message" class="profile_button">Private Message</button></li>\
                                 </ul>\
-                        </div>\
-                    </div>';
-                    var name = '<div id="territoryName"><span>{{ territory.name }}<span>'+war+'</div>';
+                        </div>';
+
+                    var name = '<div id="divTerritoryName"><span>{{ territory.name }}<span>'+war+'</div>';
+                    var lvl = '<div id="territoryLvl">Level: {{ territory.lvl }}</div>';
+                    var venuesNumber = '<span style="float:left;">Venues:</span> <span id="locationNumber">{{ territory.locations.all.count }}</span>';
+                    var stats = '<div id="territoryStats">'+lvl+'</div>';
+                    var venues = '<div class="territoryVenues"><ul>';
+                    {% for venue in territory.locations.all %}
+                        venues += '<li class="clearfix">\
+                                    <div class="territory_widget_venues_venue" id="territoryVenue" data-lat="{{ venue.lat }}" data-lng="{{ venue.lng }}">{{ venue.name }}</div>\
+                                </li>';
+                    {% endfor %}
+                    venues += '</ul></div>';
 
                     $div = "<div style='display:none;' id='"+id+"' class='{{ territory.owner.user.username }} territoryStats'>" +
-                            name + profile
+                            name + profile + "<div id='stats'>" + lvl + venuesNumber + venues +"</div>"
                             +"</div>";
 
                         

@@ -77,7 +77,7 @@
                 });
                     var war = '';
                     {% if not war  %}
-                        war = "<span id='warRequest' data-username='{{ territory.owner.user.username }}' data-id='{{ territory.id }}'>War Request</span>";
+                        war = "<span id='warRequest' data-username='{{ territory.owner.user.username }}' data-id='{{ territory.id }}'><img src='{{ STATIC_URL }}img/swords.png'>War Request</span>";
                     {% endif %}
 
                     var id = "{{ territory.id }}";
@@ -93,10 +93,10 @@
                                 </ul>\
                         </div>\
                     </div>';
-                    var name = '<div id="territoryName">{{ territory.name }}</div>';
+                    var name = '<div id="territoryName"><span>{{ territory.name }}<span>'+war+'</div>';
 
                     $div = "<div style='display:none;' id='"+id+"' class='{{ territory.owner.user.username }} territoryStats'>" +
-                            name +war +  profile
+                            name + profile
                             +"</div>";
 
                         

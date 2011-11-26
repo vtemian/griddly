@@ -1259,6 +1259,7 @@ background-image: -moz-linear-gradient(
 #territoryOwnerName{
     text-align: center;
     font-weight: bold;
+    padding-bottom: 5px;
 }
 #territoryOwnerName>span{
     font-size: 12px;
@@ -1279,7 +1280,21 @@ background-image: -moz-linear-gradient(
     background-color: #F9F9F9;
     border-right: 1px solid white;
 }
-
+#warRequest{
+    float: right;
+    font-size: 15px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    background-color: #E55853;
+    width: 135px;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 5px;
+}
+#warRequest>img{
+    width: 22px;
+    padding-right: 5px;
+}
 
 /* ******************************
    Map Checkin Overlay

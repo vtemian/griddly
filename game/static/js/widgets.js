@@ -125,4 +125,9 @@ $(document).ready(function(){
         console.log(point, app.map, lat, lng)
     });
 
+    /* Territory modal */
+    $('#locationNumber').live('click', function(){
+        $('.territoryVenues').stop(true,true).slideToggle(200);
+    });
+
 });

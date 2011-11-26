@@ -1303,6 +1303,7 @@ background-image: -moz-linear-gradient(
     float: left;
     text-align: center;
     margin-left: 6px;
+    cursor: pointer;
 }
 #stats{
     padding: 5px 5px 5px 5px;
@@ -1313,6 +1314,7 @@ background-image: -moz-linear-gradient(
     font-weight: bold;
 }
 .territoryVenues{
+    display: none;
     left: 0px;
     top: 0px;
     width: 250px;

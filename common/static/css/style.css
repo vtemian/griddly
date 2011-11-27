@@ -1309,9 +1309,10 @@ background-image: -moz-linear-gradient(
     padding: 5px 5px 5px 5px;
     background-color: #F9F9F9;
     float: left;
-    width: 338px;
+    width: 120px;
     font-size: 15px;
     font-weight: bold;
+    height: 105px;
 }
 .territoryVenues{
     display: none;
@@ -1334,6 +1335,18 @@ background-image: -moz-linear-gradient(
     border-top: 1px solid #fff;
     border-bottom: 1px solid #dedede;
 }
+
+#statsLabel{
+    text-align: center;
+    background-color: #f9f9f9;
+    height: 26px;
+    margin-top: -15px;
+}
+#statsLabel>h3{
+    padding-top: 10px;
+}
+
+.simplemodal-wrap {background-color:#f9f9f9;}
 /* ******************************
    Map Checkin Overlay
    ****************************** */

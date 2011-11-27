@@ -96,8 +96,10 @@
                     var name = '<div id="divTerritoryName"><span>{{ territory.name }}<span>'+war+'</div>';
                     var lvl = '<div id="territoryLvl">Level: {{ territory.lvl }}</div>';
                     var venuesNumber = '<span style="float:left;">Venues:</span> <span id="locationNumber">{{ territory.locations.all.count }}</span>';
-                    var stats = '<div id="territoryStats">'+lvl+'</div>';
+
                     var venues = '<div class="territoryVenues"><ul>';
+                    var area = '<div cladd="territoryArea">Area: {{ territory.area }} km<sup>2</sup></div>';
+                
                     {% for venue in territory.locations.all %}
                         venues += '<li class="clearfix">\
                                     <div class="territory_widget_venues_venue" id="territoryVenue" data-lat="{{ venue.lat }}" data-lng="{{ venue.lng }}">{{ venue.name }}</div>\
@@ -106,20 +108,36 @@
                     venues += '</ul></div>';
 
                     $div = "<div style='display:none;' id='"+id+"' class='{{ territory.owner.user.username }} territoryStats'>" +
-                            name + profile + "<div id='stats'>" + lvl + venuesNumber + venues +"</div>"
+                            name + profile + "<div id='statsLabel'><h3>Stats</h3></div><div id='stats'>" + lvl + area + venuesNumber + venues +"</div>"
                             +"</div>";
-
                         
 
-                    $('#map').after($div)
+                    $('#map').after($div);
 
                     google.maps.event.addListener(this.place, 'click', function(e) {
                         $('#{{ territory.id }}').modal({
-                            opacity:80,
-                            overlayCss: {backgroundColor:"#5b5b5b"},
-                            minHeight:400,
-                            minWidth: 600,
+                            onOpen: function (dialog) {
+                                var sm = this;
 
+                                dialog.overlay.fadeIn('fast', function () {
+                                    dialog.data.hide();
+                                    dialog.container.fadeIn('fast', function () {
+                                        dialog.data.slideDown('fast');
+                                    });
+                                });
+                                dialog.container.animate({height: 168, width: 400}, 500, function () {
+                                    sm.setPosition();
+                                });
+                            },
+                            onClose: function (dialog) {
+                                dialog.data.fadeOut('fast', function () {
+                                    dialog.container.hide('fast', function () {
+                                        dialog.overlay.slideUp('fast', function () {
+                                            $.modal.close();
+                                        });
+                                    });
+                                });
+                            }
                         });
                     });
 

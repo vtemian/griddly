@@ -208,7 +208,13 @@ def checkingin(request):
             ws.send('5:1::{"name":"handshaking", "args":[{"user":"server"}]}')
             for friend in friends:
                 ws.send('2::')
-                ws.send('5:1::{"name":"checkin", "args":[{"user":"'+friend.user.username+'", "gravatar_url":"'+str(up.gravatar_url)+'", "locationName":"'+str(location.name).encode('us-ascii')+'", "locationLat":"'+str(location.lat)+'", "locationLng": "'+str(location.lng)+'"}]}')
+                try:
+                    converted_location = unicode(str(location.name), "ascii")
+                except UnicodeError:
+                    converted_location = unicode(str(location.name), "utf-8")
+                else:
+                    converted_location = str(location.name)
+                ws.send('5:1::{"name":"checkin", "args":[{"user":"'+friend.user.username+'", "gravatar_url":"'+str(up.gravatar_url)+'", "locationName":"'+converted_location+'", "locationLat":"'+str(location.lat)+'", "locationLng": "'+str(location.lng)+'"}]}')
             ws.close()
             return HttpResponse('done')
         else:

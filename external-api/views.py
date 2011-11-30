@@ -208,7 +208,7 @@ def checkingin(request):
             ws.send('5:1::{"name":"handshaking", "args":[{"user":"server"}]}')
             for friend in friends:
                 ws.send('2::')
-                ws.send('5:1::{"name":"checkin", "args":[{"user":"'+str(friend.user.username)+'", "gravatar_url":"'+str(up.gravatar_url)+'", "locationName":"'+str(location.name)+'", "locationLat":"'+str(location.lat)+'", "locationLng": "'+str(location.lng)+'"}]}')
+                ws.send('5:1::{"name":"checkin", "args":[{"user":"'+str.encode('us-ascii', friend.user.username)+'", "gravatar_url":"'+str(up.gravatar_url)+'", "locationName":"'+str.encode('us-ascii', location.name)+'", "locationLat":"'+str(location.lat)+'", "locationLng": "'+str(location.lng)+'"}]}')
             ws.close()
             return HttpResponse('done')
         else:

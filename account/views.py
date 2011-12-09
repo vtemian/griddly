@@ -42,10 +42,13 @@ def change_password(request):
             try:
                 token = request.POST.get('token')
                 password = request.POST.get('newpassword')
-                email = PasswordReset.objects.get(token=token).email
+                passwordReset =  PasswordReset.objects.get(token=token)
+                email = passwordReset.email
                 user = User.objects.get(email=email)
                 user.set_password(password)
                 user.save()
+                passwordReset.done = True
+                passwordReset.save()
                 return HttpResponse(simplejson.dumps({'message':'The password had been change!'}))
             except Exception:
                 return HttpResponse(simplejson.dumps({'error':'Something went wrong...'}))

@@ -1990,6 +1990,9 @@ footer{
 #reset-form-holder>ul{
     list-style-type: none;
 }
+#password-form>label{
+    color: #dddddd;
+}
 /* *************Register**************  */
 
 #login_register{

@@ -24,7 +24,7 @@ function get_locations(){
            navigator.geolocation.getCurrentPosition(function(position){
                var lat = position.coords.latitude;
                var lng =position.coords.longitude;
-               $.get("https://api.foursquare.com/v2/venues/search?ll="+lat+","+lng+"&limit=50&oauth_token=T53KMW3DZTJSK2B0G5BO2F3DVZ0VA0A5KR3PXRIHXS5VCQ5F&v=20111116", function(data){
+               $.get("https://api.foursquare.com/v2/venues/search?ll="+lat+","+lng+"&limit=25&oauth_token=T53KMW3DZTJSK2B0G5BO2F3DVZ0VA0A5KR3PXRIHXS5VCQ5F&v=20111116", function(data){
                    console.log(data.response.venues);
                    var venues = data.response.venues;
                    $('#locationContainer').empty();

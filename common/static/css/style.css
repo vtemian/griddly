@@ -1981,6 +1981,9 @@ footer{
 #reset-form>input{
     margin-top: 10px;
 }
+#reset-a{
+    margin-left: 22%;
+}
 /* *************Register**************  */
 
 #login_register{

@@ -76,10 +76,6 @@ $(document).ready(function(){
         }
     });
 
-    $('#avatar-form').live('submit', function(){
-        //TODO: ajax file upload
-    });
-
     $('#create-news').click(function(){
         $('#modal-news').modal({
             opacity:80,
@@ -150,7 +146,7 @@ $(document).ready(function(){
         if(false){
         $.post('/clan/del-member', {'username': username}, function(data){
            if(data == 'ok'){
-               console.log('The member has been removed!')
+               $('#notifications_bar').html("The member has been removed!").slideDown(200).delay(1000).slideUp(200);
                $member.remove()
                $del.remove()
            }else if(data == 'failed-member'){

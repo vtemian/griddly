@@ -47,8 +47,7 @@
                   map.setCenter(initialLocation);
                 });
             } else {
-                console.log('Your location sucks')
-                //TODO: get user location in another way
+                $('#notifications_bar').html("Sorry but we can't find your location!").slideDown(200).delay(1000).slideUp(200);
             }
             
         },
@@ -150,7 +149,7 @@
                     {% for point in territory.points.all %}
                         path.push(new google.maps.LatLng({{ point.lat }}, {{ point.lng }}));
                     {% endfor %}
-                    this.place = new google.maps.EditablePolygon({
+                    this.place = new google.maps.ObservablePolygon({
                         strokeColor: "{{ territory.color }}",
                         strokeWeight: 2,
                         fillColor: "{{ territory.color }}",
@@ -159,9 +158,10 @@
                     });
                     var id = {{ territory.id }};
                     this.place.setMap(this.map);
-                    this.place.setPaths(path)
+                    this.place.setPaths(path);
                     this.territoryArray[id] = this.place;
-                    console.log(this.territoryArray[id])
+                    this.place.beginEdit();
+
                 {% endfor %}
 
             {% else %}
@@ -177,7 +177,7 @@
             this.place.setMap(this.map);
             
             $("#begin-edit-btn").click(function () {
-                me.place.beginEdit()
+                me.place.beginEdit();
             });
 
             $("#end-edit-btn").click(function () {

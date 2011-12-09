@@ -27,12 +27,6 @@ def start(request):
         pass
 
     context['territories'] = territories
-#    mine = context['territories'][0]
-##    print dir(mine)
-#    print mine.locations.all()[0]
-#    context['war'] = Battle.objects.get(Q(attacker=context['userprofile']) | Q(defender=context['userprofile']))
-#    context['my_territory'] = Territory.objects.get(owner = context['userprofile'])
-
     try:
         context['my_territory'] = Territory.objects.filter(owner = context['userprofile'])
     except Exception:

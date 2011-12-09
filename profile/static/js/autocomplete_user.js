@@ -3,7 +3,6 @@ $(document).ready(function(){
 
     $('#del').live("click", function(){
         var recipient = $(this).next()
-        console.log(recipient)
         users = jQuery.grep(users, function(value){
             return value != recipient.html()
         })
@@ -23,9 +22,9 @@ $(document).ready(function(){
                     }
                     $('#new-recipient').val('')
                 }else{
-                    $('#notifications_bar').html("User don't exists!")).slideDown(200).delay(1000).slideUp(200);
+                    $('#notifications_bar').html("User don't exists!").slideDown(200).delay(1000).slideUp(200);
                 }
-            })
+            });
             return false;
         }
     })

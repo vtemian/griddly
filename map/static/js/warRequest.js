@@ -4,7 +4,7 @@ $(document).ready(function(){
         var id = $(this).data('id');
         $.post('/battle/request/war', {'username': username, 'id': id}, function(data){
             var obj = jQuery.parseJSON(data);
-            $.modal.close();
+            $.modal.close();    
             if(obj.nice != undefined){
                 $('#notifications_bar').html("You are in war with "+username).slideDown(200).delay(1000).slideUp(200);
             }else{

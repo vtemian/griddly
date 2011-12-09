@@ -1984,6 +1984,9 @@ footer{
 #reset-a{
     margin-left: 22%;
 }
+#reset-form-holder .submit{
+    margin-left: 0%;
+}
 /* *************Register**************  */
 
 #login_register{

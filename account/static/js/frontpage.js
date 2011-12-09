@@ -4,8 +4,28 @@ $(document).ready(function(){
     });
     $('#reset-a').click(function(){
         $('#reset-password').modal({
-            minHeight:100,
-	        minWidth: 400
+            onOpen: function (dialog) {
+                var sm = this;
+
+                dialog.overlay.fadeIn('fast', function () {
+                    dialog.data.hide();
+                    dialog.container.fadeIn('fast', function () {
+                        dialog.data.slideDown('fast');
+                    });
+                });
+                dialog.container.animate({height: 100, width: 300}, 500, function () {
+                    sm.setPosition();
+                });
+            },
+            onClose: function (dialog) {
+                dialog.data.fadeOut('fast', function () {
+                    dialog.container.hide('fast', function () {
+                        dialog.overlay.slideUp('fast', function () {
+                            $.modal.close();
+                        });
+                    });
+                });
+            }
         });
     });
     $('#reset-form').submit(function(){

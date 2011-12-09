@@ -1970,6 +1970,17 @@ footer{
     font-weight:bold;
     cursor: pointer;
 }
+
+/***************Reset Password************/
+#reset-password .submit{
+    margin-left: 10%;
+}
+#reset-form>label{
+    padding-left: 10%;
+}
+#reset-form>input{
+    margin-top: 10px;
+}
 /* *************Register**************  */
 
 #login_register{

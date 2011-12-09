@@ -73,7 +73,7 @@
 
                                     <li><label for="username" class="label">username:</label></li>
                                     <li><input type="text" id="username" name="username" class="input"/></li>
-                                    <li><label for="password" class="label">password:</label></li>
+                                    <li><labelhttp://coworktm.com/contact/ for="password" class="label">password:</label></li>
                                     <li><input type="password" id="password" name="password" class="input" /></li>
                                     <li><a id="reset-a">Reset password</a></li>
                                     <li><input type="submit" value="login" class="submit" /></li>
@@ -170,10 +170,10 @@
         </div>
     <div id="reset-password" style="display:none">
         <form action="{% url common.views.reset_password_instance %}" method="POST" id="reset-form">{% csrf_token %}
-            <label for="email-reset">Reset email</label>
-            <input type="email" name="email" id="email-reset"/>
-            <button id="send-reset" class="button">Submit</button>
-            <input type="reset" name="reset" value="Reset">
+            <label for="email-reset">Email</label>
+            <input type="email" name="email" id="email-reset" class="input"/><br>
+            <button id="send-reset" class="submit">Submit</button>
+            <input type="reset" name="reset" class="submit" value="Reset">
         </form>
     </div>
     <div id="tour-flash" style="display:none">

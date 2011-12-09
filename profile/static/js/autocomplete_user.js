@@ -23,8 +23,7 @@ $(document).ready(function(){
                     }
                     $('#new-recipient').val('')
                 }else{
-                    console.log("User don't exists!")
-                    //TODO: notification that users exists on client side
+                    $('#notifications_bar').html("User don't exists!")).slideDown(200).delay(1000).slideUp(200);
                 }
             })
             return false;

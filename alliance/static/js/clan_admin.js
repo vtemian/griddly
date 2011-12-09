@@ -7,7 +7,7 @@ $(document).ready(function(){
             minHeight:400,
             minWidth: 300
         });
-        put_users(users, $('#new-recipient'))
+        put_users(users, $('#new-recipient'));
         setAutoComplete("new-recipient", "recipients-results", "/profile/get_users?user=");
     });
 
@@ -26,13 +26,13 @@ $(document).ready(function(){
                 });
 
            }else{
-                $('#notifications_bar').html("Dude, you can't submit a clan request to yourself!").slideDown(200).delay(1000).slideUp(200);
+                $('#notifications_bar').html("You can't submit a clan request to yourself!").slideDown(200).delay(1000).slideUp(200);
                 k++;
            }
 
         });
         if(!k && users.length != 1){
-                $('#notifications_bar').html('Clan request submited').slideDown(200).delay(1000).slideUp(200);
+                $('#notifications_bar').html('Clan request submited!').slideDown(200).delay(1000).slideUp(200);
         }
         $.modal.close();
         return false;
@@ -59,7 +59,7 @@ $(document).ready(function(){
     $('#remove-members-btn').click(function(){
         delete_token = !delete_token;
         if(delete_token){
-            $('#notifications_bar').html("You can now delete members!").slideDown(200).delay(1000).slideUp(200);
+            $('#notifications_bar').html("You can now delete members").slideDown(200).delay(1000).slideUp(200);
             $.each($('#member-li', '#member_list'), function(index, value){
                $(value).css({
                    'border': 'solid',
@@ -103,17 +103,16 @@ $(document).ready(function(){
 
     function vote(type, label, second){
         var id = $('#news-id', label.parent()).val();
-        
         $.post('/clan/vote-news', {'id': id, 'type': type}, function(data){
             if(data == 'ok'){
-                $('#value', label).html(parseInt($('#value', label).html()) + 1)
+                $('#value', label).html(parseInt($('#value', label).html()) + 1);
                 if(second.hasClass('not-ok')){
-                    $('#value', second).html(parseInt($('#value', second).html()) - 1)
-                    second.attr('class', 'ok')
+                    $('#value', second).html(parseInt($('#value', second).html()) - 1);
+                    second.attr('class', 'ok');
                 }
-                label.attr('class', 'not-ok')
+                label.attr('class', 'not-ok');
             }else{
-                console.log('naspa')
+                $('#notifications_bar').html("Something went wrong!").slideDown(200).delay(1000).slideUp(200);
             }
         })
     }
@@ -155,11 +154,11 @@ $(document).ready(function(){
                $member.remove()
                $del.remove()
            }else if(data == 'failed-member'){
-               console.log("This member doesn't exists")
+               $('#notifications_bar').html("This member doesn't exists").slideDown(200).delay(1000).slideUp(200);
            }else if(data == 'failed-rights'){
-               console.log("You don't have rights to delete a member")
+               $('#notifications_bar').html("You don't have rights to delete a member").slideDown(200).delay(1000).slideUp(200);
            }else{
-                console.log(data)
+               $('#notifications_bar').html(data).slideDown(200).delay(1000).slideUp(200);
            }
         });}
 

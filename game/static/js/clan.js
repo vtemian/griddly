@@ -8,16 +8,16 @@ $(document).ready(function(){
                     $.post('/alliance/request/', {'user':user, 'name':name}, function(data){
                         var obj = jQuery.parseJSON(data);
                         socket.emit('notification', obj);
-                    })
-                    console.log('Clan request submited')
+                    });
+                   $('#notifications_bar').html("Clan request submited").slideDown(200).delay(1000).slideUp(200);
                }else{
-                   console.log("Dude, you can't submit a clan request to yourself!")
+                   $('#notifications_bar').html("You can't submit a clan request to yourself!").slideDown(200).delay(1000).slideUp(200);
                }
 
             });
             window.location = '/clan';
             $.modal.close();
-        })
+        });
         return false;
     });
 });

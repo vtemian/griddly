@@ -122,7 +122,6 @@ $(document).ready(function(){
         point = new google.maps.LatLng(lat, lng)
 
         app.map.setCenter(point)
-        console.log(point, app.map, lat, lng)
     });
 
     /* Territory modal */

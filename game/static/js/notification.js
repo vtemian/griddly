@@ -3,7 +3,6 @@ $(document).ready(function(){
         var id =  $(this).data("note");
         var $parent = $(this).parent();
         $.post('/profile/friendrequest/', {'id': id, 'type': 'accept'}, function(data){
-            console.log('nice')
             $('#notifications_bar').html("Friendship accepted!").slideDown(200).delay(1000).slideUp(200);
             $parent.remove();
         });
@@ -13,7 +12,6 @@ $(document).ready(function(){
         var id =  $(this).data("note");
         var $parent = $(this).parent();
         $.post('/profile/friendrequest/', {'id': id, 'type': 'decline'}, function(data){
-            console.log('nice')
             $('#notifications_bar').html("Friendship rejected!").slideDown(200).delay(1000).slideUp(200);
             $parent.remove();
         });

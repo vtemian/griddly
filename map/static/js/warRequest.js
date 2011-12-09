@@ -10,7 +10,6 @@ $(document).ready(function(){
             }else{
                 $('#notifications_bar').html(obj.error).slideDown(200).delay(1000).slideUp(200);
             }
-
         })
     });
 });

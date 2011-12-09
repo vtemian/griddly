@@ -5,7 +5,7 @@ $(document).ready(function(){
         $.post('/battle/request/war', {'username': username, 'id': id}, function(data){
             var obj = jQuery.parseJSON(data);
             if(obj.nice != undefined){
-                $('#notifications_bar').html(obj.nice).slideDown(200).delay(1000).slideUp(200);
+                $('#notifications_bar').html("You are in war with "+username).slideDown(200).delay(1000).slideUp(200);
             }else{
                 $('#notifications_bar').html(obj.error).slideDown(200).delay(1000).slideUp(200);
             }

@@ -1990,7 +1990,7 @@ footer{
 #reset-form-holder>ul{
     list-style-type: none;
 }
-#reset-form-holder>label{
+#reset-form-holder .label{
     color: #dddddd;
 }
 /* *************Register**************  */

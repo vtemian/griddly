@@ -24,11 +24,17 @@ function get_locations(){
            navigator.geolocation.getCurrentPosition(function(position){
                var lat = position.coords.latitude;
                var lng =position.coords.longitude;
-               $.get("https://api.foursquare.com/v2/venues/search?ll="+lat+","+lng+"&limit=5&oauth_token=T53KMW3DZTJSK2B0G5BO2F3DVZ0VA0A5KR3PXRIHXS5VCQ5F&v=20111116", function(data){
+               $.get("https://api.foursquare.com/v2/venues/search?ll="+lat+","+lng+"&limit=50&oauth_token=T53KMW3DZTJSK2B0G5BO2F3DVZ0VA0A5KR3PXRIHXS5VCQ5F&v=20111116", function(data){
                    console.log(data.response.venues);
                    var venues = data.response.venues;
                    $('#locationContainer').empty();
+                   venues.sort(function(a, b){
+                       if(a.location.distance > b.location.distance) return 1;
+                       else if(a.location.distance < b.location.distance) return -1;
+                       else return 0;
+                   });
                    $.each(venues, function(index, value){
+                       distance = value.location.distance;
                        var button = '<a id="aCheckin" data-name="'+value.name+'" data-lat="'+value.location.lat+'" data-lng="'+value.location.lng+'" data-role="button" data-theme="c" class="ui-btn ui-btn-corner-all ui-shadow ui-btn-up-c">\
                                         <span class="ui-btn-inner ui-btn-corner-all" aria-hidden="true">\
                                             <span class="ui-btn-text">'+value.name+'</span>\

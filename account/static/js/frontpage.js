@@ -13,7 +13,7 @@ $(document).ready(function(){
         $.modal.close();
         $('#notifications_bar').html("Reseting password...").slideDown(200).delay(1000).slideUp(200);
         $.post($form.attr('action'), $form.serializeArray(), function(data){
-            data = $.parseJSON(data)
+            data = $.parseJSON(data);
             $('#notifications_bar').html(data.message).slideDown(200).delay(1000).slideUp(200);
         });
         return false;

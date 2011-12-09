@@ -1,15 +1,14 @@
 $(document).ready(function(){
     $('#warRequest').live('click', function(){
-        var username = $(this).data('username')
-        var id = $(this).data('id')
-        console.log(id)
+        var username = $(this).data('username');
+        var id = $(this).data('id');
         $.post('/battle/request/war', {'username': username, 'id': id}, function(data){
-            var obj = jQuery.parseJSON(data)
+            var obj = jQuery.parseJSON(data);
             if(obj.nice != undefined){
-                console.log(obj.nice)
+                $('#notifications_bar').html(obj.nice).slideDown(200).delay(1000).slideUp(200);
             }else{
-                console.log(obj.error);
+                $('#notifications_bar').html(obj.error).slideDown(200).delay(1000).slideUp(200);
             }
         })
     });
-})
+});

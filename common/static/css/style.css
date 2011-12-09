@@ -1993,6 +1993,10 @@ footer{
 #reset-form-holder .label{
     color: #292929;
 }
+.error{
+    color: #E55853;
+    font-weight: bold;
+}
 /* *************Register**************  */
 
 #login_register{

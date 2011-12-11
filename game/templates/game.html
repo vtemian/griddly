@@ -32,7 +32,6 @@
         {% include 'map.html' %}
         <script type="text/javascript">
             $(document).ready(function(){
-                
                 $('#widget').css({'left': '{{ userprofile.widget_left }}px', "top": '{{ userprofile.widget_top }}px'});
                 $('#map').css('overflow', 'visible')
                 $('#territory_widget').css({'left': '{{ userprofile.territory_widget_left }}px', "top": '{{ userprofile.territory_widget_top }}px'});
